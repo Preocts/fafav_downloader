@@ -1,0 +1,885 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" class="no-js" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Favorites Gallery for fakeuser -- Fur Affinity [dot] net</title>
+
+    <meta name="viewport"           content="width=device-width, initial-scale=1.0" />
+    <meta name="description"        content="Fur Affinity | For all things fluff, scaled, and feathered!" />
+    <meta name="keywords"           content="fur furry furries fursuit fursuits cosplay brony bronies zootopia scalies kemono anthro anthropormophic art online gallery portfolio" />
+    <meta name="distribution"       content="global" />
+
+    <link rel="icon" href="/themes/beta/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/themes/beta/img/favicon.ico" type="image/x-icon" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=EDGE" />
+
+
+    <!-- generic -->
+        <meta name="robots" content="noindex" />
+    
+    <!-- og -->
+        <meta property="og:image" content="/themes/beta/img/banners/fa_logo_20191231.png" />
+    
+    <script type="text/javascript">
+        var _fajs=[],_loadjs=function(p,c,a,f){var z='onload',y='onreadystatechange',x='onerror',w='documentMode',v='head',u=undefined,d=document,w=window,h=d[v]||d.getElementsByTagName(v)[0],s=d.createElement('script');s.type='text/javascript';if(c){s[z]=s[y]=function(e){e=e||w.event;if(e.type==='load'||(/loaded|complete/.test(s.readyState)&&(!d[w]||d[w]<9))){s[z]=s[y]=s[x]=null;c();}};s[x]=function(){s[z]=s[y]=s[x]=null;c();};}a!==u&&(s.async=!!a);f!==u&&(s.defer=!!f);s.src=p;h.insertBefore(s,h.lastChild);return s;},t=document.documentElement;t.className=t.className.replace('no-js','');
+        var _faurl={d:'//d.facdn.net',a:'//a.facdn.net',r:'//rv.furaffinity.net',t:'//t.facdn.net'};
+    </script>
+    <link type="text/css" rel="stylesheet" href="/themes/beta/css/ui_theme_dark.css?u=2020112200" />
+
+    <!-- browser hints -->
+    <link rel="preconnect" href="//t.facdn.net" />
+    <link rel="preconnect" href="//a.facdn.net" />
+    <link rel="preconnect" href="//rv.furaffinity.net" />
+    <link rel="preconnect" href="//prod.adspsp.com" />
+    <link rel="preload" href="/themes/beta/js/script.js?u=2020112200" as="script" />
+    <link rel="preload" href="https://securepubads.g.doubleclick.net/tag/js/gpt.js" as="script" />
+    <link rel="preload" href="//c.amazon-adsystem.com/aax2/apstag.js" as="script" />
+</head>
+
+<!-- EU request: no -->
+<body data-static-path="/themes/beta" id="pageid-favorites">
+    
+    <!-- sidebar -->
+    <div class="mobile-navigation">
+
+    <div class="mobile-nav-container">
+
+        <div class="mobile-nav-container-item left">
+            <label for="mobile-menu-nav" class="css-menu-toggle only-one"><img class="burger-menu" src="/themes/beta/img/fa-burger-menu-icon.png"></label>
+        </div>
+
+        <div class="mobile-nav-container-item center"><a class="mobile-nav-logo" href="/"><img class="site-logo" src="/themes/beta/img/banners/fa_logo_20191231.png"></a></div>
+
+        <div class="mobile-nav-container-item right">
+
+        </div>
+    </div>
+
+    <div class="nav-ac-container">
+        <input id="mobile-menu-nav" name="accordion-1" type="checkbox" />
+        <article class="nav-ac-content mobile-menu">
+
+        <div class="mobile-nav-content-container">
+                            <div class="aligncenter">
+                    <a href="/user/fakeuser/"><img class="loggedin_user_avatar avatar" alt="fakeuser" src="//a.facdn.net/1561680428/fakeuser.gif"/></a>
+                    <h2 style="margin-bottom:0"><a href="/user/fakeuser/">fakeuser</a></h2>
+                    <a href="/user/fakeuser/"><span class="hideondesktop">My Userpage</span></a> |
+                    <a href="/msg/pms/">Notes</a> |
+                    <a href="/controls/journal/">Journals</a>
+                </div>
+                <hr>
+                        <h2><a href="/browse/">Browse</a></h2>
+            <h2><a href="/search/">Search</a></h2>
+                            <h2><a href="/submit/">Upload</a></h2>
+            
+            <div class="nav-ac-container">
+                <label for="mobile-menu-submenu-0"><h2 style="margin-top:0;padding-top:0">Support &#x25BC;</h2></label>
+                <input id="mobile-menu-submenu-0" name="accordion-1" type="checkbox" />
+                <article class="nav-ac-content nav-ac-content-dropdown">
+                    <a href="/journals/fender">News & Updates</a><br>
+                    <a href="/help/">Help & Support</a><br>
+                    <a href="/advertising.html">Advertising</a>
+                    <a href="/blm">Black Lives Matter</a>
+
+                    <h3>RULES & POLICIES</h3>
+                    <a href="/tos">Terms of Service</a><br>
+                    <a href="/privacy">Privacy</a><br>
+                    <a href="/coc">Code of Conduct</a><br>
+                    <a href="/aup">Upload Policy</a>
+
+                    <h3>SOCIAL</h3>
+                    <a href="http://forums.furaffinity.net">Forums</a><br>
+                    <a href="http://twitter.com/furaffinity">Twitter</a><br>
+                    <a href="http://www.facebook.com/furaffinity">Facebook</a>
+
+                                            <h3>Support</h3>
+                        <a href="/controls/troubletickets/">REPORT A PROBLEM</a>
+                                    </article>
+            </div>
+                            <div class="mobile-sfw-toggle">
+                    <h2>SFW Mode</h2>
+
+                    <div class="sfw-toggle type-slider slider-button-wrapper">
+                        <input type="checkbox" id="sfw-toggle-mobile" class="slider-toggle"  />
+                        <label class="slider-viewport" for="sfw-toggle-mobile">
+                            <div class="slider">
+                                <div class="slider-button">&nbsp;</div>
+                                <div class="slider-content left"><span>SFW</span></div>
+                                <div class="slider-content right"><span>NSFW</span></div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                                        <div class="nav-ac-container">
+                    <label for="mobile-menu-submenu-1"><h2 style="margin-top:0;padding-top:0">Settings &#x25BC;</h2></label>
+                    <input id="mobile-menu-submenu-1" name="accordion-1" type="checkbox" />
+                    <article class="nav-ac-content nav-ac-content-dropdown">
+                        <h3>ACCOUNT INFORMATION</h3>
+                        <a href="https://www.furaffinity.net/controls/settings/">Account Settings</a><br>
+                        <a href="/controls/site-settings/">Global Site Settings</a><br>
+                        <a href="/controls/user-settings/">User Settings</a>
+
+                        <h3>CUSTOMIZE USER SPROFILE</h3>
+                        <a href="/controls/profile/">Edit Profile</a><br>
+                        <a href="/controls/contacts/">Contacts and Social Media</a><br>
+                        <a href="/controls/avatar/">Avatar Management</a>
+
+                        <h3>MANAGE MY CONTENT</h3>
+                        <a href="/controls/submissions/">Submissions</a><br>
+                        <a href="/controls/folders/submissions/">Folders</a><br>
+                        <a href="/controls/journal/">Journals</a><br>
+                        <a href="/controls/favorites/">Favorites</a><br>
+                        <a href="/controls/buddylist/">Watches</a><br>
+                        <a href="/controls/shouts/">Shouts</a><br>
+                        <a href="/controls/badges/">Badges</a>
+
+                        <h3>SECURITY</h3>
+                        <a href="/controls/sessions/logins/">Active Sessions</a><br>
+                        <a href="/controls/sessions/logs/">Activity Log</a><br>
+                        <a href="/controls/sessions/labels/">Browser Labels</a>
+                    </article>
+                </div>
+                <hr>
+            
+
+            
+            <hr>
+
+            <h2><form class="post-btn logout-link" method="post" action="/logout/"><button type="submit">Log Out</button><input type="hidden" name="key" value="d2492722f30c82e7dc0bfd9b89392e2a51b8c79d"/></form>
+<script type="text/javascript">
+    _fajs.push(['init_logout_button', '.logout-link button']);
+</script>
+</h2>
+
+
+            <h2></h2>
+         </div>
+         </article>
+    </div>
+
+</div>
+
+
+    <div class="mobile-notification-bar">
+                    <a class="notification-container inline" href="/msg/submissions/" title="20,966 Submission Notifications">20966S</a>
+                            <a class="notification-container inline" href="/msg/others/#watches" title="16 Watch Notifications">16W</a>
+                                    <a class="notification-container inline" href="/msg/others/#favorites" title="122 Favorite Notifications">122F</a>
+                            <a class="notification-container inline" href="/msg/others/#journals" title="3 Journal Notifications">3J</a>
+                            </div>
+
+
+
+
+
+
+
+<nav id="ddmenu">
+    <div class="mobile-nav navhideondesktop hideonmobile hideontablet">
+        <div class="mobile-nav-logo"><a class="mobile-nav-logo" href="/"><img src="/themes/beta/img/banners/fa_logo_20191231.png"></a></div>
+        <div class="mobile-nav-header-item"><a href="/browse/">Browse</a></div>
+        <div class="mobile-nav-header-item"><a href="/search/">Search</a></div>
+    </div>
+
+    <div class="menu-icon"></div>
+
+    <ul class="navhideonmobile">
+        <li class="lileft"><div class="lileft hideonmobile" style="vertical-align:middle;line-height:0 !important" ><a class="top-heading" href="/"><img class="nav-bar-logo" src="/themes/beta/img/banners/fa_logo_20191231.png"></a></div></li>
+        <li class="lileft"><a class="top-heading" href="/browse/"><div class="sprite-paw menu-space-saver hideonmobile"></div>Browse</a></li>
+        <li class="lileft"><a class="top-heading hideondesktop" href="/search/">Search</a></li>
+        <li class="lileft"><a class="top-heading" href="/submit/"><div class="sprite-upload menu-space-saver hideonmobile"></div> Upload</a></li>
+        <li class="lileft">
+            <a class="top-heading" href="#"><div class="sprite-news menu-space-saver hideonmobile"></div>Support</a>
+            <i class="caret"></i>
+            <div class="dropdown dropdown-left ">
+                <div class="dd-inner">
+                    <div class="column">
+                        <h3>Community</h3>
+                        <a href="/journals/fender">News & Updates</a>
+                        <a href="/help/">Help & Support</a>
+                        <a href="/advertising.html">Advertising</a>
+                        <a href="/blm/">Black Lives Matter</a>
+
+                        <h3>Rules & Policies</h3>
+                        <a href="/tos">Terms of Service</a>
+                        <a href="/privacy">Privacy</a>
+                        <a href="/coc">Code of Conduct</a>
+                        <a href="/aup">Upload Policy</a>
+
+                        <h3>Social</h3>
+                        <a href="http://forums.furaffinity.net">Forums</a>
+                        <a href="http://twitter.com/furaffinity">Twitter</a>
+                        <a href="http://www.facebook.com/furaffinity">Facebook</a>
+
+
+                                                    <h3>Trouble Tickets</h3>
+                            <a href="/controls/troubletickets/">Report a Problem</a>
+                                            </div>
+                </div>
+            </div>
+        </li>
+
+        <div class="lileft hideonmobile">
+            <form id="searchbox" method="get" action="/search/">
+                <input type="search" name="q" placeholder="SEARCH">
+                <a href="/search">&nbsp</a>
+            </form>
+        </div>
+
+
+
+
+
+
+        
+            <li class="message-bar-desktop">
+
+                                            <a class="notification-container inline" href="/msg/submissions/" title="20,966 Submission Notifications">20966S</a>
+                                                                <a class="notification-container inline" href="/msg/others/#watches" title="16 Watch Notifications">16W</a>
+                                                                                    <a class="notification-container inline" href="/msg/others/#favorites" title="122 Favorite Notifications">122F</a>
+                                                                <a class="notification-container inline" href="/msg/others/#journals" title="3 Journal Notifications">3J</a>
+                                                                        </li>
+
+            <li>
+                <div class="floatleft hideonmobile">
+                    <a href="/user/fakeuser/"><img class="loggedin_user_avatar menubar-icon-resize menu-space-saver avatar" alt="fakeuser" src="//a.facdn.net/1561680428/fakeuser.gif"/></a>
+                </div>
+                <a id="my-username" class="top-heading hideondesktop" href="#"><span class="hideondesktop">My FA ( </span>fakeuser<span class="hideondesktop"> )</span></a>
+                <a id="my-username" class="top-heading hideonmobile" href="/user/fakeuser/">fakeuser<span class="hideondesktop"> )</span></a>
+                <i class="caret"></i>
+                <div class="dropdown dropdown-right">
+                    <div class="dd-inner">
+                        <div class="column">
+                            <h3>Account</h3>
+                            <a href="/user/fakeuser/"><span class="hideondesktop">My Userpage</span></a>
+                            <a href="/msg/pms/">Check My Notes</a>
+                            <a href="/controls/journal/">Create a Journal</a>
+                            <a href="/commissions/fakeuser/">My Commission Info</a>
+                            <a href="/plus/">FA+ Subscription</a>
+
+                            <h3>TROUBLE TICKETS</h3>
+                            <a href="/controls/troubletickets/">Report a Problem</a>
+
+                                                                                        <div class="mobile-sfw-toggle">
+                                    <h3>TOGGLE SFW</h3>
+
+                                    <div class="sfw-toggle type-slider slider-button-wrapper" style="position:relative;top:5px">
+                                        <input type="checkbox" id="sfw-toggle-mobile" class="slider-toggle"  />
+                                        <label class="slider-viewport" for="sfw-toggle-mobile">
+                                            <div class="slider">
+                                                <div class="slider-button">&nbsp;</div>
+                                                <div class="slider-content left"><span>SFW</span></div>
+                                                <div class="slider-content right"><span>NSFW</span></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                                        <hr>
+                            <form class="post-btn logout-link" method="post" action="/logout/"><button type="submit">Log Out</button><input type="hidden" name="key" value="d2492722f30c82e7dc0bfd9b89392e2a51b8c79d"/></form>
+<script type="text/javascript">
+    _fajs.push(['init_logout_button', '.logout-link button']);
+</script>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <a class="top-heading" href="#">Settings</a>
+                <i class="caret"></i>
+                <div class="dropdown dropdown-right">
+                    <div class="dd-inner">
+                        <div class="column">
+                            <h3>Account Information</h3>
+                            <a href="https://www.furaffinity.net/controls/settings/">Account Settings</a>
+                            <a href="/controls/site-settings/">Global Site Settings</a>
+                            <a href="/controls/user-settings/">User Settings</a>
+                            <a href="/plus/">FA+ Subscription</a>
+
+                            <h3>Customize User Profile</h3>
+                            <a href="/controls/profile/">Edit Profile</a>
+                            <a href="/controls/contacts/">Contacts and Social Media</a>
+                            <a href="/controls/avatar/">Avatar Management</a>
+
+                            <h3>Manage My Content</h3>
+                            <a href="/controls/submissions/">Submissions</a>
+                            <a href="/controls/folders/submissions/">Folders</a>
+                            <a href="/controls/avatar/">Avatar</a>
+                            <a href="/controls/journal/">Journals</a>
+                            <a href="/controls/favorites/">Favorites</a>
+                            <a href="/controls/buddylist/">Watches</a>
+                            <a href="/controls/shouts/">Shouts</a>
+                            <a href="/controls/badges/">Badges</a>
+
+                            <h3>Security</h3>
+                            <a href="/controls/sessions/logins/">Active Sessions</a>
+                            <a href="/controls/sessions/logs/">Activity Log</a>
+                            <a href="/controls/sessions/labels/">Browser Labels</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+                    </ul>
+    <script type="text/javascript">
+        _fajs.push(['init_sfw_button', '.sfw-toggle']);
+    </script>
+</nav>
+
+<script type="text/javascript">
+    _fajs.push(function(){
+        // all menus that should be opened only one at a time
+        $$('.css-menu-toggle.only-one').invoke('observe', 'click', function(evt) {
+           var curr_input = $(evt.findElement('label').getAttribute('for'));
+            curr_input.next('.nav-ac-content').removeClassName('no-transition');
+            if(curr_input.checked === false) {
+                $$('.css-menu-toggle.only-one').each(function(elm){
+                    var elm_input = $(elm.getAttribute('for'));
+                    if(elm_input.checked === true) {
+                        elm_input.next('.nav-ac-content').addClassName('no-transition');
+                        elm_input.checked = false;
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+    <div id="main-window" class="footer-mobile-tweak g-wrapper">
+        <div id="header">
+            <a href="/"><div class="site-banner site-banner-positioning FlexEmbed hideonmobile"></div></a>
+
+            <a name="top"></a>
+
+                                                        </div>
+
+        <div id="site-content">
+<!-- /header -->
+
+<!--- USER NAV --->
+<div id="user-profile" class="user-nav">
+
+    
+        <div class="user-profile-main table">
+
+            <div class="userpage-flex-item user-nav-avatar-desktop">
+                <a class="current" href="/user/fakeuser/"><img class="user-nav-avatar" alt="fakeuser" src="//a.facdn.net/1561680428/fakeuser.gif"/></a>
+            </div>
+            <div class="table-cell" style="vertical-align:top">
+                <div class="userpage-flex-container">
+
+
+                    <div class="userpage-flex-item user-nav-avatar-mobile aligncenter">
+                        <a class="current" href="/user/fakeuser/"><img class="user-nav-avatar" alt="fakeuser" src="//a.facdn.net/1561680428/fakeuser.gif"/></a>
+                    </div>
+
+                    <div class="userpage-flex-item username">
+                        <h2 style="margin:0">
+                                                        <span>
+                                ~fakeuser                            </span>
+                        </h2>
+                        <span class="font-small">
+                            Writer/Lurker<span class="hideonmobile"> |</span><span class="hideontablet hideondesktop"><br></span>                            Member Since: Sep 30, 2017 10:15                        </span>
+                    </div>
+                    <div class="userpage-flex-item hideonmobile hideontablet">
+                        <div class="user-nav-controls">
+                                                    </div>
+                    </div>
+
+                    <div class="mobile-usernav-container hideondesktop">
+                        <div class="mobile-usernav-controls">
+                            <ul>
+                                <li class="mobile-usernav-item"><h1><a  href="/user/fakeuser/">Profile</a></h1></li>
+                                <li class="mobile-usernav-item"><h1><a  href="/gallery/fakeuser/">Gallery</a></h1></li>
+                                <li class="mobile-usernav-item"><h1><a  href="/scraps/fakeuser/">Scraps</a></h1></li>
+                                <li class="mobile-usernav-item"><h1><a                     class="current" href="/favorites/fakeuser/">Favorites</a></h1></li>
+                                <li class="mobile-usernav-item"><h1><a  href="/journals/fakeuser/">Journals</a></h1></li>
+                                                                    <li class="mobile-usernav-item"><h1><a class="stats " href="/stats/fakeuser/submissions/">Stats</a></h1></li>
+                                                                                                    <li class="mobile-usernav-item"><h1><a  href="/commissions/fakeuser/">Commissions</a></h1></li>
+                                                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="userpage-flex-item user-nav hideonmobile hideontablet">
+                        <ul>
+                            <li><a  href="/user/fakeuser/">                                  Profile</a></li>
+                            <li><a  href="/gallery/fakeuser/">                               Gallery</a></li>
+                            <li><a  href="/scraps/fakeuser/">                                Scraps</a></li>
+                            <li><a                     class="current" href="/favorites/fakeuser/">                             Fav<span class="user-nav-optimizer">orite</span>s</a></li>
+                            <li><a  href="/journals/fakeuser/">                              Journals</h4></a></li>
+                                                            <li><a  href="/commissions/fakeuser/">              Comm<span class="user-nav-optimizer">ission</span></a></li>
+                            
+                                                            <li class="floatright"><a class="stats" href="/controls/profile/">                                                                     Edit Profile</a></li>
+                            
+                                                            <li class="floatright"><a class="stats " href="/stats/fakeuser/submissions/">    Stats</a></li>
+                                                     </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="user-profile-options">
+                    </div>
+
+
+    
+
+    <div class="clear"></div>
+</div>
+<!--- /USER NAV --->
+
+<div id="standardpage">
+
+    <div class="gpt-ad">
+        <div data-id="header_middle" class="ad_slot bg1 leaderboard1 header-ad"></div>
+    </div>
+
+    <section>
+
+        <div class="section-body">
+            <div class="aligncenter">
+                <div class="pagination">
+                                        
+                    <div class="midsection">
+                        &nbsp;
+                                                    <span title="an hour ago" class="popup_date">Dec 25, 2020 02:59 PM</span> and older
+                                            </div>
+
+                                            <a class="button standard right" href="/favorites/fakeuser/1001503611/next">Next</a>
+                    
+                </div>
+            </div>
+
+
+            <section id="gallery-favorites" class="gallery s-250 ">
+                <figure id="sid-39837042" class="r-adult t-image" data-user="u-dacad" data-fav-id="1026328282"><b><u><a href="/view/39837042/"><img alt="" src="//t.facdn.net/39837042@400-1608906224.jpg"  data-width="353.774" data-height="250" style="width:353.774px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39837042/" title="Warmin up">Warmin up</a></p><p><i>by</i> <a href="/user/dacad/" title="DACAD">DACAD</a></p></figcaption></figure><!--
+--><figure id="sid-39839584" class="r-mature t-image" data-user="u-abluedeer" data-fav-id="1026320542"><b><u><a href="/view/39839584/"><img alt="" src="//t.facdn.net/39839584@300-1608919811.jpg"  data-width="266.667" data-height="250" style="width:266.667px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39839584/" title="2016 Commission for BarbadosSlim">2016 Commission for BarbadosSlim</a></p><p><i>by</i> <a href="/user/abluedeer/" title="A_Blue_Deer">A_Blue_Deer</a></p></figcaption></figure><!--
+--><figure id="sid-39825583" class="r-adult t-image" data-user="u-ruaidri" data-fav-id="1026177697"><b><u><a href="/view/39825583/"><img alt="" src="//t.facdn.net/39825583@400-1608834629.jpg"  data-width="393.12" data-height="250" style="width:393.12px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39825583/" title="Reindeer Rewards">Reindeer Rewards</a></p><p><i>by</i> <a href="/user/ruaidri/" title="ruaidri">ruaidri</a></p></figcaption></figure><!--
+--><figure id="sid-39826110" class="r-adult t-image" data-user="u-joojoo" data-fav-id="1026177594"><b><u><a href="/view/39826110/"><img alt="" src="//t.facdn.net/39826110@300-1608836765.jpg"  data-width="198.276" data-height="250" style="width:198.276px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39826110/" title="Sub boys">Sub boys</a></p><p><i>by</i> <a href="/user/joojoo/" title="JooJoo">JooJoo</a></p></figcaption></figure><!--
+--><figure id="sid-39834453" class="r-general t-image" data-user="u-peskybatfish" data-fav-id="1026177496"><b><u><a href="/view/39834453/"><img alt="" src="//t.facdn.net/39834453@300-1608885650.jpg"  data-width="262.605" data-height="250" style="width:262.605px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39834453/" title="Wintry Diving">Wintry Diving</a></p><p><i>by</i> <a href="/user/peskybatfish/" title="PeskyBatfish">PeskyBatfish</a></p></figcaption></figure><!--
+--><figure id="sid-39832664" class="r-mature t-image" data-user="u-mewgle" data-fav-id="1026097698"><b><u><a href="/view/39832664/"><img alt="" src="//t.facdn.net/39832664@300-1608871040.jpg"  data-width="263.658" data-height="250" style="width:263.658px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39832664/" title="Nice Sweater">Nice Sweater</a></p><p><i>by</i> <a href="/user/mewgle/" title="Mewgle">Mewgle</a></p></figcaption></figure><!--
+--><figure id="sid-39829096" class="r-adult t-image" data-user="u-milodesty" data-fav-id="1025979376"><b><u><a href="/view/39829096/"><img alt="" src="//t.facdn.net/39829096@300-1608849137.jpg"  data-width="250" data-height="250" style="width:250px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39829096/" title="Intimately touchy">Intimately touchy</a></p><p><i>by</i> <a href="/user/milodesty/" title="MiloDesty">MiloDesty</a></p></figcaption></figure><!--
+--><figure id="sid-39829394" class="r-adult t-image" data-user="u-dacad" data-fav-id="1025979050"><b><u><a href="/view/39829394/"><img alt="" src="//t.facdn.net/39829394@300-1608850660.jpg"  data-width="252.016" data-height="250" style="width:252.016px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39829394/" title="racon an birtd">racon an birtd</a></p><p><i>by</i> <a href="/user/dacad/" title="DACAD">DACAD</a></p></figcaption></figure><!--
+--><figure id="sid-39829001" class="r-adult t-image" data-user="u-milodesty" data-fav-id="1025967261"><b><u><a href="/view/39829001/"><img alt="" src="//t.facdn.net/39829001@300-1608848714.jpg"  data-width="250" data-height="250" style="width:250px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39829001/" title="Christmas Doodle 8">Christmas Doodle 8</a></p><p><i>by</i> <a href="/user/milodesty/" title="MiloDesty">MiloDesty</a></p></figcaption></figure><!--
+--><figure id="sid-39828939" class="r-adult t-image" data-user="u-milodesty" data-fav-id="1025959799"><b><u><a href="/view/39828939/"><img alt="" src="//t.facdn.net/39828939@300-1608848418.jpg"  data-width="250" data-height="250" style="width:250px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39828939/" title="Christmas Doodle 6">Christmas Doodle 6</a></p><p><i>by</i> <a href="/user/milodesty/" title="MiloDesty">MiloDesty</a></p></figcaption></figure><!--
+--><figure id="sid-39827150" class="r-mature t-image" data-user="u-mewgle" data-fav-id="1025943745"><b><u><a href="/view/39827150/"><img alt="" src="//t.facdn.net/39827150@300-1608841006.jpg"  data-width="227.273" data-height="250" style="width:227.273px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39827150/" title="Seasonal">Seasonal</a></p><p><i>by</i> <a href="/user/mewgle/" title="Mewgle">Mewgle</a></p></figcaption></figure><!--
+--><figure id="sid-39828103" class="r-adult t-image" data-user="u-grimev" data-fav-id="1025943678"><b><u><a href="/view/39828103/"><img alt="" src="//t.facdn.net/39828103@300-1608845034.jpg"  data-width="228.32" data-height="250" style="width:228.32px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39828103/" title="choked n groped">choked n groped</a></p><p><i>by</i> <a href="/user/grimev/" title="GrimEV">GrimEV</a></p></figcaption></figure><!--
+--><figure id="sid-39817962" class="r-adult t-image" data-user="u-mewgle" data-fav-id="1025648730"><b><u><a href="/view/39817962/"><img alt="" src="//t.facdn.net/39817962@300-1608782959.jpg"  data-width="171.667" data-height="250" style="width:171.667px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39817962/" title="Lewd Mistletoe">Lewd Mistletoe</a></p><p><i>by</i> <a href="/user/mewgle/" title="Mewgle">Mewgle</a></p></figcaption></figure><!--
+--><figure id="sid-39771652" class="r-adult t-image" data-user="u-mewgle" data-fav-id="1024203620"><b><u><a href="/view/39771652/"><img alt="" src="//t.facdn.net/39771652@300-1608511961.jpg"  data-width="200.355" data-height="250" style="width:200.355px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39771652/" title="Coomers">Coomers</a></p><p><i>by</i> <a href="/user/mewgle/" title="Mewgle">Mewgle</a></p></figcaption></figure><!--
+--><figure id="sid-39765324" class="r-adult t-image" data-user="u-meesh" data-fav-id="1024051446"><b><u><a href="/view/39765324/"><img alt="" src="//t.facdn.net/39765324@300-1608487434.jpg"  data-width="164.034" data-height="250" style="width:164.034px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39765324/" title="Youtube Party">Youtube Party</a></p><p><i>by</i> <a href="/user/meesh/" title="Meesh">Meesh</a></p></figcaption></figure><!--
+--><figure id="sid-39740724" class="r-adult t-image" data-user="u-son-of-liberty" data-fav-id="1023676549"><b><u><a href="/view/39740724/"><img alt="" src="//t.facdn.net/39740724@300-1608334656.jpg"  data-width="166.602" data-height="250" style="width:166.602px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39740724/" title="Lucky Lady">Lucky Lady</a></p><p><i>by</i> <a href="/user/son-of-liberty/" title="son-of-liberty">son-of-liberty</a></p></figcaption></figure><!--
+--><figure id="sid-39647371" class="r-adult t-image" data-user="u-katxlogan" data-fav-id="1020683154"><b><u><a href="/view/39647371/"><img alt="" src="//t.facdn.net/39647371@300-1607818720.jpg"  data-width="214.258" data-height="250" style="width:214.258px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39647371/" title="I May Not Be Flapper Girl But..">I May Not Be Flapper Girl But..</a></p><p><i>by</i> <a href="/user/katxlogan/" title="KatxLogan">KatxLogan</a></p></figcaption></figure><!--
+--><figure id="sid-39635207" class="r-mature t-image" data-user="u-mewgle" data-fav-id="1020375289"><b><u><a href="/view/39635207/"><img alt="" src="//t.facdn.net/39635207@300-1607751270.jpg"  data-width="219.203" data-height="250" style="width:219.203px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39635207/" title="Not Again">Not Again</a></p><p><i>by</i> <a href="/user/mewgle/" title="Mewgle">Mewgle</a></p></figcaption></figure><!--
+--><figure id="sid-39609805" class="r-adult t-image" data-user="u-applelover22" data-fav-id="1019790388"><b><u><a href="/view/39609805/"><img alt="" src="//t.facdn.net/39609805@300-1607615453.jpg"  data-width="254.582" data-height="250" style="width:254.582px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39609805/" title="Femdom Gift">Femdom Gift</a></p><p><i>by</i> <a href="/user/applelover22/" title="AppleLover22">AppleLover22</a></p></figcaption></figure><!--
+--><figure id="sid-39597255" class="r-mature t-image" data-user="u-versuvius" data-fav-id="1019309362"><b><u><a href="/view/39597255/"><img alt="" src="//t.facdn.net/39597255@300-1607543121.jpg"  data-width="293.309" data-height="250" style="width:293.309px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39597255/" title="Gromp">Gromp</a></p><p><i>by</i> <a href="/user/versuvius/" title="Versuvius">Versuvius</a></p></figcaption></figure><!--
+--><figure id="sid-39533733" class="r-adult t-image" data-user="u-renyard2001" data-fav-id="1017537805"><b><u><a href="/view/39533733/"><img alt="" src="//t.facdn.net/39533733@300-1607198273.jpg"  data-width="262.726" data-height="250" style="width:262.726px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39533733/" title="Entranced">Entranced</a></p><p><i>by</i> <a href="/user/renyard2001/" title="Renyard2001">Renyard2001</a></p></figcaption></figure><!--
+--><figure id="sid-39504473" class="r-adult t-image" data-user="u-kaittycat" data-fav-id="1016696701"><b><u><a href="/view/39504473/"><img alt="" src="//t.facdn.net/39504473@600-1607037453.jpg"  data-width="500" data-height="187.897" style="width:500px; height:187.897px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39504473/" title="Hypnovember 9 Collar">Hypnovember 9 Collar</a></p><p><i>by</i> <a href="/user/kaittycat/" title="Kaittycat">Kaittycat</a></p></figcaption></figure><!--
+--><figure id="sid-39497083" class="r-general t-image" data-user="u-rudragon" data-fav-id="1016640837"><b><u><a href="/view/39497083/"><img alt="" src="//t.facdn.net/39497083@300-1607007983.jpg"  data-width="175.819" data-height="250" style="width:175.819px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39497083/" title="RUz Fathom-flying page 18/50">RUz Fathom-flying page 18/50</a></p><p><i>by</i> <a href="/user/rudragon/" title="RUdragon">RUdragon</a></p></figcaption></figure><!--
+--><figure id="sid-39489389" class="r-adult t-image" data-user="u-kaittycat" data-fav-id="1016317546"><b><u><a href="/view/39489389/"><img alt="" src="//t.facdn.net/39489389@600-1606955961.jpg"  data-width="407.958" data-height="250" style="width:407.958px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39489389/" title="Hypnovember 8 Pheromone">Hypnovember 8 Pheromone</a></p><p><i>by</i> <a href="/user/kaittycat/" title="Kaittycat">Kaittycat</a></p></figcaption></figure><!--
+--><figure id="sid-39436562" class="r-adult t-image" data-user="u-ruaidri" data-fav-id="1014823056"><b><u><a href="/view/39436562/"><img alt="" src="//t.facdn.net/39436562@400-1606684189.jpg"  data-width="321.932" data-height="250" style="width:321.932px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39436562/" title="Failed Hunt - Pt. 2">Failed Hunt - Pt. 2</a></p><p><i>by</i> <a href="/user/ruaidri/" title="ruaidri">ruaidri</a></p></figcaption></figure><!--
+--><figure id="sid-39423638" class="r-adult t-image" data-user="u-kaittycat" data-fav-id="1014442813"><b><u><a href="/view/39423638/"><img alt="" src="//t.facdn.net/39423638@300-1606609970.jpg"  data-width="258.935" data-height="250" style="width:258.935px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39423638/" title="Hypnovember 5 Visor">Hypnovember 5 Visor</a></p><p><i>by</i> <a href="/user/kaittycat/" title="Kaittycat">Kaittycat</a></p></figcaption></figure><!--
+--><figure id="sid-39307708" class="r-adult t-image" data-user="u-peskybatfish" data-fav-id="1011369167"><b><u><a href="/view/39307708/"><img alt="" src="//t.facdn.net/39307708@300-1605987734.jpg"  data-width="289.428" data-height="250" style="width:289.428px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39307708/" title="Struggling | Mudkipz">Struggling | Mudkipz</a></p><p><i>by</i> <a href="/user/peskybatfish/" title="PeskyBatfish">PeskyBatfish</a></p></figcaption></figure><!--
+--><figure id="sid-39291904" class="r-adult t-image" data-user="u-mewgle" data-fav-id="1010814100"><b><u><a href="/view/39291904/"><img alt="" src="//t.facdn.net/39291904@300-1605900384.jpg"  data-width="153.846" data-height="250" style="width:153.846px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39291904/" title="Rub One Out">Rub One Out</a></p><p><i>by</i> <a href="/user/mewgle/" title="Mewgle">Mewgle</a></p></figcaption></figure><!--
+--><figure id="sid-39281099" class="r-adult t-image" data-user="u-mewgle" data-fav-id="1010473070"><b><u><a href="/view/39281099/"><img alt="" src="//t.facdn.net/39281099@300-1605833821.jpg"  data-width="167.857" data-height="250" style="width:167.857px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39281099/" title="Horny Forest Creature">Horny Forest Creature</a></p><p><i>by</i> <a href="/user/mewgle/" title="Mewgle">Mewgle</a></p></figcaption></figure><!--
+--><figure id="sid-39256743" class="r-general t-image" data-user="u-rudragon" data-fav-id="1009870398"><b><u><a href="/view/39256743/"><img alt="" src="//t.facdn.net/39256743@300-1605715228.jpg"  data-width="175.819" data-height="250" style="width:175.819px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39256743/" title="RUz Fathom-flying page 16/50">RUz Fathom-flying page 16/50</a></p><p><i>by</i> <a href="/user/rudragon/" title="RUdragon">RUdragon</a></p></figcaption></figure><!--
+--><figure id="sid-39127152" class="r-adult t-image" data-user="u-fauxpawe" data-fav-id="1008696622"><b><u><a href="/view/39127152/"><img alt="" src="//t.facdn.net/39127152@300-1605031094.jpg"  data-width="206.445" data-height="250" style="width:206.445px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39127152/" title="HypNovember Day 8: Pheromone">HypNovember Day 8: Pheromone</a></p><p><i>by</i> <a href="/user/fauxpawe/" title="Fauxpawe">Fauxpawe</a></p></figcaption></figure><!--
+--><figure id="sid-39210042" class="r-mature t-image" data-user="u-mewgle" data-fav-id="1008555930"><b><u><a href="/view/39210042/"><img alt="" src="//t.facdn.net/39210042@300-1605467409.jpg"  data-width="213.583" data-height="250" style="width:213.583px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39210042/" title="feel good">feel good</a></p><p><i>by</i> <a href="/user/mewgle/" title="Mewgle">Mewgle</a></p></figcaption></figure><!--
+--><figure id="sid-38616005" class="r-mature t-image" data-user="u-snail3n" data-fav-id="1008094299"><b><u><a href="/view/38616005/"><img alt="" src="//t.facdn.net/38616005@300-1602303708.jpg"  data-width="224.167" data-height="250" style="width:224.167px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38616005/" title="Kinktober 6">Kinktober 6</a></p><p><i>by</i> <a href="/user/snail3n/" title="snail3n">snail3n</a></p></figcaption></figure><!--
+--><figure id="sid-25291810" class="r-adult t-image" data-user="u-whitegothiccat" data-fav-id="1008093741"><b><u><a href="/view/25291810/"><img alt="" src="//t.facdn.net/25291810@400-1509481180.jpg"  data-width="370.8" data-height="250" style="width:370.8px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/25291810/" title="Pet :3">Pet :3</a></p><p><i>by</i> <a href="/user/whitegothiccat/" title="White_Gothic_Cat">White_Gothic_Cat</a></p></figcaption></figure><!--
+--><figure id="sid-30179258" class="r-adult t-image" data-user="u-peskybatfish" data-fav-id="1008088061"><b><u><a href="/view/30179258/"><img alt="" src="//t.facdn.net/30179258@300-1548130853.jpg"  data-width="234.961" data-height="250" style="width:234.961px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/30179258/" title="Extra Discipline - for Yuki">Extra Discipline - for Yuki</a></p><p><i>by</i> <a href="/user/peskybatfish/" title="PeskyBatfish">PeskyBatfish</a></p></figcaption></figure><!--
+--><figure id="sid-24070427" class="r-adult t-image" data-user="u-sabretoothedermine" data-fav-id="1008087767"><b><u><a href="/view/24070427/"><img alt="" src="//t.facdn.net/24070427@300-1499398774.jpg"  data-width="200" data-height="250" style="width:200px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/24070427/" title="Well Trained - 2">Well Trained - 2</a></p><p><i>by</i> <a href="/user/sabretoothedermine/" title="SabretoothedErmine">SabretoothedErmine</a></p></figcaption></figure><!--
+--><figure id="sid-39171637" class="r-adult t-text" data-user="u-renyard2001" data-fav-id="1008058996"><b><u><a href="/view/39171637/"><img alt="" src="//t.facdn.net/39171637@120-1605265057.jpg"  data-width="120" data-height="106" style="width:120px; height:106px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39171637/" title="A Good Boy">A Good Boy</a></p><p><i>by</i> <a href="/user/renyard2001/" title="Renyard2001">Renyard2001</a></p></figcaption></figure><!--
+--><figure id="sid-39147796" class="r-general t-text" data-user="u-renyard2001" data-fav-id="1008057179"><b><u><a href="/view/39147796/"><img alt="" src="//t.facdn.net/39147796@120-1605132664.jpg"  data-width="120" data-height="106" style="width:120px; height:106px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39147796/" title="The Frozen Forest">The Frozen Forest</a></p><p><i>by</i> <a href="/user/renyard2001/" title="Renyard2001">Renyard2001</a></p></figcaption></figure><!--
+--><figure id="sid-39147395" class="r-adult t-text" data-user="u-renyard2001" data-fav-id="1008056853"><b><u><a href="/view/39147395/"><img alt="" src="//t.facdn.net/39147395@120-1605131416.jpg"  data-width="120" data-height="106" style="width:120px; height:106px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39147395/" title="Aromatic">Aromatic</a></p><p><i>by</i> <a href="/user/renyard2001/" title="Renyard2001">Renyard2001</a></p></figcaption></figure><!--
+--><figure id="sid-39067294" class="r-adult t-text" data-user="u-renyard2001" data-fav-id="1008051608"><b><u><a href="/view/39067294/"><img alt="" src="//t.facdn.net/39067294@120-1604702041.jpg"  data-width="120" data-height="107" style="width:120px; height:107px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39067294/" title="The Simpler, The Better">The Simpler, The Better</a></p><p><i>by</i> <a href="/user/renyard2001/" title="Renyard2001">Renyard2001</a></p></figcaption></figure><!--
+--><figure id="sid-39052290" class="r-adult t-text" data-user="u-renyard2001" data-fav-id="1008048960"><b><u><a href="/view/39052290/"><img alt="" src="//t.facdn.net/39052290@120-1604618831.jpg"  data-width="120" data-height="105" style="width:120px; height:105px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39052290/" title="A Fox Burrowing into the Rabbit Hole">A Fox Burrowing into the Rabbit Hole</a></p><p><i>by</i> <a href="/user/renyard2001/" title="Renyard2001">Renyard2001</a></p></figcaption></figure><!--
+--><figure id="sid-39190800" class="r-adult t-image" data-user="u-nuzzo" data-fav-id="1008042969"><b><u><a href="/view/39190800/"><img alt="" src="//t.facdn.net/39190800@300-1605369250.jpg"  data-width="189.375" data-height="250" style="width:189.375px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39190800/" title="&quot;I don't usually do this, but...&quot; - YCH auction!">&quot;I don't usually do this, but...&quot; - YCH auction!</a></p><p><i>by</i> <a href="/user/nuzzo/" title="nuzzo">nuzzo</a></p></figcaption></figure><!--
+--><figure id="sid-39176416" class="r-adult t-image" data-user="u-redfeatherstorm" data-fav-id="1007679481"><b><u><a href="/view/39176416/"><img alt="" src="//t.facdn.net/39176416@300-1605291055.jpg"  data-width="254.372" data-height="250" style="width:254.372px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39176416/" title="Akki (WS)">Akki (WS)</a></p><p><i>by</i> <a href="/user/redfeatherstorm/" title="RedFeatherStorm">RedFeatherStorm</a></p></figcaption></figure><!--
+--><figure id="sid-39169373" class="r-general t-image" data-user="u-mewgle" data-fav-id="1007496782"><b><u><a href="/view/39169373/"><img alt="" src="//t.facdn.net/39169373@300-1605247575.jpg"  data-width="209" data-height="250" style="width:209px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39169373/" title="Choker">Choker</a></p><p><i>by</i> <a href="/user/mewgle/" title="Mewgle">Mewgle</a></p></figcaption></figure><!--
+--><figure id="sid-39164392" class="r-adult t-image" data-user="u-zeiro" data-fav-id="1007274655"><b><u><a href="/view/39164392/"><img alt="" src="//t.facdn.net/39164392@300-1605221258.jpg"  data-width="150.8" data-height="250" style="width:150.8px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39164392/" title="The Temple~">The Temple~</a></p><p><i>by</i> <a href="/user/zeiro/" title="Zeiro">Zeiro</a></p></figcaption></figure><!--
+--><figure id="sid-39145379" class="r-adult t-image" data-user="u-twang" data-fav-id="1006781735"><b><u><a href="/view/39145379/"><img alt="" src="//t.facdn.net/39145379@300-1605123859.jpg"  data-width="209.766" data-height="250" style="width:209.766px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39145379/" title="Party (Bonus)">Party (Bonus)</a></p><p><i>by</i> <a href="/user/twang/" title="Twang">Twang</a></p></figcaption></figure><!--
+--><figure id="sid-39145973" class="r-adult t-image" data-user="u-ruaidri" data-fav-id="1006781065"><b><u><a href="/view/39145973/"><img alt="" src="//t.facdn.net/39145973@600-1605126037.jpg"  data-width="500" data-height="220.295" style="width:500px; height:220.295px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39145973/" title="Milked Birb">Milked Birb</a></p><p><i>by</i> <a href="/user/ruaidri/" title="ruaidri">ruaidri</a></p></figcaption></figure><!--
+--><figure id="sid-39137768" class="r-adult t-image" data-user="u-ruaidri" data-fav-id="1006622069"><b><u><a href="/view/39137768/"><img alt="" src="//t.facdn.net/39137768@300-1605082838.jpg"  data-width="191.211" data-height="250" style="width:191.211px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39137768/" title="Quality Assurance">Quality Assurance</a></p><p><i>by</i> <a href="/user/ruaidri/" title="ruaidri">ruaidri</a></p></figcaption></figure><!--
+--><figure id="sid-39117031" class="r-mature t-image" data-user="u-kaittycat" data-fav-id="1005969698"><b><u><a href="/view/39117031/"><img alt="" src="//t.facdn.net/39117031@400-1604968474.jpg"  data-width="352.265" data-height="250" style="width:352.265px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39117031/" title="Status: Charmed">Status: Charmed</a></p><p><i>by</i> <a href="/user/kaittycat/" title="Kaittycat">Kaittycat</a></p></figcaption></figure><!--
+--><figure id="sid-39099621" class="r-adult t-image" data-user="u-residentagd" data-fav-id="1005491795"><b><u><a href="/view/39099621/"><img alt="" src="//t.facdn.net/39099621@300-1604878713.jpg"  data-width="277.056" data-height="250" style="width:277.056px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39099621/" title="whip">whip</a></p><p><i>by</i> <a href="/user/residentagd/" title="Resident_AGD">Resident_AGD</a></p></figcaption></figure><!--
+--><figure id="sid-39092504" class="r-adult t-image" data-user="u-soroka-ne-soroka" data-fav-id="1005377387"><b><u><a href="/view/39092504/"><img alt="" src="//t.facdn.net/39092504@300-1604849681.jpg"  data-width="181.019" data-height="250" style="width:181.019px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39092504/" title="In a dark alley [CM]">In a dark alley [CM]</a></p><p><i>by</i> <a href="/user/soroka-ne-soroka/" title="soroka-ne-soroka">soroka-ne-soroka</a></p></figcaption></figure><!--
+--><figure id="sid-39093925" class="r-adult t-image" data-user="u-peskybatfish" data-fav-id="1005349828"><b><u><a href="/view/39093925/"><img alt="" src="//t.facdn.net/39093925@300-1604856442.jpg"  data-width="218.359" data-height="250" style="width:218.359px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39093925/" title="Dragged Off | GameGod210">Dragged Off | GameGod210</a></p><p><i>by</i> <a href="/user/peskybatfish/" title="PeskyBatfish">PeskyBatfish</a></p></figcaption></figure><!--
+--><figure id="sid-39068297" class="r-adult t-image" data-user="u-flyermiles" data-fav-id="1004602427"><b><u><a href="/view/39068297/"><img alt="" src="//t.facdn.net/39068297@300-1604705681.jpg"  data-width="178.516" data-height="250" style="width:178.516px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39068297/" title="Best Hoodie -nsfw-">Best Hoodie -nsfw-</a></p><p><i>by</i> <a href="/user/flyermiles/" title="FlyerMiles">FlyerMiles</a></p></figcaption></figure><!--
+--><figure id="sid-39051766" class="r-adult t-image" data-user="u-residentagd" data-fav-id="1004117855"><b><u><a href="/view/39051766/"><img alt="" src="//t.facdn.net/39051766@300-1604616550.jpg"  data-width="297.952" data-height="250" style="width:297.952px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39051766/" title="huff">huff</a></p><p><i>by</i> <a href="/user/residentagd/" title="Resident_AGD">Resident_AGD</a></p></figcaption></figure><!--
+--><figure id="sid-39043903" class="r-general t-image" data-user="u-rudragon" data-fav-id="1003956689"><b><u><a href="/view/39043903/"><img alt="" src="//t.facdn.net/39043903@300-1604583249.jpg"  data-width="175.819" data-height="250" style="width:175.819px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39043903/" title="RUz Fathom-flying page 14/50">RUz Fathom-flying page 14/50</a></p><p><i>by</i> <a href="/user/rudragon/" title="RUdragon">RUdragon</a></p></figcaption></figure><!--
+--><figure id="sid-39003863" class="r-adult t-image" data-user="u-fauxpawe" data-fav-id="1003764487"><b><u><a href="/view/39003863/"><img alt="" src="//t.facdn.net/39003863@300-1604358085.jpg"  data-width="202.539" data-height="250" style="width:202.539px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39003863/" title="HypNovember Day 2: Coil">HypNovember Day 2: Coil</a></p><p><i>by</i> <a href="/user/fauxpawe/" title="Fauxpawe">Fauxpawe</a></p></figcaption></figure><!--
+--><figure id="sid-39018780" class="r-adult t-image" data-user="u-residentagd" data-fav-id="1003162041"><b><u><a href="/view/39018780/"><img alt="" src="//t.facdn.net/39018780@300-1604438592.jpg"  data-width="245.703" data-height="250" style="width:245.703px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39018780/" title="Chris ropework (blindfold)">Chris ropework (blindfold)</a></p><p><i>by</i> <a href="/user/residentagd/" title="Resident_AGD">Resident_AGD</a></p></figcaption></figure><!--
+--><figure id="sid-39020156" class="r-adult t-image" data-user="u-glitter-trap-boy" data-fav-id="1003161997"><b><u><a href="/view/39020156/"><img alt="" src="//t.facdn.net/39020156@300-1604443346.jpg"  data-width="250" data-height="250" style="width:250px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/39020156/" title="Island boyfriends">Island boyfriends</a></p><p><i>by</i> <a href="/user/glitter-trap-boy/" title="GLITTER-TRAP-BOY">GLITTER-TRAP-BOY</a></p></figcaption></figure><!--
+--><figure id="sid-38990603" class="r-general t-image" data-user="u-kayla-na" data-fav-id="1002338083"><b><u><a href="/view/38990603/"><img alt="" src="//t.facdn.net/38990603@300-1604289103.jpg"  data-width="190.82" data-height="250" style="width:190.82px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38990603/" title="Finally Home - 08">Finally Home - 08</a></p><p><i>by</i> <a href="/user/kayla-na/" title="Kayla-Na">Kayla-Na</a></p></figcaption></figure><!--
+--><figure id="sid-38986063" class="r-adult t-text" data-user="u-oreos" data-fav-id="1002306741"><b><u><a href="/view/38986063/"><img alt="" src="//t.facdn.net/38986063@120-1604267508.jpg"  data-width="120" data-height="120" style="width:120px; height:120px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38986063/" title="Too Much of a Good Thing">Too Much of a Good Thing</a></p><p><i>by</i> <a href="/user/oreos/" title="oreos">oreos</a></p></figcaption></figure><!--
+--><figure id="sid-25189508" class="r-adult t-image" data-user="u-spikester" data-fav-id="1002292855"><b><u><a href="/view/25189508/"><img alt="" src="//t.facdn.net/25189508@300-1508646398.jpg"  data-width="161.133" data-height="250" style="width:161.133px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/25189508/" title="C: &quot;A Brand New You&quot;  - Altrus Becomes Newlyn">C: &quot;A Brand New You&quot;  - Altrus Becomes Newlyn</a></p><p><i>by</i> <a href="/user/spikester/" title="Spikester">Spikester</a></p></figcaption></figure><!--
+--><figure id="sid-38937187" class="r-adult t-image" data-user="u-foxgear" data-fav-id="1002292449"><b><u><a href="/view/38937187/"><img alt="" src="//t.facdn.net/38937187@300-1604028957.jpg"  data-width="241.211" data-height="250" style="width:241.211px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38937187/" title="The Long Way Home (Knotted/Cum)~">The Long Way Home (Knotted/Cum)~</a></p><p><i>by</i> <a href="/user/foxgear/" title="Foxgear">Foxgear</a></p></figcaption></figure><!--
+--><figure id="sid-38985192" class="r-adult t-image" data-user="u-bassenji" data-fav-id="1002172961"><b><u><a href="/view/38985192/"><img alt="" src="//t.facdn.net/38985192@300-1604263995.jpg"  data-width="176.758" data-height="250" style="width:176.758px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38985192/" title="Bring them up!">Bring them up!</a></p><p><i>by</i> <a href="/user/bassenji/" title="bassenji">bassenji</a></p></figcaption></figure><!--
+--><figure id="sid-38984724" class="r-adult t-image" data-user="u-bassenji" data-fav-id="1002172380"><b><u><a href="/view/38984724/"><img alt="" src="//t.facdn.net/38984724@400-1604262409.jpg"  data-width="353.591" data-height="250" style="width:353.591px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38984724/" title="Compliant Cargo">Compliant Cargo</a></p><p><i>by</i> <a href="/user/bassenji/" title="bassenji">bassenji</a></p></figcaption></figure><!--
+--><figure id="sid-38976618" class="r-adult t-image" data-user="u-peskybatfish" data-fav-id="1002069869"><b><u><a href="/view/38976618/"><img alt="" src="//t.facdn.net/38976618@300-1604219341.jpg"  data-width="182.276" data-height="250" style="width:182.276px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38976618/" title="Merry Halloween!">Merry Halloween!</a></p><p><i>by</i> <a href="/user/peskybatfish/" title="PeskyBatfish">PeskyBatfish</a></p></figcaption></figure><!--
+--><figure id="sid-38974730" class="r-general t-image" data-user="u-kayla-na" data-fav-id="1002069636"><b><u><a href="/view/38974730/"><img alt="" src="//t.facdn.net/38974730@300-1604205347.jpg"  data-width="190.82" data-height="250" style="width:190.82px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38974730/" title="Finally Home - 07">Finally Home - 07</a></p><p><i>by</i> <a href="/user/kayla-na/" title="Kayla-Na">Kayla-Na</a></p></figcaption></figure><!--
+--><figure id="sid-38976911" class="r-adult t-image" data-user="u-applelover22" data-fav-id="1002069023"><b><u><a href="/view/38976911/"><img alt="" src="//t.facdn.net/38976911@400-1604221570.jpg"  data-width="348.432" data-height="250" style="width:348.432px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38976911/" title="Ready to be Used">Ready to be Used</a></p><p><i>by</i> <a href="/user/applelover22/" title="AppleLover22">AppleLover22</a></p></figcaption></figure><!--
+--><figure id="sid-38980650" class="r-general t-image" data-user="u-animancer" data-fav-id="1002068823"><b><u><a href="/view/38980650/"><img alt="" src="//t.facdn.net/38980650@300-1604246106.jpg"  data-width="242.383" data-height="250" style="width:242.383px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38980650/" title="201004 2 Soccer">201004 2 Soccer</a></p><p><i>by</i> <a href="/user/animancer/" title="Animancer">Animancer</a></p></figcaption></figure><!--
+--><figure id="sid-38980434" class="r-adult t-image" data-user="u-animancer" data-fav-id="1002068773"><b><u><a href="/view/38980434/"><img alt="" src="//t.facdn.net/38980434@300-1604245076.jpg"  data-width="136.346" data-height="250" style="width:136.346px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38980434/" title="Goo Gals">Goo Gals</a></p><p><i>by</i> <a href="/user/animancer/" title="Animancer">Animancer</a></p></figcaption></figure><!--
+--><figure id="sid-38973330" class="r-adult t-image" data-user="u-keishinkae" data-fav-id="1001780734"><b><u><a href="/view/38973330/"><img alt="" src="//t.facdn.net/38973330@300-1604198926.jpg"  data-width="250" data-height="250" style="width:250px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38973330/" title="Halloween Free Sketch -Draegonis">Halloween Free Sketch -Draegonis</a></p><p><i>by</i> <a href="/user/keishinkae/" title="Keishinkae">Keishinkae</a></p></figcaption></figure><!--
+--><figure id="sid-38964995" class="r-adult t-image" data-user="u-ruaidri" data-fav-id="1001569793"><b><u><a href="/view/38964995/"><img alt="" src="//t.facdn.net/38964995@400-1604171486.jpg"  data-width="319.361" data-height="250" style="width:319.361px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38964995/" title="Treat Yourself">Treat Yourself</a></p><p><i>by</i> <a href="/user/ruaidri/" title="ruaidri">ruaidri</a></p></figcaption></figure><!--
+--><figure id="sid-38961151" class="r-adult t-image" data-user="u-hugglesthebunbun" data-fav-id="1001503611"><b><u><a href="/view/38961151/"><img alt="" src="//t.facdn.net/38961151@400-1604158554.jpg"  data-width="324.544" data-height="250" style="width:324.544px; height:250px"/><i title="Click for description"></i></a></u></b><figcaption><p><a href="/view/38961151/" title="Club Time">Club Time</a></p><p><i>by</i> <a href="/user/hugglesthebunbun/" title="Hugglesthebunbun">Hugglesthebunbun</a></p></figcaption></figure><!--
+-->            </section>
+            <script type="text/javascript">
+                _fajs.push(['init_gallery', 'gallery-favorites']);
+            </script>
+
+
+            <div class="aligncenter">
+                <div class="pagination">
+                                        
+                    <div class="midsection">
+                        <button type="button" class="standard toggle_titles">Disable Titles</button>
+                    </div>
+
+                                            <a class="button mobile-button right" href="/favorites/fakeuser/1001503611/next">Next</a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+<script type="text/javascript">
+        _fajs.push(function(){
+        $$('span.popup_date').each(function(elm){
+            elm.observe('click',function(evt){
+                var elm = evt.element();
+                var tmp=elm.title;
+                elm.title=elm.innerHTML;
+                elm.innerHTML=tmp;
+            })
+        });
+    });
+    var descriptions = {"39837042":{"title":"Warmin up","description":"Posting this a month early because it would be weird otherwise!\nI got more stuff in the works! Check them out early on the [url=https:\/\/www.patreon.com\/dacad]tron[\/url]!!! \n\nHappy chrismas or whatever ur holidays entail! Even if u aren't celebrating be a good fela ok\n\n[url=http:\/\/www.postybirb.com]Posted using PostyBirb[\/url]","username":"DACAD","lower":"dacad","avatar_mtime":"1541201827"},"39839584":{"title":"2016 Commission for BarbadosSlim","description":"Happy Christmas everyone!\r\n\r\nTo celebrate here's an old pinup pic I did for BarbadosSlim during December of 2016.\r\n\r\nCharacter is (c) of :iconbarbadosslim:","username":"A_Blue_Deer","lower":"abluedeer","avatar_mtime":"1424255659"},"39825583":{"title":"Reindeer Rewards","description":"Merry Christmas everybody! Here are the combined parts of this year's holiday themed picture, coincidentally also this month's Patreon funded painting. The descriptions on all three versions will be largely the same, just posting it in all of them so you can get the story wherever you happen to be.\r\n\r\nThe prompt I was given this month was... well it was kind of long, but you can only put so much t .......","username":"ruaidri","lower":"ruaidri","avatar_mtime":"1608623950"},"39826110":{"title":"Sub boys","description":"For :iconTurntupPup:\r\n\r\nA dangerous weapon indeed.","username":"JooJoo","lower":"joojoo","avatar_mtime":"1607907983"},"39834453":{"title":"Wintry Diving","description":"Personal pic I wanted to do. Still haven't thought of a name for her yet...","username":"PeskyBatfish","lower":"peskybatfish","avatar_mtime":"1561569011"},"39832664":{"title":"Nice Sweater","description":"nice pun","username":"Mewgle","lower":"mewgle","avatar_mtime":"1466633086"},"39829096":{"title":"Intimately touchy","description":"What better way to stay warm with your partner, then to start exploring their bodies together~","username":"MiloDesty","lower":"milodesty","avatar_mtime":"1531302559"},"39829394":{"title":"racon an birtd","description":"early releasin this \nhave a happy holidays!\n\n[url=http:\/\/www.postybirb.com]Posted using PostyBirb[\/url]","username":"DACAD","lower":"dacad","avatar_mtime":"1541201827"},"39829001":{"title":"Christmas Doodle 8","description":"A little extra incentive for the reindeer to cooperate~\r\n\r\nPatreon piece for :iconewanlynn:","username":"MiloDesty","lower":"milodesty","avatar_mtime":"1531302559"},"39828939":{"title":"Christmas Doodle 6","description":"Please do not open before xmas~\r\n\r\nPatreon piece for :iconbossstubs:","username":"MiloDesty","lower":"milodesty","avatar_mtime":"1531302559"},"39827150":{"title":"Seasonal","description":"Youkai DEMANDS cookies","username":"Mewgle","lower":"mewgle","avatar_mtime":"1466633086"},"39828103":{"title":"choked n groped","description":"extremely self indulgent gift to myself and my gf (:iconcolemooneyes:)","username":"GrimEV","lower":"grimev","avatar_mtime":"1577080912"},"39817962":{"title":"Lewd Mistletoe","description":"Ash please","username":"Mewgle","lower":"mewgle","avatar_mtime":"1466633086"},"39771652":{"title":"Coomers","description":"started out as a thingy to practice faces but it got out of hand","username":"Mewgle","lower":"mewgle","avatar_mtime":"1466633086"},"39765324":{"title":"Youtube Party","description":"Originally uploaded to my Patreon last month: https:\/\/www.patreon.com\/meesh\nSee more pics like this a month early for just $1!\n\n[i]It was deep into Autumn, and it had become a routine of Dan and Hank to hang out after classes. They'd throw on pajamas, whip up some cocoa and do whatever. Hank had long ago told Dan about his love of the anime [\/i]Floral Savior[i], and a little too often he would sit .......","username":"Meesh","lower":"meesh","avatar_mtime":"1541452731"},"39740724":{"title":"Lucky Lady","description":"This month's Patreon Draw! Feat. Lady!\r\nI'm actually pretty pleased with this one\r\nHope you like it!\r\n\r\npatreon.com\/bluecoffeedog","username":"son-of-liberty","lower":"son-of-liberty","avatar_mtime":"1424255659"},"39647371":{"title":"I May Not Be Flapper Girl But..","description":"Experimental Patreon Reward for @ManickBlush on twitter \u2728\r\n\r\nIf u want a drawing like this, you are welcome to be part of  &quot;Crazy Katx Lab&quot; Tier \u2728\r\n\r\nhttps:\/\/patreon.com\/KatxFish\r\n\r\nhttps:\/\/twitter.com\/KatxLogan\/status\/1310983040542408707?s=20","username":"KatxLogan","lower":"katxlogan","avatar_mtime":"1502425055"},"39635207":{"title":"Not Again","description":"It's been a while since Canvas got tangled up in ribbons\r\nI remember when that was a tradition around here","username":"Mewgle","lower":"mewgle","avatar_mtime":"1466633086"},"39609805":{"title":"Femdom Gift","description":"Looks like San couldn't wait for Christmas to give me her present ^^\u201d\r\nThis amazing girl has a hidden dominant side, with a passion for Plugs and Strapon heheeh!!\r\nIt all started with:\r\n\r\nMalc: Hey I got an idea, what do you think about.....\r\nSan: Oh hush..... silly, let me do everything and shut up!! &gt;:3\r\n\r\nArtwork and San belongs to my friend and very kind :gotikamaamakitogicon:\r\nMalcolm belon .......","username":"AppleLover22","lower":"applelover22","avatar_mtime":"1597123812"},"39597255":{"title":"Gromp","description":"At one point i decided i wanted grumpy Nel in a teacup. Anyway :IconKitty_Silence: obliged and made her super cute and super frumpy.","username":"Versuvius","lower":"versuvius","avatar_mtime":"1563140187"},"39533733":{"title":"Entranced","description":"This amazing art was done by :iconfauxpawe: and I love how they showed :iconzen~: and me, :iconrenyard2001: being reprogramed to be lovely, obedient pets.\r\n\r\nMy wonderful :iconzen~: wrote a small story on his upload here: https:\/\/www.furaffinity.net\/view\/39503825\/","username":"Renyard2001","lower":"renyard2001","avatar_mtime":"1599424950"},"39504473":{"title":"Hypnovember 9 Collar","description":"[i]Wake[\/i]. \n\n[i]What the?  What just happened?[\/i] You're alone and everything seems foggy, off.  You feel an unfamiliar weight and warmth around your neck and collar.. and quickly realize what it is.  It's a collar, of course, but you can't really tell what it looks like or where it came from.\n\nYou give it a firm tug, feeling around it's perimiter, there's no latch or markings, save for the a h .......","username":"Kaittycat","lower":"kaittycat","avatar_mtime":"1424255659"},"39497083":{"title":"RUz Fathom-flying page 18\/50","description":"hmm so looks like NIMIVIZE DRAGON have a bad history?\r\n\r\nnext page will be the new characters names.\r\n\r\nif you like to support and see the latest pages you can go here&gt;&gt;&gt;\r\n\r\nhttps:\/\/www.patreon.com\/RUZarptag\r\n\r\nfor now its pay what you think the worth.","username":"RUdragon","lower":"rudragon","avatar_mtime":"1424255659"},"39489389":{"title":"Hypnovember 8 Pheromone","description":"This one featuring my friend JenJen's goodra-plant character, her pheromones making Kaitty cum their brains out over and over and over and over~  I really had fun making the expression on this one.. &lt;3  This might be one of my favorite for the month.\n\n[url=https:\/\/www.patreon.com\/Kaittycat]See art sooner &amp; support me on Patreon[\/url]","username":"Kaittycat","lower":"kaittycat","avatar_mtime":"1424255659"},"39436562":{"title":"Failed Hunt - Pt. 2","description":"[I]It had been several months since his capture, the seasons having since shifted through the fall and into winter, and the wolf was beginning to accept his new place in life. Any thought of reisistance was quelled early on upon seeing how unruly, untrainable pets were dealt with- the plush lupine pelt's soft fur between his fingers proved an effective reminder to be on his best behaviour at all t .......","username":"ruaidri","lower":"ruaidri","avatar_mtime":"1608623950"},"39423638":{"title":"Hypnovember 5 Visor","description":"Getting down to that state where pleasure is obedience and obedience is pleasure and touching is obedience and pleasure, you just can't stop.. don't wanna stop.. don't wanna let it end.. keep yourself at the edge, listen, obey, shudder with bliss~\n\n[url=https:\/\/www.patreon.com\/Kaittycat]See art sooner &amp; support me on Patreon[\/url]","username":"Kaittycat","lower":"kaittycat","avatar_mtime":"1424255659"},"39307708":{"title":"Struggling | Mudkipz","description":"Sometimes one person is squirming more than the other~\r\n\r\nCaptive Kip and Sobble boi (c) :iconmudkipz9:\r\nPokemon (c) Nintendos","username":"PeskyBatfish","lower":"peskybatfish","avatar_mtime":"1561569011"},"39291904":{"title":"Rub One Out","description":"in the pale moon light\r\nespecially weird when it's supposed to be much darker than that, moonlight isn't that bright but whatever","username":"Mewgle","lower":"mewgle","avatar_mtime":"1466633086"},"39281099":{"title":"Horny Forest Creature","description":"Sen is one of those things","username":"Mewgle","lower":"mewgle","avatar_mtime":"1466633086"},"39256743":{"title":"RUz Fathom-flying page 16\/50","description":"DOOM!!!\r\n\r\nhope you like the new characters.\r\n\r\nso are they good or bad?\r\n\r\nif you like to support and see the latest pages you can go here&gt;&gt;&gt;\r\n\r\nhttps:\/\/www.patreon.com\/RUZarptag\r\n\r\nfor now its pay what you think the worth.","username":"RUdragon","lower":"rudragon","avatar_mtime":"1424255659"},"39127152":{"title":"HypNovember Day 8: Pheromone","description":"Today\u2019s prompt for :iconflugymalugy:!\r\n\r\nThe poor adventurer realized he\u2019d walked into a trap as the door fell shut behind him, a pink haze quickly filling the room. He tried desperately to find a way out as that floral scent steadily wafted in... Perhaps... he didn\u2019t need to find an escape... The room seemed safe enough. Why not rest... and take a load off~?","username":"Fauxpawe","lower":"fauxpawe","avatar_mtime":"1600560361"},"39210042":{"title":"feel good","description":"soft good\r\nthis isn't anything special hh","username":"Mewgle","lower":"mewgle","avatar_mtime":"1466633086"},"38616005":{"title":"Kinktober 6","description":"who needs ribs when you have beauty \r\nhis crown says BABYSLUT and I'm incredibly proud of it\r\n\r\n_________\r\nPrompt List\r\nhttps:\/\/www.furaffinity.net\/view\/38481159\/","username":"snail3n","lower":"snail3n","avatar_mtime":"1585230959"},"25291810":{"title":"Pet :3","description":"By :huskyfogicon:","username":"White_Gothic_Cat","lower":"whitegothiccat","avatar_mtime":"1471591616"},"30179258":{"title":"Extra Discipline - for Yuki","description":"A good mistress knows how to take care of a good pet. Mirage also seems to be very...creative when she wants Yuki to assume the proper position. &lt;3\r\n\r\nThank you to Yuki and your influences for giving me such a fun scenario to illustrate! I'm probably too proud of the tape, it's something I'll definitely have to practice more now that I feel like I'm getting a better handle on it. Not to mention, t .......","username":"PeskyBatfish","lower":"peskybatfish","avatar_mtime":"1561569011"},"24070427":{"title":"Well Trained - 2","description":"Alternate, slightly kinkier version of this YCH ;3 Character belongs to :iconRimeFox:.","username":"SabretoothedErmine","lower":"sabretoothedermine","avatar_mtime":"1523384646"},"39171637":{"title":"A Good Boy","description":"At times Zen likes to surpise his boyfriend by waiting for him to come home for some [i]playtime[\/i]. He also gets to be a floofy coyote for his alpha...\r\n\r\n\r\n________________________________________________________________________________________________________________________________________\r\n\r\nThis is a very cheeky story featuring :iconzen~: and myself\r\n\r\nThis is my  tenth story for HypNovembe .......","username":"Renyard2001","lower":"renyard2001","avatar_mtime":"1599424950"},"39147796":{"title":"The Frozen Forest","description":"You feel the panic swelling in your veins and you need to calm down. you need to take back control. You need to head into the frozen forest.\r\n\r\n\r\n________________________________________________________________________________________________________________________________________\r\n\r\nThis is  a very personal piece for me as I've suffered a few panic attacks in my life so it was therapeutic to wri .......","username":"Renyard2001","lower":"renyard2001","avatar_mtime":"1599424950"},"39147395":{"title":"Aromatic","description":"Vigal comes back home and notices his roomate Avig is wearing a new perfume, but is unaware og the side effects of echanced dragon musk\r\n\r\nVigal belongs to :iconzanteri: It was fun working with his character\r\n\r\n________________________________________________________________________________________________________________________________________\r\n\r\n\r\nThis is my eighth story for HypNovember based o .......","username":"Renyard2001","lower":"renyard2001","avatar_mtime":"1599424950"},"39067294":{"title":"The Simpler, The Better","description":"Zorra loves using pendulums to hypnotise her boyfriend. It's easy to do and she gets to take charge for a while...\r\n\r\n________________________________________________________________________________________________________________________________________\r\n\r\n\r\nThis is my sixth story for HypNovember based on Fauxpawe's prompt list here: https:\/\/www.furaffinity.net\/view\/38736621\/\r\n\r\nThe prompt is 'Pe .......","username":"Renyard2001","lower":"renyard2001","avatar_mtime":"1599424950"},"39052290":{"title":"A Fox Burrowing into the Rabbit Hole","description":"The Rabbit Hole is a club that catered to rubbery needs, one that Ace wanted to work in! the only problem is that they don't advertise their available positions but a dragon will help him serve the Rabbit Hole's Master...\r\n\r\nThis story is for :icongaacmee: Or better known as Ace! His marble fox belongs to him.\r\n\r\n_____________________________________________________________________________________ .......","username":"Renyard2001","lower":"renyard2001","avatar_mtime":"1599424950"},"39190800":{"title":"&quot;I don't usually do this, but...&quot; - YCH auction!","description":"[b]\r\nA few quick rules:\r\n\r\n- The slots in this piece will be auctioned off separately!\r\n\r\n- SB: US$50 per slot\r\n- $5 minimal bid increment\r\n\r\n- The auction will end on 18th November, 8pm Pacific Time.\r\n\r\n- Full payment via Paypal will be expected soon after the auction closes - please have the money on hand when you bid!\r\n[\/b]\r\n\r\nOther notes on this drawing:\r\n\r\n- The female slot must have breasts  .......","username":"nuzzo","lower":"nuzzo","avatar_mtime":"1584854296"},"39176416":{"title":"Akki (WS)","description":"for :iconAkkiria:","username":"RedFeatherStorm","lower":"redfeatherstorm","avatar_mtime":"1530142643"},"39169373":{"title":"Choker","description":"hot neck pics","username":"Mewgle","lower":"mewgle","avatar_mtime":"1466633086"},"39164392":{"title":"The Temple~","description":"Commission for :iconbrokenglaz: and :icondragonzeye:\r\n\r\nOriginal sketch:\r\n\r\nhttps:\/\/furaffinity.net\/view\/36343629\/\r\n\r\nHope you like it!~","username":"Zeiro","lower":"zeiro","avatar_mtime":"1427324860"},"39145379":{"title":"Party (Bonus)","description":"This is part of an incomplete series that I wasn't really satisfied with, but I figure I might as well throw it up here anyway!","username":"Twang","lower":"twang","avatar_mtime":"1424255659"},"39145973":{"title":"Milked Birb","description":"Just a crop of the last panel of my latest comic page, featuring :iconJykinturah:. Wanted to wait and make sure they liked the full comic before doing this!\r\n\r\nI thought someone out there might be interested in a blown up version of just this panel. Personally, while a little comic backstory can add some fun spices to a smutty picture, I find that once I've seen that backstory I kinda don't need i .......","username":"ruaidri","lower":"ruaidri","avatar_mtime":"1608623950"},"39137768":{"title":"Quality Assurance","description":"A lucky birb lends Nidhala a helping hand on finishing up her latest machine, only to find out he's also going to be the first to test it out! \r\n\r\nA one page comic commission thingy for :iconJykinturah:\r\n\r\nI hope ya'll still like it now that there's colours on it! A little messy in places due to being so smaaaall, the characters in the third panel in their entirety are like the size of my thumb, k .......","username":"ruaidri","lower":"ruaidri","avatar_mtime":"1608623950"},"39117031":{"title":"Status: Charmed","description":"I'm doing Hypnovember!  This pic was done in October so it's just a bonus pic.  I'm all caught up so there's currently 9 days of hypno art to see on my Patreon right away!  I'll be posting them publicly after a month or two delay as well.\n\n[url=https:\/\/www.patreon.com\/Kaittycat]Join my discord, see art sooner &amp; support me on Patreon[\/url]","username":"Kaittycat","lower":"kaittycat","avatar_mtime":"1424255659"},"39099621":{"title":"whip","description":"Bet he's gonna love it!\r\n[url=https:\/\/twitter.com\/AgdResident][color=orange] &gt;&gt;&gt;check my twitter for sketches and WIPs&lt;&lt;&lt;[\/color][\/url]","username":"Resident_AGD","lower":"residentagd","avatar_mtime":"1533926732"},"39092504":{"title":"In a dark alley [CM]","description":"[center]\r\n[sub][color=Ghostwhite]Done for[\/color][\/sub]\r\n:SaamuelSylvestericon:\r\n\r\n------\r\n[sub][color=Ghostwhite]Art by me (c) soroka-ne-soroka[\/color]\r\n\r\nThank you for favs and comments!\r\n[url=https:\/\/trello.com\/b\/ih2fgsnU\/work]Trello[\/url] | [url=https:\/\/ko-fi.com\/bobchik]KO-FI![\/url] | [url=https:\/\/twitter.com\/kdsnkbob]Twitter[\/url][\/sub]\r\n\u2665\r\n\r\n\r\n\r\n[\/center]","username":"soroka-ne-soroka","lower":"soroka-ne-soroka","avatar_mtime":"1605564387"},"39093925":{"title":"Dragged Off | GameGod210","description":"Sharpfury's been busy this time: one trip into the forest and he's already caught two members of the wildlife!\r\n\r\nHad a ton of fun with this piece since damsel-in-distress scenes make me weak in the heart. Them scenarios are so charming~ \/ u \\\r\n\r\nSharpfury (c) :iconGameGod210:\r\nDuraBelle (c) :iconinvincibunny:\r\nStormwave (c) :iconstormwave:","username":"PeskyBatfish","lower":"peskybatfish","avatar_mtime":"1561569011"},"39068297":{"title":"Best Hoodie -nsfw-","description":"The version where Nyn decided he didn't need undies! Enjoy! The panties version is here: https:\/\/www.furaffinity.net\/view\/39068164\/\r\n\r\nNyn belongs to :iconstarblaze271:\r\n\r\n[url=https:\/\/www.patreon.com\/punkpega]Support me on PATREON[\/url] | [url=https:\/\/twitter.com\/PunkPegasusArt]Twitter[\/url] | [url=http:\/\/punk-pegasus.tumblr.com\/]Tumblr[\/url] | [url=https:\/\/www.deviantart.com\/punk-pegasus]Deviant .......","username":"FlyerMiles","lower":"flyermiles","avatar_mtime":"1589256633"},"39051766":{"title":"huff","description":":3\r\n[url=https:\/\/twitter.com\/AgdResident][color=orange] &gt;&gt;&gt;check my twitter for sketches and WIPs&lt;&lt;&lt;[\/color][\/url]","username":"Resident_AGD","lower":"residentagd","avatar_mtime":"1533926732"},"39043903":{"title":"RUz Fathom-flying page 14\/50","description":"o boi mako what you do?\r\n\r\n\r\nif you like to support and see the latest pages you can go here&gt;&gt;&gt;\r\n\r\nhttps:\/\/www.patreon.com\/RUZarptag\r\n\r\nfor now its pay what you think the worth.","username":"RUdragon","lower":"rudragon","avatar_mtime":"1424255659"},"39003863":{"title":"HypNovember Day 2: Coil","description":"Time for Day 2 of HypNovember! Today we\u2019ve got :iconlastelixir: \u2018s goo snake mesmerizing Senty\u2019s handsome cat while winding him up nice and tight with coil after coil~\r\n\r\nWant to see my work a month early? Support me on Patreon for $5 to join my Discord server to see my work before it hits Twitter and FA! https:\/\/www.patreon.com\/fauxpawe","username":"Fauxpawe","lower":"fauxpawe","avatar_mtime":"1600560361"},"39018780":{"title":"Chris ropework (blindfold)","description":"For  Chris :iconmvpxchris: ^^\r\n&gt;&gt;&gt;[url=https:\/\/www.furaffinity.net\/view\/39018739\/][color=orange]no blindfold version[\/color][\/url]&lt;&lt;&lt;\r\n[url=https:\/\/twitter.com\/AgdResident][color=orange] &gt;&gt;&gt;check my twitter for sketches and WIPs&lt;&lt;&lt;[\/color][\/url]","username":"Resident_AGD","lower":"residentagd","avatar_mtime":"1533926732"},"39020156":{"title":"Island boyfriends","description":"Lazy + jock = perfect","username":"GLITTER-TRAP-BOY","lower":"glitter-trap-boy","avatar_mtime":"1605789683"},"38990603":{"title":"Finally Home - 08","description":"Page 8 of Finally Home","username":"Kayla-Na","lower":"kayla-na","avatar_mtime":"1596685088"},"38986063":{"title":"Too Much of a Good Thing","description":"You know it's not easy staying productive when you're cooped up in a lab all alone trying to do science! If only there was a way I could get some help with this work, then I could finally have some time to kick back and relax!\r\n\r\nJust a short story this time, wanted to challenge myself a little to see what I could pack into a little scene like this.","username":"oreos","lower":"oreos","avatar_mtime":"1424255659"},"25189508":{"title":"C: &quot;A Brand New You&quot;  - Altrus Becomes Newlyn","description":"This is a companion piece for the story I commissioned entitled &quot;A Brand New You&quot;, which can be found here:\r\nhttp:\/\/www.furaffinity.net\/view\/25189450\/\r\n\r\nThis scene takes place on pages 6-8 of the story in which Altrus, after entering a translucent pod and a little warping of reality, becomes the snow leopard Newlyn complete with a fresh coat of latex!\r\n\r\nStory was done by :iconserathin:\r\nArt was  .......","username":"Spikester","lower":"spikester","avatar_mtime":"1536854874"},"38937187":{"title":"The Long Way Home (Knotted\/Cum)~","description":"Cummy finish of the previous pic!\r\n\r\nGear to me\r\n\r\nSleepy to :sleepylpicon:\r\n\r\nArt to :jailbirdicon:","username":"Foxgear","lower":"foxgear","avatar_mtime":"1541382543"},"38985192":{"title":"Bring them up!","description":"It\u2019s time for the big reveal of our nightclub\u2019s newest property~\r\nFor strayb0t on Twitter, thank you &lt;3","username":"bassenji","lower":"bassenji","avatar_mtime":"1575140368"},"38984724":{"title":"Compliant Cargo","description":"Another prized collectible shipped to a collector- this one has already undergone the required training, and is very happy to receive any sort of attention.\r\nFor @@ParadoxicalOtter , thank you!","username":"bassenji","lower":"bassenji","avatar_mtime":"1575140368"},"38976618":{"title":"Merry Halloween!","description":"Another costume pic, more fleshed out this time! Gave the pair a chance to cosplay some shiny costumes, I'm sure most of you can guess their origins since I'm such a basic bitch as far as entertainment~","username":"PeskyBatfish","lower":"peskybatfish","avatar_mtime":"1561569011"},"38974730":{"title":"Finally Home - 07","description":"Finally Home page 7","username":"Kayla-Na","lower":"kayla-na","avatar_mtime":"1596685088"},"38976911":{"title":"Ready to be Used","description":"Malc was invited to some friends' house on a saturday night, they had in mind a special treatment for him. Everyone knows his \u201cpassion\u201d for bondage, and that he his a 100% submissive boy ^^\u201d\r\nBut he didn't expect it to end like this, he thought he was smoking and having a good time with his friends in other ways but...... it didn\u2019t happen XD\r\nWell bound to a chair in a locker room, blindfo .......","username":"AppleLover22","lower":"applelover22","avatar_mtime":"1597123812"},"38980650":{"title":"201004 2 Soccer","description":"More scribbles and sketches to peruse! Check them out!\n\nAnimancer 2020 Sketches: [url=https:\/\/www.dropbox.com\/sh\/jifaqne3msxx21h\/AAAUn18-1BY33LMpzgdD0hBua?dl=0]https:\/\/www.dropbox.com\/sh\/jifaqne3.....zgdD0hBua?dl=0[\/url]\nAnimancer 2019 Sketches: [url=https:\/\/www.dropbox.com\/sh\/l01cm1yhszyxv4g\/AAC5DNMRicgjPbtbuo9c1QSZa?dl=0]https:\/\/www.dropbox.com\/sh\/l01cm1yh.....uo9c1QSZa?dl=0[\/url]\nAnimancer 2018 .......","username":"Animancer","lower":"animancer","avatar_mtime":"1430806033"},"38980434":{"title":"Goo Gals","description":"I forgot to post this one??? Busy month I guess.\n\nHarzipan's a good friend and likes to share all the best and gooiest experiences.\n\n[url=https:\/\/www.patreon.com\/Animancer]https:\/\/www.patreon.com\/Animancer[\/url]","username":"Animancer","lower":"animancer","avatar_mtime":"1430806033"},"38973330":{"title":"Halloween Free Sketch -Draegonis","description":"[center]Freebie for the Halloween Stream! \n \nTheme of &quot;Chilling!&quot;[\/center]\n\n[url=http:\/\/www.postybirb.com]Posted using PostyBirb[\/url]","username":"Keishinkae","lower":"keishinkae","avatar_mtime":"1557997069"},"38964995":{"title":"Treat Yourself","description":"My doe girl has set up a little scenario where the local trick-or-treaters can come by and help themselves. She's sticking around to enjoy the show, though!\r\n\r\nThis is this month's patreon voted painting, a fun little idea! The main idea was a sort of inverse of [URL=https:\/\/www.furaffinity.net\/view\/29230161\/]this picture[\/URL], where instead of going door to door serving people there's a setup wh .......","username":"ruaidri","lower":"ruaidri","avatar_mtime":"1608623950"},"38961151":{"title":"Club Time","description":"Just me Huggles at the club and ready to have some fun *blushes*\r\n\r\nThis picture was done by :icononta:","username":"Hugglesthebunbun","lower":"hugglesthebunbun","avatar_mtime":"1534431646"}};
+</script>
+
+    </div>
+    <!-- /<div id="site-content"> -->
+
+
+
+    <div id="footer">
+        <div class="auto_link footer-links">
+            <strong>&copy; 2005-2020 IMVU</strong>
+            <span class="hideonmobile">
+                |
+                <a href="/advertising.html">Advertise</a> |
+                <a href="/tos">Terms of Service</a> |
+                <a href="/privacy">Privacy</a> |
+                <a href="/coc">Code of Conduct</a> |
+                <a href="/aup">Upload Policy</a>
+            </span>
+        </div>
+
+        <div class="ads">
+            
+<div class="ad-footer">
+    <div class="ad-block-footer-container inline">
+        <div class="ad-block-300x200  hidelargeformatmobile">
+            <span data-id="footer_left" class="ad_slot hidden"></span>
+        </div>
+    </div>
+
+    <div class="ad-block-footer-container inline">
+        <img class="fa-logo" src="/themes/beta/img/banners/fa_logo_20191231.png">
+    </div>
+
+    <div class="ad-block-footer-container inline">
+        <div class="ad-block-300x90">
+            <div data-id="footer_right_top"    class="ad_slot hidden spacer"></div>
+            <div data-id="footer_right_bottom" class="ad_slot hidden"></div>
+        </div>
+    </div>
+</div>
+        </div>
+
+                    <div class="online-stats">
+                45641                <strong><span title="Measured in the last 900 seconds">Users online</span></strong> &mdash;
+                1315 <strong>guests</strong>,
+                                    14450 <strong>registered</strong>
+                    and 29876 <strong>other</strong>
+                                <!-- Online Counter Last Update: Fri, 25 Dec 2020 12:15:25 -0800 -->
+          </div>
+          <small>Limit bot activity to periods with less than 10k registered users online.</small>
+        
+        <div class="footnote">
+            Server Time: Dec 25, 2020 12:15 PM        </div>
+    </div>
+
+
+
+
+</div>
+<!-- <div id="main-window"> -->
+
+<!--
+    Server Local Time: Dec 25, 2020 12:15 PM    <br />
+    Page generated in 0.02 seconds [ 19.8% PHP, 80.2% SQL ] (23 queries)    -->
+
+
+
+
+    <script type="text/javascript">
+        _fajs.push(function() {
+            var exists = getCookie('sz');
+            var saved = save_viewport_size();
+            if((!exists && saved) || (exists && saved && exists != saved)) {
+                //window.location.reload();
+            }
+        });
+    </script>
+    <script type="text/javascript" src="/themes/beta/js/script.js?u=2020112200"></script>
+    <script type="text/javascript">
+        var server_timestamp = 1608927353;
+        var client_timestamp = ((new Date()).getTime())/1000;
+        var server_timestamp_delta  = server_timestamp - client_timestamp;
+        var sfw_cookie_name = 'sfw';
+        var news_cookie_name = 'n';
+        
+        (function(conf,w,d){
+            
+            var slots=d.getElementsByClassName('ad_slot');
+            if(!slots.length){return;}
+
+            
+            var ads={fa:[],gpt:[],cpmstar:[]},hidden=0;
+            var is_small_screen=(w.innerWidth||d.documentElement.clientWidth||d.body.clientWidth)<720;
+            for(var i=0,name,cfg;i<slots.length;i++){
+                name=slots[i].getAttribute('data-id');
+                if(name&&conf[name]){
+                    cfg=conf[name];
+                    if(cfg.hasOwnProperty('mobile')){
+                        cfg=cfg[is_small_screen?'mobile':'desktop'];
+                    }
+                    ads[conf[name].type].push({
+                        name:name,
+                        ref:slots[i],
+                        zone:cfg.zone,
+                        size:cfg.size
+                    });
+                    slots[i].className+=' ad_size_'+cfg.size.join('x');
+                    continue;
+                }
+                hidden++;
+                slots[i].className+=' hidden';
+            }
+            console.log('[%s] embedding %d gpt, %d fa, %d cpmstar, and hiding %d orphan ad slots',is_small_screen?'mobile':'desktop',ads['gpt'].length,ads['fa'].length,ads['cpmstar'].length,hidden);
+
+            if(ads['gpt'].length){
+                (function(ad_data,w,d){
+                                        var confiantCdn = 'clarium.global.ssl.fastly.net';
+                    w._clrm = w._clrm || {};
+                    w._clrm.gpt = {
+                        propertyId: 'wkM5y-p1tK2DtmpVlFCiTs7gbNo',
+                        confiantCdn: confiantCdn,
+                        sandbox: 0,
+                        mapping: 'W3siaSI6MiwidCI6Int7b319Ont7d319eHt7aH19IiwicCI6MCwiRCI6MSwiciI6W119LHsiaSI6NiwidCI6Int7Y299fTp7e3d9fXh7e2h9fSIsInAiOjUwLCJEIjowLCJyIjpbeyJ0IjoiZXgiLCJzIjpudWxsLCJ2IjoiY28ifV19XQ==',
+                        activation: '',
+                        callback: function(blockingType, blockingId, isBlocked, wrapperId, tagId, impressionData) {
+                            console.log("[confiant] bad ad removed: %o", arguments);
+                        }
+                    };
+                    _loadjs('//'+confiantCdn+'/gpt/a/wrap.js?v2_1',null,true);
+
+
+                                        _loadjs('https://securepubads.g.doubleclick.net/tag/js/gpt.js',null,true);
+
+                    w.googletag=w.googletag||{};
+                    w.googletag.cmd=w.googletag.cmd||[];
+                    w.googletag.cmd.push(function(){
+                        w.googletag.pubads().disableInitialLoad();
+                        w.googletag.pubads().setSafeFrameConfig({sandbox:true});
+                        w.googletag.pubads().enableSingleRequest();
+                        w.googletag.pubads().collapseEmptyDivs();
+                        for(var i=0,ad;i<ad_data.length;i++){
+                            ad=ad_data[i];
+                            ad.ref.id='gpt-ad-'+i;
+                            w.googletag.defineSlot(ad.zone,ad.size,ad.ref.id).addService(w.googletag.pubads());
+                        }
+                        w.googletag.enableServices();
+                    });
+                    w.googletag.cmd.push(function(){
+                        for(var i=0,ad;i<ad_data.length;i++){
+                            w.googletag.display(ad_data[i].ref.id);
+                        }
+                    });
+
+
+                                        !function(a9,a,p,s,t,A,g){if(a[a9])return;function q(c,r){a[a9]._Q.push([c,r])}a[a9]={init:function(){q("i",arguments)},fetchBids:function(){q("f",arguments)},setDisplayBids:function(){},targetingKeys:function(){return[]},_Q:[]};A=p.createElement(s);A.async=!0;A.src=t;g=p.getElementsByTagName(s)[0];g.parentNode.insertBefore(A,g)}("apstag",w,d,"script","//c.amazon-adsystem.com/aax2/apstag.js");
+
+                    //initialize the apstag.js library on the page to allow bidding
+                    w.apstag.init({
+                        pubID: 'd0d5e9e2-1fb3-4d76-bf29-3dab80b52fea',
+                        adServer: 'googletag'
+                    });
+                    var slots = [];
+                    for(var i=0,ad;i<ad_data.length;i++){
+                        ad=ad_data[i];
+                        slots.push({
+                            slotID: 'gpt-ad-'+i,
+                            slotName: ad.zone,
+                            sizes: [ad.size]
+                        });
+                    }
+                    w.apstag.fetchBids({
+                        slots: slots,
+                        timeout: 2e3
+                    }, function(bids) {
+                        // set apstag targeting on googletag, then trigger the first DFP request in googletag's disableInitialLoad integration
+                        w.googletag.cmd.push(function(){
+                            w.apstag.setDisplayBids();
+                            w.googletag.pubads().refresh();
+                        });
+                    });
+                }(ads['gpt'],w,d));
+            }
+
+            
+            if(ads['fa'].length){
+                (function(ad_data,w,d){
+                    var rv_ids =[];
+                    for(var i=0;i<ad_data.length;i++){if(rv_ids.indexOf(ad_data[i].zone)===-1){rv_ids.push(ad_data[i].zone);}}
+                    var rv_url=_faurl.r+'/live/www/delivery/spc.php?zones='+(rv_ids.join('|'))+'&r='+((new Date()).getTime());
+                    try{
+                        if(w.location){rv_url+='&loc='+escape(w.location);}
+                        if(d.referrer){rv_url+='&referer='+escape(d.referrer);}
+                    }catch(e){}
+                    _loadjs(rv_url,function(){
+                        try{
+                            if(typeof w.OA_output==='undefined'){return;}
+                            for(var i=0,tmp,ad;i<ad_data.length;i++){
+                                ad=ad_data[i];
+                                tmp=w.OA_output[ad.zone];
+                                if(!tmp){continue;}
+                                ad.ref.innerHTML=tmp.replace(/https?:\/\/rv\./g,'//rv.');
+                                ad.ref.className=ad.ref.className.replace('hidden','');
+                            }
+                        }catch(e){}
+                    },true);
+                }(ads['fa'],w,d));
+            }
+
+            
+            if(ads['cpmstar'].length){
+                //
+                (function(ad_data,w,d){
+                    // init
+                    ad_data = ad_data[0];
+                    var tmp = ad_data['zone'].split('|', 2);
+                    var zone = tmp[0];
+                    var pid = tmp[1];
+
+                    //
+                    (function(zonefile,w,d) {
+                        var y = w.location.href.split('#')[0].split('').reduce(function(a, b) {
+                            return (a << 5) - a + b.charCodeAt(0) >>> 1
+                        }, 0);
+                        y = (10 + ((y * 7) % 26)).toString(36) + y.toString(36);
+                        var drutObj = w[y] = w[y] || {};
+
+                        function failCpmstarAPI() {
+                            var failFn = function(o) {
+                                o && typeof(o) === "object" && o.fail && o.fail();
+                            };
+                            drutObj && Array.isArray(drutObj.cmd) && drutObj.cmd.forEach(failFn) && (drutObj.cmd.length = 0);
+                            w.cpmstarAPI = w["_" + zonefile] = failFn;
+                        }
+                        var rnd = Math.round(Math.random() * 999999);
+                        var s = d.createElement('script');
+                        s.type = 'text/javascript';
+                        s.async = true;
+                        s.onerror = failCpmstarAPI;
+                        var host = "play.furaffinity.net";
+                        if (w.location.hash == "#urlzing") {
+                            host = "//staging.urlzing.com";
+                        }
+                        s.src = "//" + host + "/" + zonefile + "?rnd=" + rnd;
+                        var s2 = d.getElementsByTagName('script')[0];
+                        s2.parentNode.insertBefore(s, s2);
+                        w.cpmstarAPI = w["_" + zonefile] = function(o) {
+                            (drutObj.cmd = drutObj.cmd || []).push(o);
+                        }
+                    }(zone,w,d));
+
+                    // zone tag
+                    (function(pid,slot,w) {
+                        var r = function(c, m) {
+                                c = c.split('').reduce(function(a, b) {
+                                    return (a << 5) - a + b.charCodeAt(0) >>> m
+                                }, 0);
+                                return (10 + ((c * 7) % 26)).toString(36) + c.toString(36);
+                            },
+                            y = r(w.location.href.split('#')[0], 1),
+                            c = r(w.location.href.split('#')[0] + pid, 0);
+
+                        slot.className=slot.className.replace('hidden','') + ' ' + c;
+                    })(pid,ad_data['ref'],w);
+
+
+                    // api
+                    cpmstarAPI({
+                        kind: 'go',
+                        module: 'anchor'
+                    });
+
+                    //
+                }(ads['cpmstar'],w,d));
+            }
+            //
+        }({"header_middle":{"desktop":{"size":[728,90],"zone":11},"mobile":{"size":[300,90],"zone":19},"type":"fa"},"above_content":{"desktop":{"size":[728,90],"zone":15},"mobile":{"size":[300,90],"zone":17},"type":"fa"},"sidebar":{"size":[300,200],"zone":13,"type":"fa"},"footer_left":{"size":[300,200],"zone":10,"type":"fa"},"footer_right_top":{"size":[300,90],"zone":5,"type":"fa"},"footer_right_bottom":{"size":[300,90],"zone":6,"type":"fa"},"sidebar_top":{"size":[300,90],"zone":2,"type":"fa"},"sidebar_bottom":{"size":[300,90],"zone":4,"type":"fa"}},window,document));
+    </script>
+
+    <script type="text/javascript">
+        _fajs.push(function() {
+            var ddmenuOptions = {
+                menuId: "ddmenu",
+                linkIdToMenuHtml: null,
+                open: "onmouseover", // or "onclick"
+                delay: 1,
+                speed: 1,
+                keysNav: true,
+                license: "2c1f72"
+            };
+            var ddmenu = new Ddmenu(ddmenuOptions);
+        });
+    </script>
+
+
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+    if(Math.random() < 0.25) {
+        (function() {
+            var _paq = window._paq = window._paq || [];
+            var u='https://matomo.furaffinity.net/';
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            _loadjs(u+'matomo.js',null,true);
+        })();
+    }
+    </script>
+    <!-- End Matomo Code -->
+</body>
+
+<!---
+  |\ /|
+ /_^ ^_\
+   \v/
+
+The fox goes "moo!"
+--->
+
+</html>
