@@ -6,8 +6,11 @@ update-deps:
 
 install:
 	pip install --upgrade pip setuptools wheel
-	pip install --upgrade -r requirements.txt  -r dev-requirements.txt
+	pip install --upgrade -r requirements.txt
 	pip install --editable .
+
+dev-install:
+	pip install --upgrade -r dev-requirements.txt
 
 init:
 	pip install pip-tools
@@ -26,7 +29,7 @@ clean-pyc: ## Remove python artifacts.
 
 clean-build: ## Remove build artifacts.
 	find . -name '*.egg-info' -exec rm -fr {} +
-	find . -name '*.egg' -exec rm -f {} +
+	find . -name '*.egg' -exec rm -fr {} +
 
 clean-test: ## Remove test artifacts
 	rm -fr .tox/
