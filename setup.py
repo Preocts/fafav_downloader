@@ -6,7 +6,7 @@ from setuptools import setup
 
 setup(
     name='fafav_downloader',
-    version='0.0.1',
+    version='1.0.1',
     license='GNU General Public License',
     description='Download FA favorites by username',
     author='Preocts',
