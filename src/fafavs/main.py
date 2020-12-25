@@ -30,6 +30,7 @@ def throttle_speed(seconds: int) -> Callable:
         while time.time() - set_time < wait_atleast:
             pass
         return None
+
     return inner_throttle
 
 
