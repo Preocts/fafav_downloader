@@ -47,6 +47,8 @@ def main() -> int:
             renamed = str(f).replace(name_type, true_type)
             os.rename(f, renamed)
         prog_bar.next()
+
+    print("\n\nEnd of Line.\n \033[?25h")
     return 0
 
 
