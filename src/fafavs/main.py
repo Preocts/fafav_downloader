@@ -8,13 +8,29 @@ Author: Preocts <preocts@preocts.com>
 """
 import re
 import sys
+import time
 import shutil
 import pathlib
 
 from typing import List
+from typing import Callable
 
 import requests
 from progress.bar import Bar
+
+
+def throttle_speed(seconds: int) -> Callable:
+    """ Throttling closure """
+    wait_atleast = seconds
+    set_time = time.time()
+
+    def inner_throttle() -> None:
+        nonlocal wait_atleast
+        nonlocal set_time
+        while time.time() - set_time < wait_atleast:
+            pass
+        return None
+    return inner_throttle
 
 
 def spoof_header() -> dict:
@@ -116,6 +132,7 @@ def gather_download_links(username: str) -> List[str]:
             favorite_links = []
     download_links = []
     while run_loop:
+        checkthrottle = throttle_speed(1)
         print(f"Fetching favorite page: {url}")
         page_body = read_page(url)
         fav_links = parse_favorite_links(page_body)
@@ -138,6 +155,7 @@ def gather_download_links(username: str) -> List[str]:
         url = url + next_link
         save_list_file(username, "favorite_links", favorite_links)
         save_list_file(username, "download_links", download_links)
+        checkthrottle()
     return download_links
 
 
@@ -152,6 +170,7 @@ def download_favorite_files(username: str, link_list: list) -> None:
     prog_bar = Bar("Downloading", max=len(link_list))
 
     for link in link_list:
+        checkthrottle = throttle_speed(1)
         prog_bar.next()
         if link in downloads:
             continue
@@ -166,6 +185,7 @@ def download_favorite_files(username: str, link_list: list) -> None:
         with open(f"./{username}_downloads/" + filename, "wb") as out_file:
             shutil.copyfileobj(response.raw, out_file)
         del response
+        checkthrottle()
     with open(f"{username}_downloaded_list", "w") as f:
         f.write("\n".join([i for i in downloads if i]))
     return None
