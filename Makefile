@@ -2,7 +2,7 @@
 
 update-deps:
 	pip-compile --upgrade --generate-hashes
-	pip-compile --upgrade --generate-hashes --output-file dev-requirements.txt dev-requirements.in
+	pip-compile --upgrade --generate-hashes --output-file requirements-dev.txt requirements-dev.in
 
 install:
 	pip install --upgrade pip setuptools wheel
@@ -10,7 +10,7 @@ install:
 	pip install --editable .
 
 dev-install:
-	pip install --upgrade -r dev-requirements.txt
+	pip install --upgrade -r requirements-dev.txt
 
 init:
 	pip install pip-tools
