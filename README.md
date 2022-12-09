@@ -1,59 +1,14 @@
 # fafav_downloader
+
 Download FA favorites by username
 
-### Requires:
-
-- Python 3.8
-- requests 2.25.1
-- progress 1.5
+**NOTE:** Use this at your own risk.
 
 ### Cookie requirement:
 
 To use this script you will need to provide an authenticated cookie from your FurAffinity login.  This is the string found in any request header `cookie` your browser of choice sends to FA while you are logged in.  You can find this using the developer tools of your browser to view the request header.
 
 Copy and paste the `cookie` value from your request header into a file named `cookie.txt` saved to the root directory of this repo.
-
-Example `cookie.txt`
-```
-b=22589d8a-baaX-4bxX-8ex3-d9785X389xb8; __qca=P0-7827X308x-aX04ax8358478; __gads=ID=f0bace3ace08afe9:T=aX04ax8358:S=ALNI_MbO_rw5qKUZpSHbY0njvbfhYTarZQ; cc=a; n=aX0Xax2x7x; cf_clearance=a52aba280e0dXac7xe990d7be2382cdfd4c897a3-aX0X5x7x44-0-a50; __cfduid=d5fe308e92a35dXb2ax2aa4faXb4cx978aX0X7x9x9x; a=acaX30fx-2537-4cX2-bx0d-a75c24d8b5db; _pk_ref.a.2b54=%5B%22%22%2C%22%22%2CaX089x4985%2C%22https%3A%2F%2Fwww.furaffinity.net%2Fmsg%2Fsubmissions%2Fnew~39508a85%4072%2F%22%5D; _pk_id.a.2b54=b5b7020df5a4X8X3xax059xX879xaa9.aX089x5aa9.aX089x3XX5.xxsz=803x90a
-```
-
----
-
-### Installation:
-
-It is **highly** recommended to use a `venv` for installation. Leveraging a `venv` will ensure the installed dependency files will not impact other python projects.
-
-The instruction below make use of a bash shell and a Makefile.  All commands should be able to be run individually of your shell does not support `make`
-
-Clone this repo and enter root directory of repo:
-```bash
-git clone https://github.com/Preocts/fafav_downloader.git
-cd fafav_downloader
-```
-
-Create and activate `venv`:
-```bash
-python3.8 -m venv venv
-source ./venv/bin/activate
-```
-
-Your command prompt should now have a `(venv)` prefix on it.
-
-Install the scripts:
-```bash
-make install
-```
-
-Install the scripts for development/tests:
-```bash
-make dev-install
-```
-
-To exit the `venv`:
-```bash
-deactivate
-```
 
 ---
 
