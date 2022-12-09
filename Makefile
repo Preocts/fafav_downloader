@@ -1,46 +1,33 @@
-.PHONY: update-deps init update install clean clean-pyc clean-build clean-test tests
-
-update-deps:
-	pip-compile --upgrade --generate-hashes
-	pip-compile --upgrade --generate-hashes --output-file requirements-dev.txt requirements-dev.in
-
-install:
-	pip install --upgrade pip setuptools wheel
-	pip install --upgrade -r requirements.txt
-	pip install --editable .
-
-dev-install:
-	pip install --upgrade -r requirements-dev.txt
-
+.PHONY: init
 init:
-	pip install pip-tools
-	rm -rf .tox
+	python -m pip install --upgrade pip
 
-update: init update-deps install
+.PHONY: install
+install:
+	python -m pip install --upgrade .
 
-# Run all cleaning steps
-clean: clean-build clean-pyc clean-test
+.PHONY: install-dev
+install-dev:
+	python -m pip install --editable .[dev,test]
+	pre-commit install
 
-clean-pyc: ## Remove python artifacts.
+.PHONY: build-dist
+build-dist:
+	python -m pip install --upgrade build
+	python -m build
+
+.PHONY: clean
+clean:
 	find . -name '*.pyc' -exec rm -f {} +
 	find . -name '*.pyo' -exec rm -f {} +
-	find . -name '*~' -exec rm -f {} +
-	find . -name '__pycache__' -exec rm -fr {} +
-
-clean-build: ## Remove build artifacts.
-	find . -name '*.egg-info' -exec rm -fr {} +
-	find . -name '*.egg' -exec rm -fr {} +
-
-clean-test: ## Remove test artifacts
-	rm -fr .tox/
-	rm -f .coverage
-	rm -fr htmlcov/
-	find . -name '.pytest_cache' -exec rm -fr {} +
-
-blacken: ## Run Black against code
-	black --line-length 79 ./src/fafavs
-	black --line-length 79 ./tests
-
-tests: ## Run all tests found in the /tests directory.
-	coverage run -m pytest tests/
-	coverage report --include "*/fafavs/*" --show-missing
+	find . -name '__pycache__' -exec rm -rf {} +
+	find . -name '.mypy_cache' -exec rm -rf {} +
+	rm -rf .tox
+	rm -f coverage.xml
+	rm -f coverage.json
+	rm -rf htmlcov
+	rm -rf .coverage
+	rm -rf .coverage.*
+	find . -name '.pytest_cache' -exec rm -rf {} +
+	rm -rf dist
+	rm -rf build
