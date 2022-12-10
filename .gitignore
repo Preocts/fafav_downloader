@@ -12,3 +12,5 @@ build/
 dist/
 __pycache__/
 .vscode/
+cookie
+*_links
