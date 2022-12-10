@@ -12,7 +12,7 @@ DOWNLOAD_PAGE = Path("tests/fixtures/view_page.html").read_text()
 
 def test_get_cookie() -> None:
     path = "tests/fixtures/cookie"
-    expected = Path(path).read_text()
+    expected = Path(path).read_text().strip()
 
     result = main.get_cookie(path)
 
