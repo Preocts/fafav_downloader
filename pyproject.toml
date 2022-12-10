@@ -51,7 +51,7 @@ fadownload = "fafavs.main:main"
 fafix = "fafavs.fix_extentions:main"
 
 [tool.setuptools.package-data]
-"module_name" = ["py.typed"]
+"fafavs" = ["py.typed"]
 
 [tool.mypy]
 check_untyped_defs = true
