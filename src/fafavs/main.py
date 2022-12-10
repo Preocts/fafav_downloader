@@ -6,21 +6,23 @@ details.
 
 Author: Preocts <preocts@preocts.com>
 """
+from __future__ import annotations
+
+import pathlib
 import re
+import shutil
 import sys
 import time
-import shutil
-import pathlib
+from collections.abc import Callable
+from io import BytesIO
 
-from typing import List
-from typing import Callable
+import httpx
 
-import requests
-from progress.bar import Bar
+COOKIE_FILE_PATH = "cookie"
 
 
-def throttle_speed(seconds: int) -> Callable:
-    """ Throttling closure """
+def throttle_speed(seconds: int) -> Callable[..., None]:
+    """Throttling closure"""
     wait_atleast = seconds
     set_time = time.time()
 
@@ -34,14 +36,18 @@ def throttle_speed(seconds: int) -> Callable:
     return inner_throttle
 
 
-def spoof_header() -> dict:
+def get_cookie(filepath: str) -> str | None:
+    """Read given file for cookie. No validation performed."""
     try:
-        with open("cookie.txt", "r") as f:
-            cookie = f.read().strip("\n")
+        with open(filepath) as f:
+            return f.read().strip("\n")
     except FileNotFoundError:
-        msg = "cookie.txt not found in root directory. Check README.md"
-        raise Exception(msg)
+        print(f"{COOKIE_FILE_PATH} not found in root directory.")
+        return None
 
+
+def build_spoof_header(cookie: str) -> dict[str, str]:
+    """Build headers for HTTP actions."""
     return {
         "accept": r"text/html,application/xhtml+xml,application/xml;"
         r"q=0.9,image/webp,image/apng,*/*;"
@@ -56,36 +62,27 @@ def spoof_header() -> dict:
     }
 
 
-def read_page(url: str) -> str:
-    results = requests.get(url, headers=spoof_header())
-    if results.status_code not in range(200, 299):
-        print("HTTPS Request failed to return good status")
-        print(results.text)
-        return ""
-    return results.text
+def get_page(url: str, headers: dict[str, str]) -> str | None:
+    results = httpx.get(url, headers=headers)
+    if not results.is_success:
+        print(f"HTTPS Request failed: status {results.status_code}\n\n{results.text}")
+    return results.text if results.is_success else None
 
 
-def parse_favorite_links(page_body: str) -> set:
-    """ Pulls the /view/ links from a favorites page """
-    regex = re.compile(r"/view/[0-9]{8,}/", re.I)
-    search = regex.findall(page_body)
-    output = set()
-    for s in search:
-        output.add(s)
-    return output
+def parse_favorite_links(page_body: str) -> set[str]:
+    """Pulls the /view/ links from a favorites page"""
+    search = re.findall(r"/view/[0-9]{8,}/", page_body, re.I)
+    return {s for s in search}
 
 
-def find_next_page(page_body: str, username: str) -> str:
-    expression = r"[0-9]{1,}"
-    regex = re.compile(f"/favorites/{username}/{expression}/next")
-    search = regex.search(page_body)
-    return search.group() if search is not None else ""
+def find_next_page(page_body: str, username: str) -> str | None:
+    search = re.search(rf"\/favorites\/{username}\/[0-9]{{1,}}\/next", page_body, re.I)
+    return search.group() if search is not None else None
 
 
-def get_download_div(page_body: str) -> str:
-    regex = re.compile(r'<div class="download">(.*?)</div>')
-    search = regex.search(page_body)
-    return search.group() if search is not None else ""
+def get_download_div(page_body: str) -> str | None:
+    search = re.search('<div class="download">(.*?)</div>', page_body, re.I)
+    return search.group() if search is not None else None
 
 
 def parse_div_url(line: str) -> str:
@@ -94,8 +91,8 @@ def parse_div_url(line: str) -> str:
     return f"https:{line}"
 
 
-def save_list_file(username: str, postfix: str, data: list) -> None:
-    """ Save a list to a file """
+def save_list_file(username: str, postfix: str, data: list[str]) -> None:
+    """Save a list to a file"""
     state_file = pathlib.Path(f"{username}_{postfix}")
     clean_data = [i for i in data if i]
     with open(state_file, "w", encoding="utf-8") as f:
@@ -103,7 +100,7 @@ def save_list_file(username: str, postfix: str, data: list) -> None:
     return None
 
 
-def append_save_list_file(username: str, postfix: str, data: list) -> None:
+def append_save_list_file(username: str, postfix: str, data: list[str]) -> None:
     prior_lines = get_list_from_file(username, postfix)
     new_lines = []
     for line in data:
@@ -112,83 +109,104 @@ def append_save_list_file(username: str, postfix: str, data: list) -> None:
     save_list_file(username, postfix, prior_lines + new_lines)
 
 
-def get_list_from_file(username: str, postfix: str) -> List[str]:
-    """ Read in a list from file """
+def get_list_from_file(username: str, postfix: str) -> list[str]:
+    """Read in a list from file"""
     state_file = pathlib.Path(f"{username}_{postfix}")
     if not state_file.is_file():
         return []
-    with open(state_file, "r", encoding="utf-8") as f:
+    with open(state_file, encoding="utf-8") as f:
         file_in = f.read()
     return [i for i in file_in.split("\n") if i]
 
 
-def gather_download_links(username: str) -> List[str]:
-    """ Scans a favorite pages for new download links """
+def gather_download_links(username: str) -> list[str]:
+    """Scans a favorite pages for new download links"""
     run_loop = True
     url = f"https://www.furaffinity.net/favorites/{username}/"
     favorite_links = get_list_from_file(username, "favorite_links")
+    print(f"Gathering download links for {url}")
+
     if favorite_links:
         i = input("Previous favorites found, clear all (y/N)? ")
         if i.lower() == "y":
             favorite_links = []
     download_links = []
+
     while run_loop:
         checkthrottle = throttle_speed(1)
         print(f"Fetching favorite page: {url}")
-        page_body = read_page(url)
+
+        headers = build_spoof_header(get_cookie(COOKIE_FILE_PATH) or "")
+        page_body = get_page(url, headers)
+        if page_body is None:
+            raise ValueError("Favorite Page missing")
+
         fav_links = parse_favorite_links(page_body)
+        if fav_links is None:
+            raise ValueError("No Favorite links found on page")
+
         next_link = find_next_page(page_body, username)
-        if not next_link:
-            run_loop = False
-        url = "https://www.furaffinity.net"
-        progress_bar = Bar(
-            "Fetching download links to favorites", max=len(fav_links)
-        )
+
         for link in fav_links:
-            progress_bar.next()
             if link in favorite_links:
                 continue
             favorite_links.append(link)
-            page_body = read_page(url + link)
+
+            page_body = get_page(url + link, headers)
+            if page_body is None:
+                raise ValueError("Favorite Page missing")
+
             download_div = get_download_div(page_body)
+            if download_div is None:
+                continue
+
             download_links.append(parse_div_url(download_div))
-        progress_bar.finish()
-        url = url + next_link
+
+        url = "https://www.furaffinity.net"
+        if next_link is None:
+            run_loop = False
+        else:
+            url = url + next_link
+
         save_list_file(username, "favorite_links", favorite_links)
         save_list_file(username, "download_links", download_links)
         checkthrottle()
     return download_links
 
 
-def download_favorite_files(username: str, link_list: list) -> None:
-    """ Downloads all the image links. Skips if file is found """
+def download_favorite_files(username: str, link_list: list[str]) -> None:
+    """Downloads all the image links. Skips if file is found"""
     pathlib.Path(f"./{username}_downloads").mkdir(parents=True, exist_ok=True)
     downloads = get_list_from_file(username, "downloaded_list")
     if downloads:
         i = input("Previous downloads found, clear all (y/N)? ")
         if i.lower() == "y":
             downloads = []
-    prog_bar = Bar("Downloading", max=len(link_list))
 
-    for link in link_list:
+    for idx, link in enumerate(link_list, start=1):
+        print(f"Working on image {idx} of {len(link_list)}")
         checkthrottle = throttle_speed(1)
-        prog_bar.next()
         if link in downloads:
             continue
         downloads.append(link)
         filename = link.split("/")[-1]
+
         if pathlib.Path(f"./{username}_downloads/{filename}").is_file():
             continue
-        response = requests.get(link, stream=True)
-        if response.status_code not in range(200, 299):
+        response = httpx.get(link)
+
+        if not response.is_success:
             downloads.pop()
             continue
+
         with open(f"./{username}_downloads/" + filename, "wb") as out_file:
-            shutil.copyfileobj(response.raw, out_file)
+            shutil.copyfileobj(BytesIO(response.content), out_file)
         del response
         checkthrottle()
+
     with open(f"{username}_downloaded_list", "w") as f:
         f.write("\n".join([i for i in downloads if i]))
+
     return None
 
 
