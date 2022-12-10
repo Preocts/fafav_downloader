@@ -41,15 +41,3 @@ On a re-run you will be prompted up to three times. All defaults are non-destruc
 3. Previous downloads found, clear all (y/N)?
    - If `y' then all previously downloaded files are dropped from state.
    - If the file physically exists in the downloads directory it will still be skipped, otherwise all files are downloaded again.
-
----
-
-### Using ImageMagick identify to correct file extensions
-
-FA, for some reason, often has an incorrect file extension for the downloaded images.  This script leverages the third-part ImageMagick software to place the correct extension on the downloaded files.
-
-[ImageMagick Link](https://imagemagick.org/index.php)
-
-```bash
-fafix fa_user_name
-```
