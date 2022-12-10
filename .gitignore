@@ -14,3 +14,4 @@ __pycache__/
 .vscode/
 cookie
 *_links
+*_downloads

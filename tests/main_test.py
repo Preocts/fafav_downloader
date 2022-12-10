@@ -9,6 +9,7 @@ from fafavs import main
 FAVORITES_PAGE = Path("tests/fixtures/fav_page.html").read_text()
 NUMBER_OF_FAVORITES = 72
 DOWNLOAD_PAGE = Path("tests/fixtures/view_page.html").read_text()
+USER_NAME = "somefauser"
 
 
 def test_get_cookie() -> None:
@@ -63,13 +64,13 @@ def test_parse_favorite_links() -> None:
 
 
 def test_get_next_page() -> None:
-    results = main.find_next_page(FAVORITES_PAGE, "somefauser")
+    results = main.find_next_page(FAVORITES_PAGE, USER_NAME)
 
-    assert results == "/favorites/somefauser/1376978330/next"
+    assert results == f"/favorites/{USER_NAME}/1376978330/next"
 
 
 def test_get_next_page_none() -> None:
-    results = main.find_next_page(FAVORITES_PAGE, "notsomefauser")
+    results = main.find_next_page(FAVORITES_PAGE, f"not{USER_NAME}")
 
     assert results is None
 
@@ -107,13 +108,24 @@ def test_parse_div_url() -> None:
     assert result == expected
 
 
-def test_gather_view_links() -> None:
+def test_fetch_view_links() -> None:
     seff = [
         httpx.Response(200, content=FAVORITES_PAGE),
         httpx.Response(200, content=""),
     ]
     mockhttp = MagicMock(get=MagicMock(side_effect=seff))
 
-    result = main.gather_view_links("mock", mockhttp)
+    result = main.fetch_view_links(USER_NAME, mockhttp)
 
     assert len(result) == NUMBER_OF_FAVORITES
+    assert mockhttp.get.call_count == 2
+
+
+def test_fetch_download_links() -> None:
+    resp = httpx.Response(200, content=DOWNLOAD_PAGE)
+    mockhttp = MagicMock(get=MagicMock(return_value=resp))
+
+    result = main.fetch_download_links({"1", "2"}, mockhttp)
+
+    assert len(result) == 2
+    assert mockhttp.get.call_count == 2

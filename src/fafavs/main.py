@@ -7,16 +7,18 @@ details.
 """
 from __future__ import annotations
 
+import json
 import logging
-import pathlib
 import re
 import shutil
 import sys
 import time
 from io import BytesIO
+from pathlib import Path
 
 import httpx
 
+BASE_URL = "https://www.furaffinity.net"
 COOKIE_FILE = "cookie"
 SLEEP_SECONDS_PER_ACTION = 1
 log = logging.getLogger()
@@ -77,39 +79,9 @@ def parse_div_url(line: str) -> str:
     return f"https:{line}"
 
 
-def save_list_file(username: str, postfix: str, data: list[str]) -> None:
-    """Save a list to a file"""
-    state_file = pathlib.Path(f"{username}_{postfix}")
-    clean_data = [i for i in data if i]
-    with open(state_file, "w", encoding="utf-8") as f:
-        f.write("\n".join(clean_data))
-    return None
-
-
-def append_save_list_file(username: str, postfix: str, data: list[str]) -> None:
-    prior_lines = get_list_from_file(username, postfix)
-    new_lines = []
-    for line in data:
-        if line not in prior_lines:
-            new_lines.append(line)
-    save_list_file(username, postfix, prior_lines + new_lines)
-
-
-def get_list_from_file(username: str, postfix: str) -> list[str]:
-    """Read in a list from file"""
-    state_file = pathlib.Path(f"{username}_{postfix}")
-    if not state_file.is_file():
-        return []
-    with open(state_file, encoding="utf-8") as f:
-        file_in = f.read()
-    return [i for i in file_in.split("\n") if i]
-
-
-def gather_view_links(username: str, http_client: httpx.Client) -> set[str]:
+def fetch_view_links(username: str, http_client: httpx.Client) -> set[str]:
     """Iterate through favorite pages for item view links."""
-    url = f"https://www.furaffinity.net/favorites/{username}/"
-
-    log.info("Gathering page links from favorites of %s", username)
+    url = f"{BASE_URL}/favorites/{username}/"
 
     page_links: set[str] = set()
 
@@ -138,14 +110,27 @@ def gather_view_links(username: str, http_client: httpx.Client) -> set[str]:
     return page_links
 
 
+def fetch_download_links(
+    view_links: set[str],
+    http_client: httpx.Client,
+) -> dict[str, str]:
+    """Fetch download links for given views, map {view: download_link}."""
+    download_links: dict[str, str] = {}
+    for idx, view in enumerate(view_links, start=1):
+        log.info("(%d / %d) Fetching download link of %s", idx, len(view_links), view)
+        page = get_page(f"{BASE_URL}{view}", http_client)
+        div_line = get_download_div(page)
+        download_links[view] = parse_div_url(str(div_line))
+        time.sleep(SLEEP_SECONDS_PER_ACTION)
+
+    return download_links
+
+
 def download_favorite_files(username: str, link_list: list[str]) -> None:
     """Downloads all the image links. Skips if file is found"""
-    pathlib.Path(f"./{username}_downloads").mkdir(parents=True, exist_ok=True)
-    downloads = get_list_from_file(username, "downloaded_list")
-    if downloads:
-        i = input("Previous downloads found, clear all (y/N)? ")
-        if i.lower() == "y":
-            downloads = []
+    Path(f"./{username}_downloads").mkdir(parents=True, exist_ok=True)
+
+    downloads = []
 
     for idx, link in enumerate(link_list, start=1):
         print(f"Working on image {idx} of {len(link_list)}")
@@ -154,7 +139,7 @@ def download_favorite_files(username: str, link_list: list[str]) -> None:
         downloads.append(link)
         filename = link.split("/")[-1]
 
-        if pathlib.Path(f"./{username}_downloads/{filename}").is_file():
+        if Path(f"./{username}_downloads/{filename}").is_file():
             continue
         response = httpx.get(link)
 
@@ -166,8 +151,7 @@ def download_favorite_files(username: str, link_list: list[str]) -> None:
             shutil.copyfileobj(BytesIO(response.content), out_file)
         del response
 
-    with open(f"{username}_downloaded_list", "w") as f:
-        f.write("\n".join([i for i in downloads if i]))
+        time.sleep(SLEEP_SECONDS_PER_ACTION)
 
     return None
 
@@ -181,10 +165,16 @@ def main() -> int:
 
     http_client = httpx.Client(headers=build_headers(get_cookie(COOKIE_FILE)))
 
-    view_links = gather_view_links(username, http_client)
+    log.info("Gathering view links from favorites of %s", username)
+    view_links = fetch_view_links(username, http_client)
 
-    for page in view_links:
-        print(page)
+    log.info("Gathering download links from views of %s", username)
+    download_map = fetch_download_links(view_links, http_client)
+
+    # TODO: Load this at start, avoid duplicate work
+    json.dump(download_map, Path("temp_download.json").open("w"), indent=4)
+
+    # download_favorite_files(username, list(download_map.values()))
 
     return 0
 
