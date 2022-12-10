@@ -4,17 +4,18 @@ Requires ImageMagick to be installed.
 
 Author: Preocts <preocts@preocts.com>
 """
+from __future__ import annotations
+
 import os
-import sys
 import pathlib
 import subprocess
-
+import sys
 from typing import List
 
 from progress.bar import Bar
 
 
-def get_all_files(directory: str) -> List[pathlib.PosixPath]:
+def get_all_files(directory: str) -> list[pathlib.PosixPath]:
     downloads = pathlib.Path(directory)
     file_glob = downloads.glob("*")
     return [i for i in file_glob if i.is_file()]
