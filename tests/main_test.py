@@ -1,12 +1,13 @@
 from __future__ import annotations
 
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import MagicMock
 
 import httpx
 from fafavs import main
 
 FAVORITES_PAGE = Path("tests/fixtures/fav_page.html").read_text()
+NUMBER_OF_FAVORITES = 72
 DOWNLOAD_PAGE = Path("tests/fixtures/view_page.html").read_text()
 
 
@@ -22,45 +23,42 @@ def test_get_cookie() -> None:
 def test_get_cookie_not_found() -> None:
     result = main.get_cookie("path/not/found")
 
-    assert result is None
+    assert result == ""
 
 
 def test_build_spoof_header() -> None:
     expected = Path("tests/fixtures/cookie").read_text()
 
-    result = main.build_spoof_header(expected)
+    result = main.build_headers(expected)
 
     assert result["cookie"] == expected
 
 
 def test_get_page_success() -> None:
     good_url = "https://www.furaffinity.net/msg/submissions/"
-    mock_headers = {"mock": "mock"}
     resp = httpx.Response(200, content="Some Webpage here")
+    mockhttp = MagicMock(get=MagicMock(return_value=resp))
 
-    with patch.object(main.httpx, "get", return_value=resp):
-        result = main.get_page(good_url, mock_headers)
+    result = main.get_page(good_url, mockhttp)
 
-    assert result is not None
+    assert result == "Some Webpage here"
 
 
 def test_get_page_failure() -> None:
     bad_url = "https://www.furaffinity.net/msg"
-    mock_headers = {"mock": "mock"}
-
     resp = httpx.Response(404, content="Some Webpage here")
+    mockhttp = MagicMock(get=MagicMock(return_value=resp))
 
-    with patch.object(main.httpx, "get", return_value=resp):
-        result = main.get_page(bad_url, mock_headers)
+    result = main.get_page(bad_url, mockhttp)
 
-    assert result is None
+    assert result == ""
 
 
 def test_parse_favorite_links() -> None:
     results = main.parse_favorite_links(FAVORITES_PAGE)
     empty = main.parse_favorite_links("")
 
-    assert len(results) == 72
+    assert len(results) == NUMBER_OF_FAVORITES
     assert len(empty) == 0
 
 
@@ -107,3 +105,15 @@ def test_parse_div_url() -> None:
     result = main.parse_div_url(provided)
 
     assert result == expected
+
+
+def test_gather_view_links() -> None:
+    seff = [
+        httpx.Response(200, content=FAVORITES_PAGE),
+        httpx.Response(200, content=""),
+    ]
+    mockhttp = MagicMock(get=MagicMock(side_effect=seff))
+
+    result = main.gather_view_links("mock", mockhttp)
+
+    assert len(result) == NUMBER_OF_FAVORITES

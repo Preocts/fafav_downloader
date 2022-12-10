@@ -1,53 +1,39 @@
-""" Download images from FurAffinity favorite lists by username
+"""
+Download images from FurAffinity favorite lists by username
 
-Requires a file named "cookie.txt" to be in the working directory
+Requires a file named "cookie" to be in the working directory
 with the contents of a logged in cookie to FA. See README.md for
 details.
-
-Author: Preocts <preocts@preocts.com>
 """
 from __future__ import annotations
 
+import logging
 import pathlib
 import re
 import shutil
 import sys
 import time
-from collections.abc import Callable
 from io import BytesIO
 
 import httpx
 
-COOKIE_FILE_PATH = "cookie"
+COOKIE_FILE = "cookie"
+SLEEP_SECONDS_PER_ACTION = 1
+log = logging.getLogger()
 
 
-def throttle_speed(seconds: int) -> Callable[..., None]:
-    """Throttling closure"""
-    wait_atleast = seconds
-    set_time = time.time()
-
-    def inner_throttle() -> None:
-        nonlocal wait_atleast
-        nonlocal set_time
-        while time.time() - set_time < wait_atleast:
-            pass
-        return None
-
-    return inner_throttle
-
-
-def get_cookie(filepath: str) -> str | None:
+def get_cookie(filepath: str) -> str:
     """Read given file for cookie. No validation performed."""
     try:
         with open(filepath) as f:
             return f.read().strip("\n")
     except FileNotFoundError:
-        print(f"{COOKIE_FILE_PATH} not found in root directory.")
-        return None
+        print(f"{COOKIE_FILE} not found in root directory.")
+        return ""
 
 
-def build_spoof_header(cookie: str) -> dict[str, str]:
-    """Build headers for HTTP actions."""
+def build_headers(cookie: str) -> dict[str, str]:
+    """Build spoof headers for HTTP actions."""
     return {
         "accept": r"text/html,application/xhtml+xml,application/xml;"
         r"q=0.9,image/webp,image/apng,*/*;"
@@ -62,11 +48,11 @@ def build_spoof_header(cookie: str) -> dict[str, str]:
     }
 
 
-def get_page(url: str, headers: dict[str, str]) -> str | None:
-    results = httpx.get(url, headers=headers)
+def get_page(url: str, http_client: httpx.Client) -> str:
+    results = http_client.get(url)
     if not results.is_success:
         print(f"HTTPS Request failed: status {results.status_code}\n\n{results.text}")
-    return results.text if results.is_success else None
+    return results.text if results.is_success else ""
 
 
 def parse_favorite_links(page_body: str) -> set[str]:
@@ -119,59 +105,37 @@ def get_list_from_file(username: str, postfix: str) -> list[str]:
     return [i for i in file_in.split("\n") if i]
 
 
-def gather_download_links(username: str) -> list[str]:
-    """Scans a favorite pages for new download links"""
-    run_loop = True
+def gather_view_links(username: str, http_client: httpx.Client) -> set[str]:
+    """Iterate through favorite pages for item view links."""
     url = f"https://www.furaffinity.net/favorites/{username}/"
-    favorite_links = get_list_from_file(username, "favorite_links")
-    print(f"Gathering download links for {url}")
 
-    if favorite_links:
-        i = input("Previous favorites found, clear all (y/N)? ")
-        if i.lower() == "y":
-            favorite_links = []
-    download_links = []
+    log.info("Gathering page links from favorites of %s", username)
 
-    while run_loop:
-        checkthrottle = throttle_speed(1)
-        print(f"Fetching favorite page: {url}")
+    page_links: set[str] = set()
 
-        headers = build_spoof_header(get_cookie(COOKIE_FILE_PATH) or "")
-        page_body = get_page(url, headers)
-        if page_body is None:
-            raise ValueError("Favorite Page missing")
+    while "the fires of passion burn brightly":
 
+        page_body = get_page(url, http_client)
         fav_links = parse_favorite_links(page_body)
-        if fav_links is None:
-            raise ValueError("No Favorite links found on page")
-
         next_link = find_next_page(page_body, username)
 
-        for link in fav_links:
-            if link in favorite_links:
-                continue
-            favorite_links.append(link)
+        page_links.update(fav_links)
 
-            page_body = get_page(url + link, headers)
-            if page_body is None:
-                raise ValueError("Favorite Page missing")
+        log.info(
+            "Found %d favorite links on '%s'. More is %s",
+            len(fav_links),
+            url,
+            bool(next_link),
+        )
 
-            download_div = get_download_div(page_body)
-            if download_div is None:
-                continue
+        url = f"https://www.furaffinity.net{next_link}"
 
-            download_links.append(parse_div_url(download_div))
-
-        url = "https://www.furaffinity.net"
         if next_link is None:
-            run_loop = False
-        else:
-            url = url + next_link
+            break
 
-        save_list_file(username, "favorite_links", favorite_links)
-        save_list_file(username, "download_links", download_links)
-        checkthrottle()
-    return download_links
+        time.sleep(SLEEP_SECONDS_PER_ACTION)
+
+    return page_links
 
 
 def download_favorite_files(username: str, link_list: list[str]) -> None:
@@ -185,7 +149,6 @@ def download_favorite_files(username: str, link_list: list[str]) -> None:
 
     for idx, link in enumerate(link_list, start=1):
         print(f"Working on image {idx} of {len(link_list)}")
-        checkthrottle = throttle_speed(1)
         if link in downloads:
             continue
         downloads.append(link)
@@ -202,7 +165,6 @@ def download_favorite_files(username: str, link_list: list[str]) -> None:
         with open(f"./{username}_downloads/" + filename, "wb") as out_file:
             shutil.copyfileobj(BytesIO(response.content), out_file)
         del response
-        checkthrottle()
 
     with open(f"{username}_downloaded_list", "w") as f:
         f.write("\n".join([i for i in downloads if i]))
@@ -211,27 +173,21 @@ def download_favorite_files(username: str, link_list: list[str]) -> None:
 
 
 def main() -> int:
+    logging.basicConfig(level="INFO")
     if len(sys.argv) < 2:
         print("Usage: fadownload [FA_USERNAME]")
         return 1
     username = sys.argv[1]
 
-    download_links = get_list_from_file(username, "download_links")
-    if download_links:
-        print("Found existing download links.")
-        i = input("Refresh download links before downloading (y/N)? ")
-        if i.lower() == "y":
-            download_links = []
+    http_client = httpx.Client(headers=build_headers(get_cookie(COOKIE_FILE)))
 
-    if not download_links:
-        download_links = gather_download_links(username)
+    view_links = gather_view_links(username, http_client)
 
-    if download_links:
-        download_favorite_files(username, download_links)
+    for page in view_links:
+        print(page)
 
-    print("\n\nEnd of Line.\n \033[?25h")
     return 0
 
 
 if __name__ == "__main__":
-    exit(main())
+    raise SystemExit(main())
