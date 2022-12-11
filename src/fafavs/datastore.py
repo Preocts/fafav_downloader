@@ -1,0 +1,99 @@
+"""Store data about downloads in an SQLite3 database."""
+from __future__ import annotations
+
+import sqlite3
+from collections.abc import Generator
+from contextlib import contextmanager
+from datetime import datetime
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from sqlite3 import Cursor
+
+TABLE_SQL = """
+CREATE TABLE IF NOT EXISTS downloads (
+    view TEXT NOT NULL,
+    view_date TEXT NOT NULL,
+    download TEXT,
+    download_date TEXT,
+    filename TEXT
+);
+CREATE UNIQUE INDEX IF NOT EXISTS viewkey on downloads(view);
+"""
+
+
+class Datastore:
+    """Store data about downloads in an SQLite3 database."""
+
+    def __init__(self, database: str = ":memory:") -> None:
+        """Provide a target database file, in-memory is default."""
+        self._dbconn = sqlite3.connect(database)
+        self._create_table()
+
+    def _create_table(self) -> None:
+        """Create table in database, if not exists."""
+        with self.cursor(commit_on_exit=True) as cursor:
+            cursor.executescript(TABLE_SQL)
+
+    def row_count(self) -> int:
+        """Return the number of rows in the database."""
+        with self.cursor() as cursor:
+            cursor.execute("SELECT COUNT(*) FROM downloads")
+            return cursor.fetchone()[0]
+
+    def save_views(self, views: list[str]) -> None:
+        """Save a list of views to the database."""
+        now = str(datetime.utcnow())
+        with self.cursor(commit_on_exit=True) as cursor:
+            cursor.executemany(
+                "INSERT OR IGNORE INTO downloads (view, view_date) VALUES (?, ?)",
+                [(view, now) for view in views],
+            )
+
+    def save_view(self, view: str) -> None:
+        """Save the view URL of a download."""
+        self.save_views([view])
+
+    def save_download(self, view: str, download: str | None) -> None:
+        """Save the download URL of a view."""
+        now = str(datetime.utcnow())
+        with self.cursor(commit_on_exit=True) as cursor:
+            cursor.execute(
+                "UPDATE downloads SET download=?, download_date=? WHERE view=?",
+                (download, now, view),
+            )
+
+    def save_filename(self, view: str, filename: str) -> None:
+        """Save the filename of a download."""
+        with self.cursor(commit_on_exit=True) as cursor:
+            cursor.execute(
+                "UPDATE downloads SET filename=? WHERE view=?",
+                (filename, view),
+            )
+
+    def get_views_to_download(self) -> list[str]:
+        """Return a list of views that have not been downloaded."""
+        with self.cursor() as cursor:
+            cursor.execute("SELECT view FROM downloads WHERE download IS NULL")
+            return [row[0] for row in cursor.fetchall()]
+
+    def get_downloads_to_process(self) -> list[tuple[str, str]]:
+        """Return a list of view, and download link that have not been processed."""
+        with self.cursor() as cursor:
+            cursor.execute(
+                "SELECT view, download FROM downloads "
+                "WHERE download IS NOT NULL AND filename IS NULL"
+            )
+            return cursor.fetchall()
+
+    @contextmanager
+    def cursor(self, *, commit_on_exit: bool = False) -> Generator[Cursor, None, None]:
+        """Context manager for cursor creation and cleanup."""
+        try:
+            cursor = self._dbconn.cursor()
+            yield cursor
+
+        finally:
+            if commit_on_exit:
+                self._dbconn.commit()
+            cursor.close()

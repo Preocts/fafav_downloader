@@ -22,8 +22,7 @@ classifiers = [
 ]
 # Define dependencies directly
 dependencies = [
-    "requests",
-    "progress",
+    "httpx>=0.23.1",
 ]
 
 [project.optional-dependencies]
@@ -47,11 +46,10 @@ homepage = "https://github.com/Preocts/fafav_downloader"
 
 # CLI scripts if needed
 [project.scripts]
-fadownload = "fafavs.main:main"
-fafix = "fafavs.fix_extentions:main"
+fadownload = "fafavs.fadownloader:main"
 
 [tool.setuptools.package-data]
-"module_name" = ["py.typed"]
+"fafavs" = ["py.typed"]
 
 [tool.mypy]
 check_untyped_defs = true
@@ -73,7 +71,7 @@ source = [
     "tests",
 ]
 source_pkgs = [
-    "module_name",
+    "fafavs",
 ]
 
 [tool.coverage.paths]
@@ -124,7 +122,7 @@ commands =
 deps =
     mypy
 commands =
-    mypy -p module_name
+    mypy -p fafavs
 
 [testenv:pre-commit]
 depends = coverage
