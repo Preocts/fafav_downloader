@@ -21,6 +21,7 @@ from fafavs.datastore import Datastore
 BASE_URL = "https://www.furaffinity.net"
 COOKIE_FILE = "cookie"
 SLEEP_SECONDS_PER_ACTION = 1
+DOWNLOAD_PATH = Path("downloads")
 log = logging.getLogger()
 
 
@@ -56,12 +57,6 @@ def get_page(url: str, http_client: httpx.Client) -> str:
     if not results.is_success:
         print(f"HTTPS Request failed: status {results.status_code}\n\n{results.text}")
     return results.text if results.is_success else ""
-
-
-def get_author(page_body: str) -> str | None:
-    """Pull the author name from a view page."""
-    search = re.search(r"<h3>See more from.+>(.+)</a>", page_body, re.I)
-    return search.group(1).lower() if search is not None else None
 
 
 def get_favorite_links(page_body: str) -> set[str]:
@@ -132,39 +127,41 @@ def save_download_links(
         log.info("(%d / %d) Fetching download link of %s", idx, len(view_links), view)
         page = get_page(f"{BASE_URL}{view}", http_client)
         download_link = get_download_url(page)
-        author = get_author(page)
-        datastore.save_download(view, download_link, author)
+        datastore.save_download(view, download_link)
         time.sleep(SLEEP_SECONDS_PER_ACTION)
 
 
-def download_favorite_files(username: str, link_list: list[str]) -> None:
-    """Downloads all the image links. Skips if file is found"""
-    Path(f"./{username}_downloads").mkdir(parents=True, exist_ok=True)
+def download_favorite_files(http_client: httpx.Client, datastore: Datastore) -> None:
+    """Download all favorite files and update datastore with filenames."""
+    DOWNLOAD_PATH.mkdir(parents=True, exist_ok=True)
 
-    downloads = []
+    to_download = datastore.get_downloads_to_process()
 
-    for idx, link in enumerate(link_list, start=1):
-        print(f"Working on image {idx} of {len(link_list)}")
-        if link in downloads:
-            continue
-        downloads.append(link)
-        filename = link.split("/")[-1]
+    for idx, (view, download_link) in enumerate(to_download, start=1):
+        log.info("(%d / %d) Downloading %s", idx, len(to_download), download_link)
 
-        if Path(f"./{username}_downloads/{filename}").is_file():
-            continue
-        response = httpx.get(link)
+        filename = _sanitize_filename(download_link.split("/")[-1])
+
+        response = http_client.get(download_link)
 
         if not response.is_success:
-            downloads.pop()
+            log.error("Download of %s failed: %s", download_link, response.status_code)
             continue
 
-        with open(f"./{username}_downloads/" + filename, "wb") as out_file:
+        with open(DOWNLOAD_PATH / filename, "wb") as out_file:
             shutil.copyfileobj(BytesIO(response.content), out_file)
         del response
 
+        datastore.save_filename(view, filename)
+
         time.sleep(SLEEP_SECONDS_PER_ACTION)
 
-    return None
+
+def _sanitize_filename(filename: str) -> str:
+    """Sanitize a filename to be safe for the filesystem."""
+    filename = re.sub(r"[^a-zA-Z0-9_.-]", "_", filename)
+    filename = re.sub(r"_+", "_", filename)
+    return re.sub(r"_-_+", "-", filename)
 
 
 def main(database: str = ":memory:") -> int:
@@ -183,7 +180,8 @@ def main(database: str = ":memory:") -> int:
     log.info("Gathering download links from views of %s", username)
     save_download_links(http_client, datastore)
 
-    # download_favorite_files(username, list(download_map.values()))
+    log.info("Downloading favorite files of %s", username)
+    download_favorite_files(http_client, datastore)
 
     return 0
 

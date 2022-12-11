@@ -4,6 +4,7 @@ from pathlib import Path
 from unittest.mock import MagicMock
 
 import httpx
+import pytest
 from fafavs import fadownloader
 from fafavs.datastore import Datastore
 
@@ -88,20 +89,6 @@ def test_get_download_url() -> None:
     assert result == expected
 
 
-def test_get_author() -> None:
-    expected = AUTHOR
-
-    result = fadownloader.get_author(VIEW_PAGE)
-
-    assert result == expected
-
-
-def test_get_author_none() -> None:
-    result = fadownloader.get_author("")
-
-    assert result is None
-
-
 def test_get_download_url_not_found() -> None:
     result = fadownloader.get_download_url("")
 
@@ -131,3 +118,18 @@ def test_save_download_links(datastore: Datastore) -> None:
 
     assert mockhttp.get.call_count == count_to_download
     assert not datastore.get_views_to_download()
+
+
+@pytest.mark.parametrize(
+    "filename,expected",
+    [
+        ("some/file/name.jpg", "some_file_name.jpg"),
+        ("some/file/name", "some_file_name"),
+        ("some - file - name.jpg", "some-file-name.jpg"),
+        ("some___file___name.jpg", "some_file_name.jpg"),
+    ],
+)
+def test_sanitize_filename(filename: str, expected: str) -> None:
+    result = fadownloader._sanitize_filename(filename)
+
+    assert result == expected
