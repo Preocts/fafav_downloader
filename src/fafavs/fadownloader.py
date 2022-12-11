@@ -174,14 +174,14 @@ def main(database: str = ":memory:") -> int:
     datastore = Datastore(database)
     http_client = httpx.Client(headers=build_headers(get_cookie(COOKIE_FILE)))
 
-    log.info("Gathering view links from favorites of %s", username)
-    save_view_links(username, http_client, datastore)
+    if input("Scan for new favorites? [y/N] ").lower() != "y":
+        save_view_links(username, http_client, datastore)
 
-    log.info("Gathering download links from views of %s", username)
-    save_download_links(http_client, datastore)
+    if input("Collect missing download links? [y/N] ").lower() != "y":
+        save_download_links(http_client, datastore)
 
-    log.info("Downloading favorite files of %s", username)
-    download_favorite_files(http_client, datastore)
+    if input("Download missing files? [y/N] ").lower() != "y":
+        download_favorite_files(http_client, datastore)
 
     return 0
 
