@@ -120,6 +120,15 @@ def test_save_download_links(datastore: Datastore) -> None:
     assert not datastore.get_views_to_download()
 
 
+def test_save_view_over_existing_download_does_not_change_row() -> None:
+    datastore = Datastore(":memory:")
+    datastore.save_view("/view/123456789")
+    datastore.save_download("/view/123456789", "someurl")
+    datastore.save_view("/view/123456789")
+
+    assert datastore.get_views_to_download() == []
+
+
 @pytest.mark.parametrize(
     "filename,expected",
     [

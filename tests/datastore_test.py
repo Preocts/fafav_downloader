@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import os
+import tempfile
+from pathlib import Path
+
 from fafavs.datastore import Datastore
 
 from tests.conftest import ROWS
@@ -111,3 +115,15 @@ def test_get_downloads_to_process(datastore: Datastore) -> None:
 
     assert len(results) == 2
     assert results == expected
+
+
+def test_export_as_csv_to_tempfile(datastore: Datastore) -> None:
+    try:
+        fd, path = tempfile.mkstemp()
+        os.close(fd)
+
+        datastore.export_as_csv(path)
+
+        assert Path(path).exists()
+    finally:
+        os.remove(path)

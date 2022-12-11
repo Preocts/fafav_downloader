@@ -1,6 +1,7 @@
 """Store data about downloads in an SQLite3 database."""
 from __future__ import annotations
 
+import csv
 import sqlite3
 from collections.abc import Generator
 from contextlib import contextmanager
@@ -85,6 +86,16 @@ class Datastore:
                 "WHERE download IS NOT NULL AND filename IS NULL"
             )
             return cursor.fetchall()
+
+    def export_as_csv(self, filename: str) -> None:
+        """Export the database as a CSV file."""
+        with self.cursor() as cursor:
+            cursor.execute("SELECT * FROM downloads")
+            fieldnames = [description[0] for description in cursor.description]
+            with open(filename, "w") as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(fieldnames)
+                writer.writerows(cursor.fetchall())
 
     @contextmanager
     def cursor(self, *, commit_on_exit: bool = False) -> Generator[Cursor, None, None]:
