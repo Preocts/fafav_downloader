@@ -7,8 +7,8 @@ from fafavs.datastore import Datastore
 ROWS = [
     ("/view/1", "2022-12-11 04:55:53.581577", None, None, None, None),
     ("/view/2", "2022-12-12 04:55:53.581577", None, None, None, None),
-    ("/view/3", "2022-12-13 04:55:53.581577", "https://...", "2022-12-13 04:55:53.581577", None, None),  # noqa E501
-    ("/view/4", "2022-12-14 04:55:53.581577", "https://...", "2022-12-14 04:55:53.581577", None, None),  # noqa E501
+    ("/view/3", "2022-12-13 04:55:53.581577", "https://...", "2022-12-13 04:55:53.581577", "somefauser", None),  # noqa E501
+    ("/view/4", "2022-12-14 04:55:53.581577", "https://...", "2022-12-14 04:55:53.581577", "somefauser", None),  # noqa E501
     ("/view/5", "2022-12-15 04:55:53.581577", "https://...", "2022-12-15 04:55:53.581577", "somefauser", "somefauser-someimage.png"),  # noqa E501
     ("/view/6", "2022-12-16 04:55:53.581577", "https://...", "2022-12-16 04:55:53.581577", "somefauser", "somefauser-someimage.png"),  # noqa E501
 ]

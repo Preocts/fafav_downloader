@@ -85,11 +85,11 @@ class Datastore:
             return [row[0] for row in cursor.fetchall()]
 
     def get_downloads_to_process(self) -> list[tuple[str, str]]:
-        """Return a list of downloads that have not been processed."""
+        """Return a list of view, author, and link that have not been processed."""
         with self.cursor() as cursor:
             cursor.execute(
-                "SELECT view, download FROM downloads WHERE download IS NOT NULL "
-                "AND filename IS NULL"
+                "SELECT view, author, download FROM downloads "
+                "WHERE download IS NOT NULL AND filename IS NULL"
             )
             return cursor.fetchall()
 
