@@ -9,8 +9,6 @@ EXPECTED_COLUMNS = {
     "view_date",
     "download",
     "download_date",
-    "author",
-    "title",
     "filename",
 }
 
@@ -61,12 +59,11 @@ def test_save_download(datastore: Datastore) -> None:
     cursor = datastore._dbconn.cursor()
     view = "/view/1"
     download = "https://..."
-    author = "somefauser"
 
-    datastore.save_download(view, download, author)
+    datastore.save_download(view, download)
 
     cursor.execute(
-        "SELECT view, download, download_date, author FROM downloads WHERE view=?",
+        "SELECT view, download, download_date FROM downloads WHERE view=?",
         (view,),
     )
     results = cursor.fetchall()
@@ -75,7 +72,6 @@ def test_save_download(datastore: Datastore) -> None:
     assert results[0][0] == view
     assert results[0][1] == download
     assert results[0][2]  # Any date is fine
-    assert results[0][3] == author
 
 
 def test_save_filename(datastore: Datastore) -> None:
@@ -107,8 +103,8 @@ def test_get_views_to_download(datastore: Datastore) -> None:
 
 def test_get_downloads_to_process(datastore: Datastore) -> None:
     expected = [
-        ("/view/3", "somefauser", "someimage.png", "https://..."),
-        ("/view/4", "somefauser", "someimage.png", "https://..."),
+        ("/view/3", "https://..."),
+        ("/view/4", "https://..."),
     ]
 
     results = datastore.get_downloads_to_process()

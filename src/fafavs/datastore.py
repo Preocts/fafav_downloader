@@ -16,8 +16,6 @@ CREATE TABLE IF NOT EXISTS downloads (
     view_date TEXT NOT NULL,
     download TEXT,
     download_date TEXT,
-    author TEXT,
-    title TEXT,
     filename TEXT
 );
 CREATE UNIQUE INDEX IF NOT EXISTS viewkey on downloads(view);
@@ -56,19 +54,13 @@ class Datastore:
         """Save the view URL of a download."""
         self.save_views([view])
 
-    def save_download(
-        self,
-        view: str,
-        download: str | None,
-        author: str | None,
-    ) -> None:
+    def save_download(self, view: str, download: str | None) -> None:
         """Save the download URL of a view."""
         now = str(datetime.utcnow())
         with self.cursor(commit_on_exit=True) as cursor:
             cursor.execute(
-                "UPDATE downloads SET download=?, download_date=?, author=? "
-                "WHERE view=?",
-                (download, now, author, view),
+                "UPDATE downloads SET download=?, download_date=? WHERE view=?",
+                (download, now, view),
             )
 
     def save_filename(self, view: str, filename: str) -> None:
@@ -85,11 +77,11 @@ class Datastore:
             cursor.execute("SELECT view FROM downloads WHERE download IS NULL")
             return [row[0] for row in cursor.fetchall()]
 
-    def get_downloads_to_process(self) -> list[tuple[str, str, str, str]]:
-        """Return list of view, author, title, and link that have not been processed."""
+    def get_downloads_to_process(self) -> list[tuple[str, str]]:
+        """Return a list of view, and download link that have not been processed."""
         with self.cursor() as cursor:
             cursor.execute(
-                "SELECT view, author, title, download FROM downloads "
+                "SELECT view, download FROM downloads "
                 "WHERE download IS NOT NULL AND filename IS NULL"
             )
             return cursor.fetchall()
