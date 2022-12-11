@@ -46,7 +46,7 @@ homepage = "https://github.com/Preocts/fafav_downloader"
 
 # CLI scripts if needed
 [project.scripts]
-fadownload = "fafavs.main:main"
+fadownload = "fafavs.fadownloader:main"
 
 [tool.setuptools.package-data]
 "fafavs" = ["py.typed"]

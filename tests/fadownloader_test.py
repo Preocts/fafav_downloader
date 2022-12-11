@@ -4,7 +4,7 @@ from pathlib import Path
 from unittest.mock import MagicMock
 
 import httpx
-from fafavs import main
+from fafavs import fadownloader
 
 FAVORITES_PAGE = Path("tests/fixtures/fav_page.html").read_text()
 NUMBER_OF_FAVORITES = 72
@@ -16,13 +16,13 @@ def test_get_cookie() -> None:
     path = "tests/fixtures/cookie"
     expected = Path(path).read_text().strip()
 
-    result = main.get_cookie(path)
+    result = fadownloader.get_cookie(path)
 
     assert result == expected
 
 
 def test_get_cookie_not_found() -> None:
-    result = main.get_cookie("path/not/found")
+    result = fadownloader.get_cookie("path/not/found")
 
     assert result == ""
 
@@ -30,7 +30,7 @@ def test_get_cookie_not_found() -> None:
 def test_build_spoof_header() -> None:
     expected = Path("tests/fixtures/cookie").read_text()
 
-    result = main.build_headers(expected)
+    result = fadownloader.build_headers(expected)
 
     assert result["cookie"] == expected
 
@@ -40,7 +40,7 @@ def test_get_page_success() -> None:
     resp = httpx.Response(200, content="Some Webpage here")
     mockhttp = MagicMock(get=MagicMock(return_value=resp))
 
-    result = main.get_page(good_url, mockhttp)
+    result = fadownloader.get_page(good_url, mockhttp)
 
     assert result == "Some Webpage here"
 
@@ -50,27 +50,27 @@ def test_get_page_failure() -> None:
     resp = httpx.Response(404, content="Some Webpage here")
     mockhttp = MagicMock(get=MagicMock(return_value=resp))
 
-    result = main.get_page(bad_url, mockhttp)
+    result = fadownloader.get_page(bad_url, mockhttp)
 
     assert result == ""
 
 
 def test_parse_favorite_links() -> None:
-    results = main.parse_favorite_links(FAVORITES_PAGE)
-    empty = main.parse_favorite_links("")
+    results = fadownloader.parse_favorite_links(FAVORITES_PAGE)
+    empty = fadownloader.parse_favorite_links("")
 
     assert len(results) == NUMBER_OF_FAVORITES
     assert len(empty) == 0
 
 
 def test_get_next_page() -> None:
-    results = main.find_next_page(FAVORITES_PAGE, USER_NAME)
+    results = fadownloader.find_next_page(FAVORITES_PAGE, USER_NAME)
 
     assert results == f"/favorites/{USER_NAME}/1376978330/next"
 
 
 def test_get_next_page_none() -> None:
-    results = main.find_next_page(FAVORITES_PAGE, f"not{USER_NAME}")
+    results = fadownloader.find_next_page(FAVORITES_PAGE, f"not{USER_NAME}")
 
     assert results is None
 
@@ -81,13 +81,13 @@ def test_get_download_div() -> None:
         '1668980773.grahams_terrygrim.jpg">Download</a></div>'
     )
 
-    result = main.get_download_div(DOWNLOAD_PAGE)
+    result = fadownloader.get_download_div(DOWNLOAD_PAGE)
 
     assert result == expected
 
 
 def test_get_download_div_none() -> None:
-    result = main.get_download_div(FAVORITES_PAGE)
+    result = fadownloader.get_download_div(FAVORITES_PAGE)
 
     assert result is None
 
@@ -103,7 +103,7 @@ def test_parse_div_url() -> None:
         "1608334656.son-of-liberty_ladybondagesmol.jpg"
     )
 
-    result = main.parse_div_url(provided)
+    result = fadownloader.parse_div_url(provided)
 
     assert result == expected
 
@@ -115,7 +115,7 @@ def test_fetch_view_links() -> None:
     ]
     mockhttp = MagicMock(get=MagicMock(side_effect=seff))
 
-    result = main.fetch_view_links(USER_NAME, mockhttp)
+    result = fadownloader.fetch_view_links(USER_NAME, mockhttp)
 
     assert len(result) == NUMBER_OF_FAVORITES
     assert mockhttp.get.call_count == 2
@@ -125,7 +125,7 @@ def test_fetch_download_links() -> None:
     resp = httpx.Response(200, content=DOWNLOAD_PAGE)
     mockhttp = MagicMock(get=MagicMock(return_value=resp))
 
-    result = main.fetch_download_links({"1", "2"}, mockhttp)
+    result = fadownloader.fetch_download_links({"1", "2"}, mockhttp)
 
     assert len(result) == 2
     assert mockhttp.get.call_count == 2
