@@ -10,6 +10,7 @@ EXPECTED_COLUMNS = {
     "download",
     "download_date",
     "author",
+    "title",
     "filename",
 }
 
@@ -106,8 +107,8 @@ def test_get_views_to_download(datastore: Datastore) -> None:
 
 def test_get_downloads_to_process(datastore: Datastore) -> None:
     expected = [
-        ("/view/3", "somefauser", "https://..."),
-        ("/view/4", "somefauser", "https://..."),
+        ("/view/3", "somefauser", "someimage.png", "https://..."),
+        ("/view/4", "somefauser", "someimage.png", "https://..."),
     ]
 
     results = datastore.get_downloads_to_process()
