@@ -55,7 +55,12 @@ class Datastore:
         """Save the view URL of a download."""
         self.save_views([view])
 
-    def save_download(self, view: str, download: str, author: str) -> None:
+    def save_download(
+        self,
+        view: str,
+        download: str | None,
+        author: str | None,
+    ) -> None:
         """Save the download URL of a view."""
         now = str(datetime.utcnow())
         with self.cursor(commit_on_exit=True) as cursor:
