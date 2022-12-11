@@ -96,18 +96,18 @@ def test_save_filename(datastore: Datastore) -> None:
 
 
 def test_get_views_to_download(datastore: Datastore) -> None:
-    expected = ["/view/1"]
+    expected = ["/view/1", "/view/2"]
 
     results = datastore.get_views_to_download()
 
-    assert len(results) == 1
+    assert len(results) == 2
     assert results == expected
 
 
 def test_get_downloads_to_process(datastore: Datastore) -> None:
-    expected = [("/view/2", "https://...")]
+    expected = [("/view/3", "https://..."), ("/view/4", "https://...")]
 
     results = datastore.get_downloads_to_process()
 
-    assert len(results) == 1
+    assert len(results) == 2
     assert results == expected
