@@ -51,29 +51,38 @@ def build_headers(cookie: str) -> dict[str, str]:
 
 
 def get_page(url: str, http_client: httpx.Client) -> str:
+    """Get a page from the given URL."""
     results = http_client.get(url)
     if not results.is_success:
         print(f"HTTPS Request failed: status {results.status_code}\n\n{results.text}")
     return results.text if results.is_success else ""
 
 
-def parse_favorite_links(page_body: str) -> set[str]:
-    """Pulls the /view/ links from a favorites page"""
+def get_author(page_body: str) -> str | None:
+    """Pull the author name from a view page."""
+    search = re.search(r"<h3>See more from.+>(.+)</a>", page_body, re.I)
+    return search.group(1).lower() if search is not None else None
+
+
+def get_favorite_links(page_body: str) -> set[str]:
+    """Pull the view links from a favorites page."""
     search = re.findall(r"/view/[0-9]{8,}/", page_body, re.I)
     return {s for s in search}
 
 
-def find_next_page(page_body: str, username: str) -> str | None:
+def get_next_page(page_body: str, username: str) -> str | None:
+    """Pull the next page link from a favorites page."""
     search = re.search(rf"\/favorites\/{username}\/[0-9]{{1,}}\/next", page_body, re.I)
     return search.group() if search is not None else None
 
 
 def get_download_url(page_body: str) -> str | None:
     """Pull the download link from a view page."""
-    search = re.search('<div class="download">(.*?)</div>', page_body, re.I)
+    search = re.search(r'<div class="download">(.+?)</div>', page_body, re.I | re.S)
     line = search.group() if search is not None else ""
-    line = line.replace('<div class="download"><a href="', "")
-    line = line.replace('">Download</a></div>', "").strip("\n")
+    line = re.sub(r"\s+", " ", line)
+    line = re.sub(r'<div class="download">\s?<a href="', "", line)
+    line = re.sub(r'">Download</a>\s?</div>', "", line)
     return f"https:{line}" if line.startswith("//") else None
 
 
@@ -90,8 +99,8 @@ def save_view_links(
     while "the fires of passion burn brightly":
 
         page_body = get_page(url, http_client)
-        fav_links = parse_favorite_links(page_body)
-        next_link = find_next_page(page_body, username)
+        fav_links = get_favorite_links(page_body)
+        next_link = get_next_page(page_body, username)
 
         page_links.update(fav_links)
 
@@ -123,8 +132,8 @@ def save_download_links(
         log.info("(%d / %d) Fetching download link of %s", idx, len(view_links), view)
         page = get_page(f"{BASE_URL}{view}", http_client)
         download_link = get_download_url(page)
-        # TODO: Get author name from page
-        datastore.save_download(view, download_link, None)
+        author = get_author(page)
+        datastore.save_download(view, download_link, author)
         time.sleep(SLEEP_SECONDS_PER_ACTION)
 
 
@@ -159,6 +168,7 @@ def download_favorite_files(username: str, link_list: list[str]) -> None:
 
 
 def main(database: str = ":memory:") -> int:
+    """Main entry point for the script."""
     logging.basicConfig(level="INFO")
     if len(sys.argv) < 2:
         print("Usage: fadownload [FA_USERNAME]")
@@ -179,4 +189,4 @@ def main(database: str = ":memory:") -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main("fa_download.db"))

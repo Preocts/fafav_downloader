@@ -8,9 +8,10 @@ from fafavs import fadownloader
 from fafavs.datastore import Datastore
 
 FAVORITES_PAGE = Path("tests/fixtures/fav_page.html").read_text()
-NUMBER_OF_FAVORITES = 72
-DOWNLOAD_PAGE = Path("tests/fixtures/view_page.html").read_text()
 USER_NAME = "somefauser"
+NUMBER_OF_FAVORITES = 72
+VIEW_PAGE = Path("tests/fixtures/view_page.html").read_text()
+AUTHOR = "grahams"
 
 
 def test_get_cookie() -> None:
@@ -56,22 +57,22 @@ def test_get_page_failure() -> None:
     assert result == ""
 
 
-def test_parse_favorite_links() -> None:
-    results = fadownloader.parse_favorite_links(FAVORITES_PAGE)
-    empty = fadownloader.parse_favorite_links("")
+def test_get_favorite_links() -> None:
+    results = fadownloader.get_favorite_links(FAVORITES_PAGE)
+    empty = fadownloader.get_favorite_links("")
 
     assert len(results) == NUMBER_OF_FAVORITES
     assert len(empty) == 0
 
 
 def test_get_next_page() -> None:
-    results = fadownloader.find_next_page(FAVORITES_PAGE, USER_NAME)
+    results = fadownloader.get_next_page(FAVORITES_PAGE, USER_NAME)
 
     assert results == f"/favorites/{USER_NAME}/1376978330/next"
 
 
 def test_get_next_page_none() -> None:
-    results = fadownloader.find_next_page(FAVORITES_PAGE, f"not{USER_NAME}")
+    results = fadownloader.get_next_page(FAVORITES_PAGE, f"not{USER_NAME}")
 
     assert results is None
 
@@ -82,9 +83,23 @@ def test_get_download_url() -> None:
         "1668980773.grahams_terrygrim.jpg"
     )
 
-    result = fadownloader.get_download_url(DOWNLOAD_PAGE)
+    result = fadownloader.get_download_url(VIEW_PAGE)
 
     assert result == expected
+
+
+def test_get_author() -> None:
+    expected = AUTHOR
+
+    result = fadownloader.get_author(VIEW_PAGE)
+
+    assert result == expected
+
+
+def test_get_author_none() -> None:
+    result = fadownloader.get_author("")
+
+    assert result is None
 
 
 def test_get_download_url_not_found() -> None:
@@ -109,7 +124,7 @@ def test_save_view_links(datastore: Datastore) -> None:
 
 def test_save_download_links(datastore: Datastore) -> None:
     count_to_download = len(datastore.get_views_to_download())
-    resp = httpx.Response(200, content=DOWNLOAD_PAGE)
+    resp = httpx.Response(200, content=VIEW_PAGE)
     mockhttp = MagicMock(get=MagicMock(return_value=resp))
 
     fadownloader.save_download_links(mockhttp, datastore)
