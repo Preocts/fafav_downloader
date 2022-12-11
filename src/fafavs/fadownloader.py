@@ -164,7 +164,7 @@ def _sanitize_filename(filename: str) -> str:
     return re.sub(r"_-_+", "-", filename)
 
 
-def main(database: str = ":memory:") -> int:
+def main(database: str = "fa_download.db") -> int:
     """Main entry point for the script."""
     logging.basicConfig(level="INFO")
     if len(sys.argv) < 2:
@@ -174,17 +174,19 @@ def main(database: str = ":memory:") -> int:
     datastore = Datastore(database)
     http_client = httpx.Client(headers=build_headers(get_cookie(COOKIE_FILE)))
 
-    if input("Scan for new favorites? [y/N] ").lower() != "y":
+    if input("Scan for new favorites? [y/N] ").lower() == "y":
         save_view_links(username, http_client, datastore)
 
-    if input("Collect missing download links? [y/N] ").lower() != "y":
+    if input("Collect missing download links? [y/N] ").lower() == "y":
         save_download_links(http_client, datastore)
 
-    if input("Download missing files? [y/N] ").lower() != "y":
+    if input("Download missing files? [y/N] ").lower() == "y":
         download_favorite_files(http_client, datastore)
+
+    datastore.export_as_csv("fa_download.csv")
 
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main("fa_download.db"))
+    raise SystemExit(main())
