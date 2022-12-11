@@ -5,6 +5,7 @@ from unittest.mock import MagicMock
 
 import httpx
 from fafavs import fadownloader
+from fafavs.datastore import Datastore
 
 FAVORITES_PAGE = Path("tests/fixtures/fav_page.html").read_text()
 NUMBER_OF_FAVORITES = 72
@@ -75,57 +76,43 @@ def test_get_next_page_none() -> None:
     assert results is None
 
 
-def test_get_download_div() -> None:
+def test_get_download_url() -> None:
     expected = (
-        '<div class="download"><a href="//d.furaffinity.net/art/grahams/1668980773/'
-        '1668980773.grahams_terrygrim.jpg">Download</a></div>'
+        "https://d.furaffinity.net/art/grahams/1668980773/"
+        "1668980773.grahams_terrygrim.jpg"
     )
 
-    result = fadownloader.get_download_div(DOWNLOAD_PAGE)
+    result = fadownloader.get_download_url(DOWNLOAD_PAGE)
 
     assert result == expected
 
 
-def test_get_download_div_none() -> None:
-    result = fadownloader.get_download_div(FAVORITES_PAGE)
+def test_get_download_url_not_found() -> None:
+    result = fadownloader.get_download_url("")
 
     assert result is None
 
 
-def test_parse_div_url() -> None:
-    provided = (
-        '<div class="download"><a href="//d.facdn.net/art/son-of'
-        "-liberty/1608334656/1608334656.son-of-liberty_ladybonda"
-        'gesmol.jpg">Download</a></div>'
-    )
-    expected = (
-        "https://d.facdn.net/art/son-of-liberty/1608334656/"
-        "1608334656.son-of-liberty_ladybondagesmol.jpg"
-    )
-
-    result = fadownloader.parse_div_url(provided)
-
-    assert result == expected
-
-
-def test_fetch_view_links() -> None:
+def test_save_view_links(datastore: Datastore) -> None:
+    current_len = datastore.row_count()
     seff = [
         httpx.Response(200, content=FAVORITES_PAGE),
         httpx.Response(200, content=""),
     ]
     mockhttp = MagicMock(get=MagicMock(side_effect=seff))
 
-    result = fadownloader.fetch_view_links(USER_NAME, mockhttp)
+    fadownloader.save_view_links(USER_NAME, mockhttp, datastore)
 
-    assert len(result) == NUMBER_OF_FAVORITES
+    assert datastore.row_count() == current_len + NUMBER_OF_FAVORITES
     assert mockhttp.get.call_count == 2
 
 
-def test_fetch_download_links() -> None:
+def test_save_download_links(datastore: Datastore) -> None:
+    count_to_download = len(datastore.get_views_to_download())
     resp = httpx.Response(200, content=DOWNLOAD_PAGE)
     mockhttp = MagicMock(get=MagicMock(return_value=resp))
 
-    result = fadownloader.fetch_download_links({"1", "2"}, mockhttp)
+    fadownloader.save_download_links(mockhttp, datastore)
 
-    assert len(result) == 2
-    assert mockhttp.get.call_count == 2
+    assert mockhttp.get.call_count == count_to_download
+    assert not datastore.get_views_to_download()

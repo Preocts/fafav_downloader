@@ -7,7 +7,6 @@ details.
 """
 from __future__ import annotations
 
-import json
 import logging
 import re
 import shutil
@@ -17,6 +16,7 @@ from io import BytesIO
 from pathlib import Path
 
 import httpx
+from fafavs.datastore import Datastore
 
 BASE_URL = "https://www.furaffinity.net"
 COOKIE_FILE = "cookie"
@@ -68,19 +68,21 @@ def find_next_page(page_body: str, username: str) -> str | None:
     return search.group() if search is not None else None
 
 
-def get_download_div(page_body: str) -> str | None:
+def get_download_url(page_body: str) -> str | None:
+    """Pull the download link from a view page."""
     search = re.search('<div class="download">(.*?)</div>', page_body, re.I)
-    return search.group() if search is not None else None
-
-
-def parse_div_url(line: str) -> str:
+    line = search.group() if search is not None else ""
     line = line.replace('<div class="download"><a href="', "")
     line = line.replace('">Download</a></div>', "").strip("\n")
-    return f"https:{line}"
+    return f"https:{line}" if line.startswith("//") else None
 
 
-def fetch_view_links(username: str, http_client: httpx.Client) -> set[str]:
-    """Iterate through favorite pages for item view links."""
+def save_view_links(
+    username: str,
+    http_client: httpx.Client,
+    datastore: Datastore,
+) -> None:
+    """Save all view links for given username to datastore."""
     url = f"{BASE_URL}/favorites/{username}/"
 
     page_links: set[str] = set()
@@ -107,23 +109,23 @@ def fetch_view_links(username: str, http_client: httpx.Client) -> set[str]:
 
         time.sleep(SLEEP_SECONDS_PER_ACTION)
 
-    return page_links
+    datastore.save_views(list(page_links))
 
 
-def fetch_download_links(
-    view_links: set[str],
+def save_download_links(
     http_client: httpx.Client,
-) -> dict[str, str]:
-    """Fetch download links for given views, map {view: download_link}."""
-    download_links: dict[str, str] = {}
+    datastore: Datastore,
+) -> None:
+    """Save all download links for given view links to datastore."""
+    view_links = datastore.get_views_to_download()
+
     for idx, view in enumerate(view_links, start=1):
         log.info("(%d / %d) Fetching download link of %s", idx, len(view_links), view)
         page = get_page(f"{BASE_URL}{view}", http_client)
-        div_line = get_download_div(page)
-        download_links[view] = parse_div_url(str(div_line))
+        download_link = get_download_url(page)
+        # TODO: Get author name from page
+        datastore.save_download(view, download_link, None)
         time.sleep(SLEEP_SECONDS_PER_ACTION)
-
-    return download_links
 
 
 def download_favorite_files(username: str, link_list: list[str]) -> None:
@@ -156,23 +158,20 @@ def download_favorite_files(username: str, link_list: list[str]) -> None:
     return None
 
 
-def main() -> int:
+def main(database: str = ":memory:") -> int:
     logging.basicConfig(level="INFO")
     if len(sys.argv) < 2:
         print("Usage: fadownload [FA_USERNAME]")
         return 1
     username = sys.argv[1]
-
+    datastore = Datastore(database)
     http_client = httpx.Client(headers=build_headers(get_cookie(COOKIE_FILE)))
 
     log.info("Gathering view links from favorites of %s", username)
-    view_links = fetch_view_links(username, http_client)
+    save_view_links(username, http_client, datastore)
 
     log.info("Gathering download links from views of %s", username)
-    download_map = fetch_download_links(view_links, http_client)
-
-    # TODO: Load this at start, avoid duplicate work
-    json.dump(download_map, Path("temp_download.json").open("w"), indent=4)
+    save_download_links(http_client, datastore)
 
     # download_favorite_files(username, list(download_map.values()))
 
