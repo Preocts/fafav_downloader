@@ -36,14 +36,18 @@ class Datastore:
         with self.cursor(commit_on_exit=True) as cursor:
             cursor.executescript(TABLE_SQL)
 
-    def save_view(self, view: str) -> None:
-        """Save the view URL of a download."""
+    def save_views(self, views: list[str]) -> None:
+        """Save a list of views to the database."""
         now = str(datetime.utcnow())
         with self.cursor(commit_on_exit=True) as cursor:
-            cursor.execute(
+            cursor.executemany(
                 "INSERT OR IGNORE INTO downloads (view, view_date) VALUES (?, ?)",
-                (view, now),
+                [(view, now) for view in views],
             )
+
+    def save_view(self, view: str) -> None:
+        """Save the view URL of a download."""
+        self.save_views([view])
 
     def save_download(self, view: str, download: str, author: str) -> None:
         """Save the download URL of a view."""

@@ -45,6 +45,19 @@ def test_init_build_table() -> None:
     assert not (columns - EXPECTED_COLUMNS)
 
 
+def test_save_views() -> None:
+    datastore = Datastore()
+    cursor = datastore._dbconn.cursor()
+    views = ["/view/1", "/view/2", "/view/3"]
+
+    datastore.save_views(views)
+
+    cursor.execute("SELECT * FROM downloads")
+    results = cursor.fetchall()
+
+    assert len(results) == 3
+
+
 def test_save_view() -> None:
     store = Datastore()
     cursor = store._dbconn.cursor()
