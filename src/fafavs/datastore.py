@@ -36,6 +36,12 @@ class Datastore:
         with self.cursor(commit_on_exit=True) as cursor:
             cursor.executescript(TABLE_SQL)
 
+    def row_count(self) -> int:
+        """Return the number of rows in the database."""
+        with self.cursor() as cursor:
+            cursor.execute("SELECT COUNT(*) FROM downloads")
+            return cursor.fetchone()[0]
+
     def save_views(self, views: list[str]) -> None:
         """Save a list of views to the database."""
         now = str(datetime.utcnow())

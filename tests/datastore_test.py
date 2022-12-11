@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-import pytest
 from fafavs.datastore import Datastore
+
+from tests.conftest import ROWS
 
 EXPECTED_COLUMNS = {
     "view",
@@ -11,28 +12,6 @@ EXPECTED_COLUMNS = {
     "author",
     "filename",
 }
-
-# fmt: off
-ROWS = [
-    ("/view/1", "2022-12-11 04:55:53.581577", None, None, None, None),
-    ("/view/2", "2022-12-12 04:55:53.581577", "https://...", "2022-12-12 04:55:53.581577", None, None),  # noqa E501
-    ("/view/3", "2022-12-13 04:55:53.581577", "https://...", "2022-12-13 04:55:53.581577", "somefauser", "somefauser-someimage.png"),  # noqa E501
-]
-# fmt: on
-
-
-@pytest.fixture
-def datastore() -> Datastore:
-    sql = (
-        "INSERT INTO downloads (view, view_date, download, download_date,"
-        " author, filename) VALUES (?, ?, ?, ?, ?, ?)"
-    )
-    store = Datastore()
-    cursor = store._dbconn.cursor()
-    cursor.executemany(sql, ROWS)
-    cursor.close()
-    store._dbconn.commit()
-    return store
 
 
 def test_init_build_table() -> None:
@@ -71,6 +50,10 @@ def test_save_view() -> None:
     results = cursor.fetchall()
 
     assert len(results) == 1
+
+
+def test_row_count(datastore: Datastore) -> None:
+    assert datastore.row_count() == len(ROWS)
 
 
 def test_save_download(datastore: Datastore) -> None:
