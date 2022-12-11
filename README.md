@@ -23,3 +23,18 @@ the developer tools of your browser to view the request header.
 
 Copy and paste the cookie value from your request header into a file named
 `cookie` saved to the root directory of this repo.
+
+
+---
+
+### Install:
+
+```shell
+python pip install .
+```
+
+### Run:
+
+```shell
+fadownload "[fa-user-name]"
+```
