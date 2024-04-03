@@ -1,11 +1,11 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "fafav_downloader"
 version = "1.0.0"
-requires-python = ">=3.7"
+requires-python = ">=3.11"
 description = "Download favorites from FurAffinity"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -20,31 +20,28 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: Implementation :: CPython"
 ]
-# Define dependencies directly
-dependencies = [
-    "httpx>=0.23.1",
+# Dynamic dependencies are loaded from requirements*.txt files
+dynamic = [
+    "dependencies",
+    "optional-dependencies",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "pre-commit",
-    "black",
-    "mypy",
-    "flake8",
-    "flake8-builtins",
-    "flake8-pep585",
+[tool.setuptools.dynamic.dependencies]
+file = [
+    "requirements/requirements.txt",
 ]
-test = [
-    "pytest",
-    "pytest-randomly",
-    "coverage",
-    "tox"
-]
+
+[tool.setuptools.dynamic.optional-dependencies]
+dev = { file = [
+        "requirements/requirements-dev.txt",
+    ] }
+test = { file = [
+        "requirements/requirements-test.txt",
+    ] }
 
 [project.urls]
 homepage = "https://github.com/Preocts/fafav_downloader"
 
-# CLI scripts if needed
 [project.scripts]
 fadownload = "fafavs.fadownloader:main"
 
@@ -92,42 +89,3 @@ exclude_lines =[
     "\\.\\.\\.",
     "if TYPE_CHECKING:",
 ]
-
-# This is ignored by flake8, here in case they decide to add it in the future
-[tool.flake8]
-ignore = "W503,E203"
-max-line-length = 88
-
-[tool.tox]
-legacy_tox_ini = """
-[tox]
-envlist = py37,py38,py39,py310,py311,py312,coverage,mypy,pre-commit
-skip_missing_interpreters = true
-isolated_build = True
-
-[testenv]
-deps = .[test]
-commands =
-    coverage run -p -m pytest tests/
-
-[testenv:coverage]
-depends = py37,py38,py39,py310,py311,py312
-parallel_show_output = true
-commands =
-    python -m coverage combine
-    python -m coverage report -m --fail-under=50
-    python -m coverage json
-
-[testenv:mypy]
-deps =
-    mypy
-commands =
-    mypy -p fafavs
-
-[testenv:pre-commit]
-depends = coverage
-parallel_show_output = true
-skip_install = true
-deps = pre-commit
-commands = pre-commit run --all-files --show-diff-on-failure
-"""
