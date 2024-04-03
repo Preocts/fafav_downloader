@@ -5,6 +5,7 @@ Requires a file named "cookie" to be in the working directory
 with the contents of a logged in cookie to FA. See README.md for
 details.
 """
+
 from __future__ import annotations
 
 import logging
@@ -16,6 +17,7 @@ from io import BytesIO
 from pathlib import Path
 
 import httpx
+
 from fafavs.datastore import Datastore
 
 BASE_URL = "https://www.furaffinity.net"

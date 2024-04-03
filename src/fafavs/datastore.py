@@ -1,4 +1,5 @@
 """Store data about downloads in an SQLite3 database."""
+
 from __future__ import annotations
 
 import csv
@@ -6,6 +7,7 @@ import sqlite3
 from collections.abc import Generator
 from contextlib import contextmanager
 from datetime import datetime
+from datetime import timezone
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -44,7 +46,7 @@ class Datastore:
 
     def save_views(self, views: list[str]) -> None:
         """Save a list of views to the database."""
-        now = str(datetime.utcnow())
+        now = str(datetime.now(tz=timezone.utc))
         with self.cursor(commit_on_exit=True) as cursor:
             cursor.executemany(
                 "INSERT OR IGNORE INTO downloads (view, view_date) VALUES (?, ?)",
@@ -57,7 +59,7 @@ class Datastore:
 
     def save_download(self, view: str, download: str | None) -> None:
         """Save the download URL of a view."""
-        now = str(datetime.utcnow())
+        now = str(datetime.now(tz=timezone.utc))
         with self.cursor(commit_on_exit=True) as cursor:
             cursor.execute(
                 "UPDATE downloads SET download=?, download_date=? WHERE view=?",
