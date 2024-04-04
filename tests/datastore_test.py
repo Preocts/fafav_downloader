@@ -5,7 +5,6 @@ import tempfile
 from pathlib import Path
 
 from fafavs.datastore import Datastore
-
 from tests.conftest import ROWS
 
 EXPECTED_COLUMNS = {

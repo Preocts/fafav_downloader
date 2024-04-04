@@ -5,6 +5,7 @@ from unittest.mock import MagicMock
 
 import httpx
 import pytest
+
 from fafavs import fadownloader
 from fafavs.datastore import Datastore
 
