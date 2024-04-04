@@ -131,10 +131,11 @@ def test_save_view_over_existing_download_does_not_change_row() -> None:
 @pytest.mark.parametrize(
     "filename,expected",
     [
-        ("some/file/name.jpg", "some_file_name.jpg"),
-        ("some/file/name", "some_file_name"),
+        ("some/file/name.jpg", "somefilename.jpg"),
+        ("some/file/name", "somefilename"),
         ("some - file - name.jpg", "some-file-name.jpg"),
         ("some___file___name.jpg", "some_file_name.jpg"),
+        ("SOME FILE     NAME 🐩📜🍑", "some_file_name_"),
     ],
 )
 def test_sanitize_filename(filename: str, expected: str) -> None:

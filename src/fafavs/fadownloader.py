@@ -140,10 +140,12 @@ def download_favorite_files(http_client: httpx.Client, datastore: Datastore) -> 
 
     to_download = datastore.get_downloads_to_process()
 
-    for idx, (view, download_link) in enumerate(to_download, start=1):
+    for idx, (view, title, author, download_link) in enumerate(to_download, start=1):
         log.info("(%d / %d) Downloading %s", idx, len(to_download), download_link)
 
-        filename = _sanitize_filename(download_link.split("/")[-1])
+        extension = download_link.split(".")[-1]
+        filename = f"{author}-{title}.{extension}"
+        filename = _sanitize_filename(filename)
 
         response = http_client.get(download_link)
 
@@ -162,9 +164,10 @@ def download_favorite_files(http_client: httpx.Client, datastore: Datastore) -> 
 
 def _sanitize_filename(filename: str) -> str:
     """Sanitize a filename to be safe for the filesystem."""
-    filename = re.sub(r"[^a-zA-Z0-9_.-]", "_", filename)
+    filename = re.sub(r"\s+", "_", filename)
+    filename = re.sub(r"[^a-zA-Z0-9_.-]", "", filename)
     filename = re.sub(r"_+", "_", filename)
-    return re.sub(r"_-_+", "-", filename)
+    return re.sub(r"_-_", "-", filename).lower()
 
 
 def main(database: str = "fa_download.db") -> int:
