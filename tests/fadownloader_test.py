@@ -9,10 +9,10 @@ import pytest
 from fafavs import fadownloader
 from fafavs.datastore import Datastore
 
-FAVORITES_PAGE = Path("tests/fixtures/fav_page.html").read_text()
+FAVORITES_PAGE = Path("tests/fixtures/fav_page.html").read_text(encoding="utf-8")
 USER_NAME = "somefauser"
 NUMBER_OF_FAVORITES = 72
-VIEW_PAGE = Path("tests/fixtures/view_page.html").read_text()
+VIEW_PAGE = Path("tests/fixtures/view_page.html").read_text(encoding="utf-8")
 AUTHOR = "grahams"
 
 
@@ -59,18 +59,16 @@ def test_get_page_failure() -> None:
     assert result == ""
 
 
-def test_get_favorite_links() -> None:
-    results = fadownloader.get_favorite_links(FAVORITES_PAGE)
-    empty = fadownloader.get_favorite_links("")
+def test_get_favorite_data() -> None:
+    results = fadownloader.get_favorite_data(FAVORITES_PAGE)
 
-    assert len(results) == NUMBER_OF_FAVORITES
-    assert len(empty) == 0
+    assert ("/view/56144939/", "[COMM] ViriHorny", "roly") in results
 
 
 def test_get_next_page() -> None:
     results = fadownloader.get_next_page(FAVORITES_PAGE, USER_NAME)
 
-    assert results == f"/favorites/{USER_NAME}/1376978330/next"
+    assert results == f"/favorites/{USER_NAME}/1608094061/next"
 
 
 def test_get_next_page_none() -> None:
@@ -123,9 +121,9 @@ def test_save_download_links(datastore: Datastore) -> None:
 
 def test_save_view_over_existing_download_does_not_change_row() -> None:
     datastore = Datastore(":memory:")
-    datastore.save_view("/view/123456789")
+    datastore.save_view(("/view/123456789", "title", "author"))
     datastore.save_download("/view/123456789", "someurl")
-    datastore.save_view("/view/123456789")
+    datastore.save_view(("/view/123456789", "title", "author"))
 
     assert datastore.get_views_to_download() == []
 
