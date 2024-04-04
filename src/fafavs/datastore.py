@@ -14,14 +14,16 @@ if TYPE_CHECKING:
     from sqlite3 import Cursor
 
 TABLE_SQL = """
-CREATE TABLE IF NOT EXISTS downloads (
-    view TEXT NOT NULL,
-    view_date TEXT NOT NULL,
-    download TEXT,
-    download_date TEXT,
-    filename TEXT
-);
-CREATE UNIQUE INDEX IF NOT EXISTS viewkey on downloads(view);
+    CREATE TABLE IF NOT EXISTS downloads (
+        view TEXT NOT NULL,
+        title TEXT NOT NULL,
+        author TEXT NOT NULL,
+        view_date TEXT NOT NULL,
+        download TEXT,
+        download_date TEXT,
+        filename TEXT
+    );
+    CREATE UNIQUE INDEX IF NOT EXISTS viewkey on downloads(view);
 """
 
 
@@ -44,17 +46,25 @@ class Datastore:
             cursor.execute("SELECT COUNT(*) FROM downloads")
             return cursor.fetchone()[0]
 
-    def save_views(self, views: list[str]) -> None:
-        """Save a list of views to the database."""
+    def save_views(self, data: list[tuple[str, str, str]]) -> None:
+        """Save a list of view link, title, author to the database."""
         now = str(datetime.now(tz=timezone.utc))
         with self.cursor(commit_on_exit=True) as cursor:
-            cursor.executemany(
-                "INSERT OR IGNORE INTO downloads (view, view_date) VALUES (?, ?)",
-                [(view, now) for view in views],
-            )
+            sql = """\
+                INSERT OR IGNORE
+                    INTO downloads (
+                        view,
+                        title,
+                        author,
+                        view_date
+                    )
+                    VALUES (?, ?, ?, ?)
+            """
+            values = [[view, title, author, now] for view, title, author in data]
+            cursor.executemany(sql, values)
 
-    def save_view(self, view: str) -> None:
-        """Save the view URL of a download."""
+    def save_view(self, view: tuple[str, str, str]) -> None:
+        """Save a view to the databse."""
         self.save_views([view])
 
     def save_download(self, view: str, download: str | None) -> None:

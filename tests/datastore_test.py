@@ -9,6 +9,8 @@ from tests.conftest import ROWS
 
 EXPECTED_COLUMNS = {
     "view",
+    "title",
+    "author",
     "view_date",
     "download",
     "download_date",
@@ -29,7 +31,11 @@ def test_init_build_table() -> None:
 def test_save_views() -> None:
     datastore = Datastore()
     cursor = datastore._dbconn.cursor()
-    views = ["/view/1", "/view/2", "/view/3"]
+    views = [
+        ("/view/1", "title", "author"),
+        ("/view/2", "title", "author"),
+        ("/view/3", "title", "author"),
+    ]
 
     datastore.save_views(views)
 
@@ -42,13 +48,13 @@ def test_save_views() -> None:
 def test_save_view() -> None:
     store = Datastore()
     cursor = store._dbconn.cursor()
-    view = "/view/8675309"
+    view = ("/view/8675309", "title", "author")
 
     # Save it twice to assert we ignore constraint violation
     store.save_view(view)
     store.save_view(view)
 
-    cursor.execute("SELECT * FROM downloads WHERE view=?", (view,))
+    cursor.execute("SELECT * FROM downloads WHERE view='/view/8675309'")
     results = cursor.fetchall()
 
     assert len(results) == 1

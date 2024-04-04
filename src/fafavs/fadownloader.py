@@ -61,10 +61,11 @@ def get_page(url: str, http_client: httpx.Client) -> str:
     return results.text if results.is_success else ""
 
 
-def get_favorite_links(page_body: str) -> set[str]:
-    """Pull the view links from a favorites page."""
-    search = re.findall(r"/view/[0-9]{8,}/", page_body, re.I)
-    return {s for s in search}
+def get_favorite_data(page_body: str) -> set[tuple[str, str, str]]:
+    """Extract the view link, title, and author name from page."""
+    pattern = r"<figure.+?<p><a\s+href=\"(\/view\/[0-9]+\/)\"\s+title=\"(.+?)\".+?\/user\/(.+?)\/"
+    search = re.findall(pattern, page_body, re.I)
+    return set((s[0], s[1], s[2]) for s in search)
 
 
 def get_next_page(page_body: str, username: str) -> str | None:
@@ -91,19 +92,19 @@ def save_view_links(
     """Save all view links for given username to datastore."""
     url = f"{BASE_URL}/favorites/{username}/"
 
-    page_links: set[str] = set()
+    view_link_data: set[tuple[str, str, str]] = set()
 
     while "the fires of passion burn brightly":
 
         page_body = get_page(url, http_client)
-        fav_links = get_favorite_links(page_body)
+        fav_data = get_favorite_data(page_body)
         next_link = get_next_page(page_body, username)
 
-        page_links.update(fav_links)
+        view_link_data.update(fav_data)
 
         log.info(
             "Found %d favorite links on '%s'. More is %s",
-            len(fav_links),
+            len(fav_data),
             url,
             bool(next_link),
         )
@@ -115,7 +116,7 @@ def save_view_links(
 
         time.sleep(SLEEP_SECONDS_PER_ACTION)
 
-    datastore.save_views(list(page_links))
+    datastore.save_views(list(view_link_data))
 
 
 def save_download_links(
