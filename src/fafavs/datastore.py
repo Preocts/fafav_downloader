@@ -99,6 +99,16 @@ class Datastore:
             )
             return cursor.fetchall()
 
+    def update_filename(self, old_name: str, new_name: str) -> None:
+        """Update a row's filename, found by filename."""
+        sql = """\
+            UPDATE downloads
+            SET filename=?
+            WHERE filename=?;
+        """
+        with self.cursor(commit_on_exit=True) as cursor:
+            cursor.execute(sql, (new_name, old_name))
+
     def export_as_csv(self, filename: str) -> None:
         """Export the database as a CSV file."""
         with self.cursor() as cursor:

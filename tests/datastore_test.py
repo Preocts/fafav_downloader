@@ -132,3 +132,16 @@ def test_export_as_csv_to_tempfile(datastore: Datastore) -> None:
         assert Path(path).exists()
     finally:
         os.remove(path)
+
+
+def test_update_filename(datastore: Datastore) -> None:
+    old_name = "somefauser-someimage.png"
+    new_name = "somefauser-someiamge.jpg"
+
+    datastore.update_filename(old_name, new_name)
+
+    with datastore.cursor() as cursor:
+        cursor.execute("SELECT filename FROM downloads WHERE view='/view/5';")
+        result = cursor.fetchone()[0]
+
+    assert result == new_name

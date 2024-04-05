@@ -57,7 +57,7 @@ ROWS = [
         "2022-12-16 04:55:53.581577",
         "https://...",
         "2022-12-16 04:55:53.581577",
-        "somefauser-someimage.png",
+        "somefauser-someimage02.png",
     ),
 ]
 
