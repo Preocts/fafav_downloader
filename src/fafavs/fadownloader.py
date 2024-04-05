@@ -176,6 +176,7 @@ def correct_file_extensions(datastore: Datastore) -> None:
     """Scan download directory and correct file extensions when possible."""
     read_length = max(map(len, FILE_SIGNATURES.keys()))
 
+    to_rename: list[tuple[str, str, str]] = []
     for dirpath, _, filenames in os.walk(DOWNLOAD_PATH):
         for filename in filenames:
             with open(os.path.join(dirpath, filename), "rb") as infile:
@@ -191,14 +192,15 @@ def correct_file_extensions(datastore: Datastore) -> None:
                     continue
 
                 newfile_name = filename.rsplit(".", 1)[0] + "." + extention
+                to_rename.append((dirpath, filename, newfile_name))
 
-                datastore.update_filename(filename, newfile_name)
-
-                os.rename(
-                    src=os.path.join(dirpath, filename),
-                    dst=os.path.join(dirpath, newfile_name),
-                )
-                log.info("Renamed %s to %s", filename, newfile_name)
+        for dirpath, old_name, new_name in to_rename:
+            datastore.update_filename(old_name, new_name)
+            shutil.move(
+                src=os.path.join(dirpath, old_name),
+                dst=os.path.join(dirpath, new_name),
+            )
+            log.info("Renamed %s to %s", old_name, new_name)
 
 
 def _sanitize_filename(filename: str) -> str:
