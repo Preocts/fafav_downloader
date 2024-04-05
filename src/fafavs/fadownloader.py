@@ -42,7 +42,7 @@ def get_cookie(filepath: str) -> str:
         with open(filepath) as f:
             return f.read().strip("\n")
     except FileNotFoundError:
-        print(f"{COOKIE_FILE} not found in root directory.")
+        log.error("%s not found in root directory.", COOKIE_FILE)
         return ""
 
 
@@ -58,7 +58,8 @@ def build_headers(cookie: str) -> dict[str, str]:
         "cookie": cookie,
         "user-agent": r"Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         r"AppleWebKit/537.36 (KHTML, like Gecko) "
-        r"Chrome/83.0.4103.116 Safari/537.36",
+        r"Chrome/83.0.4103.116 Safari/537.36 "
+        r" Block this if it is being rude",
     }
 
 
@@ -66,7 +67,7 @@ def get_page(url: str, http_client: httpx.Client) -> str:
     """Get a page from the given URL."""
     results = http_client.get(url)
     if not results.is_success:
-        print(f"HTTPS Request failed: status {results.status_code}\n\n{results.text}")
+        log.error("Request failed: status %s (%s)", results.status_code, results.text)
     return results.text if results.is_success else ""
 
 
@@ -212,7 +213,7 @@ def main(database: str = "fa_download.db") -> int:
     """Main entry point for the script."""
     logging.basicConfig(level="INFO")
     if len(sys.argv) < 2:
-        print("Usage: fadownload [FA_USERNAME]")
+        logging.error("Usage: fadownload [FA_USERNAME]")
         return 1
     username = sys.argv[1]
     datastore = Datastore(database)
