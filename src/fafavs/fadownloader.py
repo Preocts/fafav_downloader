@@ -9,6 +9,7 @@ details.
 from __future__ import annotations
 
 import logging
+import os
 import re
 import shutil
 import sys
@@ -24,6 +25,14 @@ BASE_URL = "https://www.furaffinity.net"
 COOKIE_FILE = "cookie"
 SLEEP_SECONDS_PER_ACTION = 1
 DOWNLOAD_PATH = Path("downloads")
+
+FILE_SIGNATURES = {
+    b"\x89PNG\r\n\x1a\n": "png",
+    b"GIF87a": "gif",
+    b"GIF89a": "gif",
+    b"\xff\xd8": "jpg",
+}
+
 log = logging.getLogger()
 
 
@@ -162,6 +171,35 @@ def download_favorite_files(http_client: httpx.Client, datastore: Datastore) -> 
         time.sleep(SLEEP_SECONDS_PER_ACTION)
 
 
+def correct_file_extensions(datastore: Datastore) -> None:
+    """Scan download directory and correct file extensions when possible."""
+    read_length = max(map(len, FILE_SIGNATURES.keys()))
+
+    for dirpath, _, filenames in os.walk(DOWNLOAD_PATH):
+        for filename in filenames:
+            with open(os.path.join(dirpath, filename), "rb") as infile:
+                header = infile.read(read_length)
+                for key, value in FILE_SIGNATURES.items():
+                    if header.startswith(key):
+                        extention = value
+                        break
+                else:
+                    continue
+
+                if filename.endswith("." + extention):
+                    continue
+
+                newfile_name = filename.rsplit(".", 1)[0] + "." + extention
+
+                datastore.update_filename(filename, newfile_name)
+
+                os.rename(
+                    src=os.path.join(dirpath, filename),
+                    dst=os.path.join(dirpath, newfile_name),
+                )
+                log.info("Renamed %s to %s", filename, newfile_name)
+
+
 def _sanitize_filename(filename: str) -> str:
     """Sanitize a filename to be safe for the filesystem."""
     filename = re.sub(r"\s+", "_", filename)
@@ -188,6 +226,9 @@ def main(database: str = "fa_download.db") -> int:
 
     if input("Download missing files? [y/N] ").lower() == "y":
         download_favorite_files(http_client, datastore)
+
+    if input("Correct file extensions of downloaded files? [y/N]").lower() == "y":
+        correct_file_extensions(datastore)
 
     datastore.export_as_csv("fa_download.csv")
 
