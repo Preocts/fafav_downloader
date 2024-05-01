@@ -153,10 +153,10 @@ def download_favorite_files(http_client: httpx.Client, datastore: Datastore) -> 
     for idx, (view, title, author, download_link) in enumerate(to_download, start=1):
         log.info("(%d / %d) Downloading %s", idx, len(to_download), download_link)
 
-        extension = download_link.split(".")[-1]
-        filename = f"{author}-{title}.{extension}"
+        extension = f'.{download_link.split(".")[-1]}'
+        filename = f"{author}-{title}{extension}"
         filename = _sanitize_filename(filename)
-        filename = _uniquify_filename(filename)
+        filename = _uniquify_filename(filename, extension)
 
         response = http_client.get(download_link)
 
@@ -212,13 +212,13 @@ def _sanitize_filename(filename: str) -> str:
     return re.sub(r"_-_", "-", filename).lower()
 
 
-def _uniquify_filename(filename: str) -> str:
+def _uniquify_filename(filename: str, extention: str) -> str:
     """Ensure filename is unique."""
     postfix = 0
     unique_name = filename
-    while (DOWNLOAD_PATH / filename).exists():
+    while (DOWNLOAD_PATH / unique_name).exists():
         postfix += 1
-        unique_name = f"{filename}-{postfix:04d}"
+        unique_name = f"{filename.removesuffix(extention)}-{postfix:04d}{extention}"
 
     return unique_name
 
