@@ -115,7 +115,7 @@ class Datastore:
             cursor.execute("SELECT * FROM downloads")
             fieldnames = [description[0] for description in cursor.description]
             with open(filename, "w", encoding="utf-8") as csvfile:
-                writer = csv.writer(csvfile)
+                writer = csv.writer(csvfile, lineterminator="\n")
                 writer.writerow(fieldnames)
                 writer.writerows(cursor.fetchall())
 
