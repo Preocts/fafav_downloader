@@ -6,8 +6,8 @@ from unittest.mock import MagicMock
 import httpx
 import pytest
 
-from fafavs import fadownloader
-from fafavs.datastore import Datastore
+from fafav_downloader import fadownloader
+from fafav_downloader.datastore import Datastore
 
 FAVORITES_PAGE = Path("tests/fixtures/fav_page.html").read_text(encoding="utf-8")
 USER_NAME = "somefauser"
@@ -78,10 +78,7 @@ def test_get_next_page_none() -> None:
 
 
 def test_get_download_url() -> None:
-    expected = (
-        "https://d.furaffinity.net/art/grahams/1668980773/"
-        "1668980773.grahams_terrygrim.jpg"
-    )
+    expected = "https://d.furaffinity.net/art/grahams/1668980773/1668980773.grahams_terrygrim.jpg"
 
     result = fadownloader.get_download_url(VIEW_PAGE)
 
