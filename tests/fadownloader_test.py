@@ -78,7 +78,9 @@ def test_get_next_page_none() -> None:
 
 
 def test_get_download_url() -> None:
-    expected = "https://d.furaffinity.net/art/grahams/1668980773/1668980773.grahams_terrygrim.jpg"
+    expected = (
+        "https://d.furaffinity.net/art/greekceltic/1757948691/1757948691.greekceltic_sticklegs2.png"
+    )
 
     result = fadownloader.get_download_url(VIEW_PAGE)
 
