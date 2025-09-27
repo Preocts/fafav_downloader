@@ -19,7 +19,7 @@ from pathlib import Path
 
 import httpx
 
-from fafavs.datastore import Datastore
+from .datastore import Datastore
 
 BASE_URL = "https://www.furaffinity.net"
 COOKIE_FILE = "cookie"

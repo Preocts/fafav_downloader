@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from fafavs.datastore import Datastore
+from fafav_downloader.datastore import Datastore
 
 ROWS = [
     (
