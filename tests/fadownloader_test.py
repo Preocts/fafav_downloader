@@ -10,8 +10,7 @@ from fafav_downloader import fadownloader
 from fafav_downloader.datastore import Datastore
 
 FAVORITES_PAGE = Path("tests/fixtures/fav_page.html").read_text(encoding="utf-8")
-USER_NAME = "somefauser"
-NUMBER_OF_FAVORITES = 72
+USER_NAME = "wolf-nymph"
 VIEW_PAGE = Path("tests/fixtures/view_page.html").read_text(encoding="utf-8")
 AUTHOR = "grahams"
 
@@ -62,13 +61,13 @@ def test_get_page_failure() -> None:
 def test_get_favorite_data() -> None:
     results = fadownloader.get_favorite_data(FAVORITES_PAGE)
 
-    assert ("/view/56144939/", "[COMM] ViriHorny", "roly") in results
+    assert ("/view/33636424/", "Golden Sleep", "wintersoul") in results
 
 
 def test_get_next_page() -> None:
     results = fadownloader.get_next_page(FAVORITES_PAGE, USER_NAME)
 
-    assert results == f"/favorites/{USER_NAME}/1608094061/next"
+    assert results == f"/favorites/{USER_NAME}/1745887089/next"
 
 
 def test_get_next_page_none() -> None:
@@ -94,6 +93,7 @@ def test_get_download_url_not_found() -> None:
 
 
 def test_save_view_links(datastore: Datastore) -> None:
+    number_of_favorites = 128
     current_len = datastore.row_count()
     seff = [
         httpx.Response(200, content=FAVORITES_PAGE),
@@ -103,7 +103,7 @@ def test_save_view_links(datastore: Datastore) -> None:
 
     fadownloader.save_view_links(USER_NAME, mockhttp, datastore)
 
-    assert datastore.row_count() == current_len + NUMBER_OF_FAVORITES
+    assert datastore.row_count() == current_len + number_of_favorites
     assert mockhttp.get.call_count == 2
 
 

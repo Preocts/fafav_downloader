@@ -73,7 +73,7 @@ def get_page(url: str, http_client: httpx.Client) -> str:
 
 def get_favorite_data(page_body: str) -> set[tuple[str, str, str]]:
     """Extract the view link, title, and author name from page."""
-    pattern = r"<figure.+?<p><a\s+href=\"(\/view\/[0-9]+\/)\"\s+title=\"(.+?)\".+?\/user\/(.+?)\/"
+    pattern = r"<figcaption>\n.+\n\s+<a\shref=\"(\/view\/\d+\/)\"\s+title=\"(.+)\".+\n.+\n.+\n.+<a\shref=\"\/user\/(.+)\/\""
     search = re.findall(pattern, page_body, re.I)
     return set((s[0], s[1], s[2]) for s in search)
 
