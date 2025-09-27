@@ -44,7 +44,7 @@ dev = [
 homepage = "https://github.com/Preocts/fafav_downloader"
 
 [project.scripts]
-fadownload = "fafavs.fadownloader:main"
+fadownload = "fafav_downloader.fadownloader:main"
 
 [tool.hatch.version]
 source = "vcs"
