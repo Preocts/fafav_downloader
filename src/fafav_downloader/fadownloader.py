@@ -49,11 +49,9 @@ def get_cookie(filepath: str) -> str:
 def build_headers(cookie: str) -> dict[str, str]:
     """Build spoof headers for HTTP actions."""
     return {
-        "accept": r"text/html,application/xhtml+xml,application/xml;"
-        r"q=0.9,image/webp,image/apng,*/*;"
-        r"q=0.8,application/signed-exchange;v=b3;q=0.9",
+        "accept": r"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8",
         "accept-encoding": "gzip, deflate, br",
-        "accept-language": "en-US,en;q=0.9",
+        "accept-language": "en-US,en;q=0.5",
         "cache-control": "no-cache",
         "cookie": cookie,
         "user-agent": r"Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
